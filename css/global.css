@@ -1,0 +1,118 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #FFF;
+    font: 13.34px Helvetica, Arial, sans-serif;
+    font-size: small;
+    font-family: "verdana";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+h1 {
+    margin-bottom: 1em;
+}
+
+p {
+    margin: 1em 0;
+}
+
+a {
+    color: #4c8844;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #67b85c;
+}
+
+a:visited {
+    color: #4c8844;
+}
+
+/*****************************************************************************/
+/*
+/* Rest
+/*
+/*****************************************************************************/
+
+@font-face {
+    font-family: title;
+    src: url("/fonts/daniel.ttf");
+}
+
+body {
+    background-image: url("/images/debut_dark.png");
+    font-size: 14px;
+}
+
+h1.title {
+    font-family: title;
+    font-size: 32px;
+    text-align: left;
+    color: #4c8844;
+    position: fixed;
+    top: 200px;
+    left: -150px;
+    -webkit-transform: rotate(-89deg);;
+    -moz-transform: rotate(-89deg);;
+    -ms-transform: rotate(-89deg);;
+    -o-transform: rotate(-89deg);;
+    transform: rotate(-89deg);;
+}
+
+span.visualization {
+    color: #996882;
+}
+
+span.cartoon {
+    color: #769968;
+}
+
+span.programming {
+    color: #689499;
+}
+
+span.social {
+    color: #687b99;
+}
+
+.icon {
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 54px;
+    height: 52px;
+}
+
+.icon.visualization {
+    background-image: url("/images/viz_icon.png");
+}
+
+.icon.cartoon {
+    background-image: url("/images/cartoon_icon.png");
+}
+
+.icon.programming {
+    background-image: url("/images/prog_icon.png");
+}
+
+.icon.social {
+    background-image: url("/images/social_icon.png");
+}

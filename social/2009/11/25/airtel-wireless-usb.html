@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Airtel Wireless USB with Mac OSX</title>
+    <meta name="viewport" content="width=device-width">
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+    <script src="/scripts/jquery-1.10.2.js"></script>
+    <script src="/scripts/underscore-min.js"></script>
+    <script src="/scripts/default.js"></script>
+    <script src="/scripts/post.js"></script>
+</head>
+<body onload="init()">
+<h1 class="title">Sudhakar's scribblings...</h1>
+
+<div id="filter_dock">
+    <div class="filter programming">
+        <img src="/images/prog_icon.png" data-category="programming" data-enabled-src="/images/prog_icon.png"
+             data-disabled-src="/images/prog_icon_gray.png"/>
+    </div>
+    <div class="filter visualization">
+        <img src="/images/viz_icon.png" data-category="visualization" data-enabled-src="/images/viz_icon.png"
+             data-disabled-src="/images/viz_icon_gray.png"/>
+    </div>
+    <div class="filter cartoon">
+        <img src="/images/cartoon_icon.png" data-category="cartoon" data-enabled-src="/images/cartoon_icon.png"
+             data-disabled-src="/images/cartoon_icon_gray.png"/>
+    </div>
+    <div class="filter social">
+        <img src="/images/social_icon.png" data-category="social" data-enabled-src="/images/social_icon.png"
+             data-disabled-src="/images/social_icon_gray.png"/>
+    </div>
+</div>
+
+<div id="papers">
+    
+    <a class="paper programming" href="/programming/2013/12/30/encoding-mpeg4.html">
+        <div class="icon programming"></div>
+        <span class="title programming">Encoding MPEG-4 videos for S40 devices</span>
+        <span class="excerpt">You bought a brand new phone with [S40 OS](http://www.developer.nokia.com/Develop/Series_40/Platform/)
+and it promised all things like video playback for a dozen of formats like 3GPP formats (H.263...</span>
+        <span class="post_date">30 Dec 2013</span>
+    </a>
+    
+    <a class="paper visualization" href="/visualization/2013/03/17/pairing-matrix.html">
+        <div class="icon visualization"></div>
+        <span class="title visualization">Pairing Matrix</span>
+        <span class="excerpt">Visualize your team's pairing matrix using git logs (Ofcourse you should have recorded the pairs names in the git commit messages)
+
+</span>
+        <span class="post_date">17 Mar 2013</span>
+    </a>
+    
+    <a class="paper visualization" href="/visualization/2013/03/11/share-bar-with-a-twist.html">
+        <div class="icon visualization"></div>
+        <span class="title visualization">Share Bar With A Twist</span>
+        <span class="excerpt">A simple sharebar that shows the share of different entities. Hover over the entities listed below the sharebar to see the animation in action!
+
+</span>
+        <span class="post_date">11 Mar 2013</span>
+    </a>
+    
+    <a class="paper visualization" href="/visualization/2011/10/11/wedding-invite.html">
+        <div class="icon visualization"></div>
+        <span class="title visualization">My wedding invitation</span>
+        <span class="excerpt">I cordially invite you to attend my Wedding ceremony on 17 Oct in Tiruvannamalai
+
+</span>
+        <span class="post_date">11 Oct 2011</span>
+    </a>
+    
+    <a class="paper programming" href="/programming/2011/05/22/install-rsa-securid.html">
+        <div class="icon programming"></div>
+        <span class="title programming">Installing RSA SecurID key in iPhone</span>
+        <span class="excerpt">_Somethings in the world are not expected to work seamlessly and needs a blog post tutorial. Installing RSA SecureID key into your iPhone is one of them…_
+
+</span>
+        <span class="post_date">22 May 2011</span>
+    </a>
+    
+    <a class="paper social" href="/social/2011/01/26/indian-festivals.html">
+        <div class="icon social"></div>
+        <span class="title social">2011 Indian Festivals ics file</span>
+        <span class="excerpt">Want to know all the possible Indian festivals of 2011?
+
+[1]: http://dl.dropbox.com/u/17529525/India%20Festivals.ics</span>
+        <span class="post_date">26 Jan 2011</span>
+    </a>
+    
+    <a class="paper social" href="/social/2011/01/09/social-connecting-router-wi5.html">
+        <div class="icon social"></div>
+        <span class="title social">Connecting your home wireless router with Wi5 n...</span>
+        <span class="excerpt">As you might have heard [Zylog Wi5][2] is a wireless broadband service available in many Indian cities.
+Even though it is wireless, they will install a small signal receiver (modem + router) in the...</span>
+        <span class="post_date">09 Jan 2011</span>
+    </a>
+    
+    <a class="paper programming" href="/programming/2010/11/10/programming-eval-in-java.html">
+        <div class="icon programming"></div>
+        <span class="title programming">eval() in Java?</span>
+        <span class="excerpt">Here is the question from my friend (ex-colleague):
+
+</span>
+        <span class="post_date">10 Nov 2010</span>
+    </a>
+    
+    <a class="paper social" href="/social/2010/04/04/spot-fine.html">
+        <div class="icon social"></div>
+        <span class="title social">Spot fine!!!</span>
+        <span class="excerpt">Next time you get caught for a traffic violation, use the below information to your advantage :)
+
+</span>
+        <span class="post_date">04 Apr 2010</span>
+    </a>
+    
+    <a class="paper social" href="/social/2009/11/25/airtel-wireless-usb.html">
+        <div class="icon social"></div>
+        <span class="title social">Airtel Wireless USB with Mac OSX</span>
+        <span class="excerpt">Even though Airtel website does not mention that Huawei Edge wireless usb modem plays well with Mac, it does!
+Well that is a great news for all the mac users in India… The only things that needs to...</span>
+        <span class="post_date">25 Nov 2009</span>
+    </a>
+    
+    <a class="paper programming" href="/programming/2008/11/02/is-it-a-rectangle.html">
+        <div class="icon programming"></div>
+        <span class="title programming">Is it a rectangle?</span>
+        <span class="excerpt">Couple of days back when I was travelling back to home from office, I overheard two fellow employees discussing over a programming problem…
+“If four points in a 2D plane (x,y) is given, how to find...</span>
+        <span class="post_date">02 Nov 2008</span>
+    </a>
+    
+    <a class="paper programming" href="/programming/2008/09/02/first-iphone-app.html">
+        <div class="icon programming"></div>
+        <span class="title programming">My first iPhone app</span>
+        <span class="excerpt">Well well…. It is really a great experience to soak my feet in iPhone programming…
+But, after 3 hours of playing with Objective-C and Cocoa, I was able to get some very simple and completely useles...</span>
+        <span class="post_date">02 Sep 2008</span>
+    </a>
+    
+    <a class="paper programming" href="/programming/2008/03/30/html-progress-bar.html">
+        <div class="icon programming"></div>
+        <span class="title programming">Progress bar in HTML</span>
+        <span class="excerpt">When I was creating a simple google widget for our office coffee club, I thought of showing current inventory status with a progress bar.
+To my surprise, I was not able to google any simple html/ja...</span>
+        <span class="post_date">30 Mar 2008</span>
+    </a>
+    
+    <a class="paper programming" href="/programming/2008/03/13/upgrade-iphone.html">
+        <div class="icon programming"></div>
+        <span class="title programming">Steps to upgrade iPhone to version 1.1.4</span>
+        <span class="excerpt">Ok, you got an iPhone when it was in version 1.1.1 and, when there was a possibility of unlocking it, you did it… But,
+Apple did not stop there… they kept adding more features to it and dammit, you...</span>
+        <span class="post_date">13 Mar 2008</span>
+    </a>
+    
+    <a class="paper cartoon" href="/cartoon/2008/01/01/assassins-creed.html">
+        <div class="icon cartoon"></div>
+        <span class="title cartoon">Assassins Creed???</span>
+        <span class="excerpt">If you are as game crazy as me, the Title of this post explains the wallpaper’s theme. If not, google is your friend here.
+The question marks in the title is for a reason. Just look at the wallpape...</span>
+        <span class="post_date">01 Jan 2008</span>
+    </a>
+    
+    <a class="paper cartoon" href="/cartoon/2007/12/13/vinayaka-iphone-wallpaper.html">
+        <div class="icon cartoon"></div>
+        <span class="title cartoon">Vinayaka Iphone Wallpaper</span>
+        <span class="excerpt">This time it is Vinayaka… Saw this picture in the web and looked like a right candidate for my iPhone.
+Can also be used with iPod Touch.
+</span>
+        <span class="post_date">13 Dec 2007</span>
+    </a>
+    
+    <a class="paper cartoon" href="/cartoon/2007/11/15/hare-krishna-iphone-wallpaper.html">
+        <div class="icon cartoon"></div>
+        <span class="title cartoon">Hare Krishna Iphone Wallpaper</span>
+        <span class="excerpt">A week after getting an iPhone, pre loaded goodies looks boring… So, I started to customize it with the most easiest part… wallpaper…
+I got this picture from my friend Venky. Color balanced the ori...</span>
+        <span class="post_date">15 Nov 2007</span>
+    </a>
+    
+    <a class="paper programming" href="/programming/2007/10/31/enable-java-apps-browser.html">
+        <div class="icon programming"></div>
+        <span class="title programming">Enable java apps browser in T-Mobile SDA phone</span>
+        <span class="excerpt">If you are having a T-Mobile SDA (in USA) / HTC Tornado (outside world) and installed a java application say a game,
+you cannot browse to it because the java apps browser is not shown in the start ...</span>
+        <span class="post_date">31 Oct 2007</span>
+    </a>
+    
+    <a class="paper social" href="/social/2007/09/06/bommarillu-homescreen.html">
+        <div class="icon social"></div>
+        <span class="title social">Bommarillu home screen for windows smartphone</span>
+        <span class="excerpt">This home screen is based on a Telugu movie “Bommarillu”. You can identify the background very easily if you have seen the movie countless times like i did :)
+</span>
+        <span class="post_date">06 Sep 2007</span>
+    </a>
+    
+    <a class="paper social" href="/social/2007/09/02/vinayaka-homescreen.html">
+        <div class="icon social"></div>
+        <span class="title social">Vinayaka home screen for windows smartphone</span>
+        <span class="excerpt">Ah!… Atlast the day has come… The day I could share the home screen I created for my windows mobile phone…
+Have a look at the screenshot below and feel free to use it in your windows mobile phones ...</span>
+        <span class="post_date">02 Sep 2007</span>
+    </a>
+    
+    <a class="paper social" href="/social/2007/09/02/south-park-homescreen.html">
+        <div class="icon social"></div>
+        <span class="title social">Southpark home screen for windows smartphone</span>
+        <span class="excerpt">Here comes another one… It took less than an hour to do the ‘not so interesting’ xml coding part… The image is pretty awesome like the series ;)
+</span>
+        <span class="post_date">02 Sep 2007</span>
+    </a>
+    
+    <a class="paper social" href="/social/2007/09/01/windows-home-screen.html">
+        <div class="icon social"></div>
+        <span class="title social">Installing windows mobile home screen</span>
+        <span class="excerpt">All the windows mobile home screens you download from this blog will be a .zip file containing an .xml file with one or more images.
+You can follow the below instructions for installing them in you...</span>
+        <span class="post_date">01 Sep 2007</span>
+    </a>
+    
+</div>
+
+<div id="post_backdrop">
+    <div id="post_container">
+        <div class="left"></div>
+        <div class="content">
+            <div class="post_heading">
+                <div class="calendar">
+                    <div class="icon social"></div>
+                    <span class="day">25</span>
+                    <span class="month_year">Nov 2009</span>
+                </div>
+                <div class="title_section">
+                    <span class="social">Airtel Wireless USB with Mac OSX</span>
+                </div>
+            </div>
+
+            <div class="post">
+                <p>Even though Airtel website does not mention that Huawei Edge wireless usb modem plays well with Mac, it does!
+Well that is a great news for all the mac users in India… The only things that needs to be done is to manually set the wireless configuration…
+Also, the mac software “Mobile Partner” provided with the usb modem is nice…</p>
+
+<p>Configuration you need to set in “Mobile Partner”</p>
+
+<p style="text-align: center">
+    <img style="border: 1px solid gray" src="/assets/airtel-settings.jpg"/>
+</p>
+
+            </div>
+        </div>
+        <div class="right"></div>
+    </div>
+</div>
+
+</body>
+</html>

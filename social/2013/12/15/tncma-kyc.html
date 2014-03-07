@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Sudhakar's Scribblings | eval() in Java?</title>
+    <title>Sudhakar's Scribblings | TamilNadu CMA Hackathon</title>
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
 
@@ -65,8 +65,7 @@ other thoughtworkers participated and built an app prototype that eventually ...
         <a class="paper visualization" href="/visualization/2013/03/17/pairing-matrix.html">
             <div class="icon visualization"></div>
             <span class="title visualization">Pairing Matrix</span>
-            <span class="excerpt">Visualize your team's pairing matrix using git logs (Ofcourse you should have recorded the pairs names in the git commit messages)
-
+            <span class="excerpt">Visualize your team&#39;s pairing matrix using git logs (Ofcourse you should have recorded the pairs names in the git commit messages)
 </span>
             <span class="post_date">17 Mar 2013</span>
         </a>
@@ -75,7 +74,6 @@ other thoughtworkers participated and built an app prototype that eventually ...
             <div class="icon visualization"></div>
             <span class="title visualization">Share Bar With A Twist</span>
             <span class="excerpt">A simple sharebar that shows the share of different entities. Hover over the entities listed below the sharebar to see the animation in action!
-
 </span>
             <span class="post_date">11 Mar 2013</span>
         </a>
@@ -84,7 +82,6 @@ other thoughtworkers participated and built an app prototype that eventually ...
             <div class="icon visualization"></div>
             <span class="title visualization">My wedding invitation</span>
             <span class="excerpt">I cordially invite you to attend my Wedding ceremony on 17 Oct in Tiruvannamalai
-
 </span>
             <span class="post_date">11 Oct 2011</span>
         </a>
@@ -92,8 +89,7 @@ other thoughtworkers participated and built an app prototype that eventually ...
         <a class="paper programming" href="/programming/2011/05/22/install-rsa-securid.html">
             <div class="icon programming"></div>
             <span class="title programming">Installing RSA SecurID key in iPhone</span>
-            <span class="excerpt">_Somethings in the world are not expected to work seamlessly and needs a blog post tutorial. Installing RSA SecureID key into your iPhone is one of them…_
-
+            <span class="excerpt">Somethings in the world are not expected to work seamlessly and needs a blog post tutorial. Installing RSA SecureID key into your iPhone is one of them…
 </span>
             <span class="post_date">22 May 2011</span>
         </a>
@@ -102,8 +98,7 @@ other thoughtworkers participated and built an app prototype that eventually ...
             <div class="icon social"></div>
             <span class="title social">2011 Indian Festivals ics file</span>
             <span class="excerpt">Want to know all the possible Indian festivals of 2011?
-
-[1]: http://dl.dropbox.com/u/17529525/India%20Festivals.ics</span>
+</span>
             <span class="post_date">26 Jan 2011</span>
         </a>
         
@@ -245,82 +240,67 @@ You can follow the below instructions for installing them in you...</span>
         <div class="content">
             <div class="post_heading">
                 <div class="calendar">
-                    <div class="icon programming"></div>
-                    <span class="day">10</span>
-                    <span class="month_year">Nov 2010</span>
+                    <div class="icon social"></div>
+                    <span class="day">15</span>
+                    <span class="month_year">Dec 2013</span>
                 </div>
                 <div class="title_section">
-                    <span class="programming">eval() in Java?</span>
+                    <span class="social">TamilNadu CMA Hackathon</span>
                 </div>
             </div>
 
             <div class="post">
-                <p>Here is the question from my friend (ex-colleague):</p>
+                <p>TamilNadu Government conducted hackathon event in Anna University for all the software enthusiasts. Myself along with 4
+other thoughtworkers participated and built an app prototype that eventually emerged as one of the winners.</p>
 
-<p><strong>“I have a mathematical expression say (45 %2B ((4 – 25) %2B 2)) as a string. How can you evaluate it to find the result using JAVA programming language?”</strong></p>
+<p>We named the app as KYC (abbreviation for Know Your City) which is an overlay of all the entities controlled by the municipality
+over an open sourced map with options to add/edit/modify existing entities.</p>
 
-<p>Well, this is very easy with javascript as it has the powerful eval() function.
-But java is static, strongly typed, not-that-flexible language.
-So, this cannot be provided as a language feature which leads me to either search for some available libraries or, write my won little library.
-If you are reading this post, you know by now what my decision was:) Come on, what’s fun in searching for someone’s work ;) (Well, not always)</p>
+<p>Almost two days of mucking around with leaflet.js and its plug-ins resulted in an app to showcase our idea...</p>
 
-<p>So, here it is… This would have been much simpler with dynamic language like Groovy… But, the requirement clearly said JAVA</p>
+<p>Play around by disabling/enabling the overlays on the right &amp; drag dropping the new entities from the left pane on the map</p>
 
-<p><em>Logic is quite simple. The given input is an infix expression. Use stack and keep pushing all the elements (including braces) till you encounter a closed brace.
-Now, popping from the stack till you encounter an open brace will get you an operator and 2 operands.
-Evaluate it and push back the result to continue the same logic till the end of the input string.</em></p>
+<iframe src="http://tncma.github.io/kyc/" style="width: 100%; height: 575px; border: 1px solid black">
+</iframe>
 
-<div class="highlight"><pre><code class="java"><span class="lineno"> 1</span>   <span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">rs</span><span class="o">.</span><span class="na">utils</span><span class="o">;</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span>   <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="lineno"> 4</span>   <span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
-<span class="lineno"> 5</span>   <span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
-<span class="lineno"> 6</span>   <span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
-<span class="lineno"> 7</span> 
-<span class="lineno"> 8</span>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Evaluator</span> <span class="o">{</span>
-<span class="lineno"> 9</span> 
-<span class="lineno">10</span>      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">eval</span><span class="o">(</span><span class="n">String</span> <span class="n">infixExpression</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno">11</span>          <span class="n">Stack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
-<span class="lineno">12</span>          <span class="n">String</span> <span class="n">trimmedExp</span> <span class="o">=</span> <span class="n">infixExpression</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">);</span>
-<span class="lineno">13</span>          <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">c</span> <span class="o">:</span> <span class="n">split</span><span class="o">(</span><span class="n">trimmedExp</span><span class="o">))</span> <span class="o">{</span>
-<span class="lineno">14</span>              <span class="k">if</span> <span class="o">(</span><span class="s">&quot;)&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">{</span>
-<span class="lineno">15</span>                  <span class="k">if</span> <span class="o">(!</span><span class="s">&quot;(&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">()))</span> <span class="o">{</span>
-<span class="lineno">16</span>                      <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">performOperation</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">(),</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">(),</span>
-<span class="lineno">17</span>                              <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">())</span> <span class="o">+</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-<span class="lineno">18</span>                      <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span> <span class="c1">// remove also the open bracket</span>
-<span class="lineno">19</span>                      <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
-<span class="lineno">20</span>                  <span class="o">}</span>
-<span class="lineno">21</span>              <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-<span class="lineno">22</span>                  <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
-<span class="lineno">23</span>              <span class="o">}</span>
-<span class="lineno">24</span>          <span class="o">}</span>
-<span class="lineno">25</span>          <span class="k">return</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
-<span class="lineno">26</span>      <span class="o">}</span>
-<span class="lineno">27</span> 
-<span class="lineno">28</span>      <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">performOperation</span><span class="o">(</span><span class="n">String</span> <span class="n">operand2</span><span class="o">,</span> <span class="n">String</span> <span class="n">operator</span><span class="o">,</span>
-<span class="lineno">29</span>              <span class="n">String</span> <span class="n">operand1</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno">30</span>          <span class="kt">int</span> <span class="n">op1</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">operand1</span><span class="o">);</span>
-<span class="lineno">31</span>          <span class="kt">int</span> <span class="n">op2</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">operand2</span><span class="o">);</span>
-<span class="lineno">32</span>          <span class="k">switch</span> <span class="o">(</span><span class="n">operator</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()[</span><span class="mi">0</span><span class="o">])</span> <span class="o">{</span>
-<span class="lineno">33</span>              <span class="k">case</span> <span class="sc">&#39;+&#39;</span><span class="o">:</span> <span class="k">return</span> <span class="n">op1</span> <span class="o">+</span> <span class="n">op2</span><span class="o">;</span>
-<span class="lineno">34</span>              <span class="k">case</span> <span class="sc">&#39;-&#39;</span><span class="o">:</span> <span class="k">return</span> <span class="n">op1</span> <span class="o">-</span> <span class="n">op2</span><span class="o">;</span>
-<span class="lineno">35</span>              <span class="k">case</span> <span class="sc">&#39;*&#39;</span><span class="o">:</span> <span class="k">return</span> <span class="n">op1</span> <span class="o">*</span> <span class="n">op2</span><span class="o">;</span>
-<span class="lineno">36</span>              <span class="k">case</span> <span class="sc">&#39;/&#39;</span><span class="o">:</span> <span class="k">return</span> <span class="n">op1</span> <span class="o">/</span> <span class="n">op2</span><span class="o">;</span>
-<span class="lineno">37</span>              <span class="k">default</span><span class="o">:</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-<span class="lineno">38</span>          <span class="o">}</span>
-<span class="lineno">39</span>      <span class="o">}</span>
-<span class="lineno">40</span> 
-<span class="lineno">41</span>      <span class="kd">static</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">split</span><span class="o">(</span><span class="n">String</span> <span class="n">exp</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno">42</span>          <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">parts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
-<span class="lineno">43</span>          <span class="n">Pattern</span> <span class="n">pat</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">&quot;\\d++|\\+|\\-|\\*|/|\\(|\\)&quot;</span><span class="o">);</span>
-<span class="lineno">44</span>          <span class="n">Matcher</span> <span class="n">matcher</span> <span class="o">=</span> <span class="n">pat</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">exp</span><span class="o">);</span>
-<span class="lineno">45</span>          <span class="k">while</span> <span class="o">(</span><span class="n">matcher</span><span class="o">.</span><span class="na">find</span><span class="o">())</span> <span class="o">{</span>
-<span class="lineno">46</span>              <span class="n">parts</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">matcher</span><span class="o">.</span><span class="na">group</span><span class="o">());</span>
-<span class="lineno">47</span>          <span class="o">}</span>
-<span class="lineno">48</span>          <span class="k">return</span> <span class="n">parts</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
-<span class="lineno">49</span>      <span class="o">}</span>
-<span class="lineno">50</span>   <span class="o">}</span>
-</code></pre></div>
+<p>KYC features:</p>
+
+<p><strong>Features built for the CMA</strong></p>
+
+<ol>
+<li>Search by area on the map</li>
+<li>Add, Edit and Delete public facilities (hospitals, parks, libraries etc.)</li>
+<li>View the complaints raised for various public facilities</li>
+<li>Consolidation of user complaints at an area level</li>
+<li>Report action taken on user complaints</li>
+</ol>
+
+<p><strong>Features built for the public</strong></p>
+
+<ol>
+<li>Locate public facilities in your locality through a search on the map</li>
+<li>Raise complaints about facilities to bring them to the authority&#39;s notice.</li>
+</ol>
+
+<p><strong>Technical Features:</strong></p>
+
+<ol>
+<li>Responsive UI (Works on smart phones, tablets)</li>
+<li>All open source technologies (OpenStreetMaps, Leaflet.js)</li>
+<li>Flexibility to connect to any data source (via http)</li>
+<li>Can be easily adapted to Indian languages (I18n)</li>
+</ol>
+
+<p><br/></p>
+
+<div style="text-align: center">
+    Arunkumar Ramanathan, Sudhakar Rayavaram, Rajeswari Krishnakumar, Arun Kumar S & Ganapathi Subramanian V
+</div>
+
+<p style="text-align: center">
+    <img style="border: 1px solid gray" src="/assets/CMAHackathon.jpg" />
+    <img style="border: 1px solid gray" src="/assets/CMAHackathonWin.jpg" />
+</p>
 
             </div>
         </div>

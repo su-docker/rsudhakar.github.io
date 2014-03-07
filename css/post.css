@@ -1,5 +1,5 @@
-#post_container ol {
-    padding: 10px 20px;
+#post_container ol,ul {
+    padding: 0 20px;
 }
 
 #post_backdrop {

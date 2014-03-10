@@ -29,6 +29,10 @@ h1 {
     margin-bottom: 1em;
 }
 
+h2 {
+    font-size: 20px;
+}
+
 p {
     margin: 1em 0;
 }
@@ -115,4 +119,8 @@ span.social {
 
 .icon.social {
     background-image: url("/images/social_icon.png");
+}
+
+.icon.diy {
+    background-image: url("/images/diy_icon.png");
 }

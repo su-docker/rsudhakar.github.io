@@ -288,17 +288,16 @@ Installing it is easy. But, getting the key into it is not very straightforward.
 <ol>
 <li>Download the RSA’s <a href="http://www.emc.com/security/rsa-securid/rsa-securid-software-authenticators/converter.htm">TokenConverter tool</a>
 (It will ask you for a valid email id and accept license agreement terms)</li>
-<li><p>Open your command prompt and run the following command from the folder where you have extracted TokenConverter tool</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;code&gt;TokenConverter  -mobile -p &lt;/code&gt;
-</code></pre></div>
-<p><em>some corporations will create your .sdtid file with a unique password. Type it in if you got your .sdtid file with a password&nbsp;</em></p></li>
+<li><p>Open your command prompt and run the following command from the folder where you have extracted TokenConverter tool
+(<em>some corporations will create your .sdtid file with a unique password. Type it in if you got your .sdtid file with a password</em>)</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">TokenConverter  -mobile -p
+</code></pre></div></li>
 <li><p>The above command when executed successfully should print a generated ctf string in the console. Copy it. It will look something like</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;code&gt;com.rsa.securid://ctf?ctfData=**2000119722625607285525965262252517630605010534242616025667355410**&lt;/code&gt;
+<div class="highlight"><pre><code class="text language-text" data-lang="text">com.rsa.securid://ctf?ctfData=2000119722625607285525965262252517630605010534242616025667355410
 </code></pre></div></li>
 <li><p>Compose a mail with a hyperlink pointing to the above copied url and send it to an account accessible from your iPhone. Sample:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;code&gt;
-&lt;a href=”com.rsa.securid://ctf?ctfData=2000119722625607285525965262252517630605010534242616025667355410″&gt; Click here to install the key&lt;/a&gt;
-&lt;/code&gt;
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;a href=&quot;com.rsa.securid://ctf?ctfData=2000119722625607285525965262252517630605010534242616025667355410&quot;&gt;
+Click here to install the key&lt;/a&gt;
 </code></pre></div></li>
 <li><p>Open this mail in your iPhone and click on the link to automatically load RSA SecurID application. It will start installing the token</p></li>
 <li><p>Goyala!!! It is done! You should be able to generate login tokens on the move from now</p></li>

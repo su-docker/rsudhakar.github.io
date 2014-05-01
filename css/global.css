@@ -86,41 +86,67 @@ span.visualization {
 }
 
 span.cartoon {
-    color: #769968;
+    color: #325e99;
 }
 
 span.programming {
-    color: #689499;
+    color: #369b3a;
 }
 
 span.social {
-    color: #687b99;
+    color: #BC6D0C;
+}
+
+span.diy {
+    color: #bcb61b;
 }
 
 .icon {
-    display: inline-block;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 54px;
-    height: 52px;
+    font-size: 36px;
+    color: #FFFFFF;
 }
 
-.icon.visualization {
-    background-image: url("/images/viz_icon.png");
+.icon.selector:hover {
+    cursor: pointer;
+    font-size: 40px;
 }
 
-.icon.cartoon {
-    background-image: url("/images/cartoon_icon.png");
+.icon.selector:before {
+    color: #EFEFEF;
 }
 
-.icon.programming {
-    background-image: url("/images/prog_icon.png");
+.icon-deselect:before {
+    color: rgba(239, 239, 239, 0.58);
+    content: '\e85e';
 }
 
-.icon.social {
-    background-image: url("/images/social_icon.png");
+.icon-deselect:hover {
+    cursor: pointer;
+    font-size: 40px;
 }
 
-.icon.diy {
-    background-image: url("/images/diy_icon.png");
+.icon-visualization:before {
+    /*text-shadow: 1px 0 1px #fff, -1px 0 1px #fff, 0 1px 1px #fff, 0 -1px 1px #fff;*/
+    color: #996882;
+    content: '\e80d';
+}
+
+.icon-cartoon:before {
+    color: #325e99;
+    content: '\e863';
+}
+
+.icon-programming:before {
+    color: #369b3a;
+    content: '\e846';
+}
+
+.icon-social:before {
+    color: #bc6d0c;
+    content: '\e828';
+}
+
+.icon-diy:before {
+    color: #bcb61b;
+    content: '\e861';
 }

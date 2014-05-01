@@ -9,6 +9,7 @@
 
     <!-- syntax highlighting CSS -->
     <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/fontello.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/global.css">
@@ -24,33 +25,19 @@
 <h1 class="title">Sudhakar's scribblings...</h1>
 
 <div id="filter_dock">
-    <div class="filter programming">
-        <img src="/images/prog_icon.png" data-category="programming" data-enabled-src="/images/prog_icon.png"
-             data-disabled-src="/images/prog_icon_gray.png"/>
-    </div>
-    <div class="filter visualization">
-        <img src="/images/viz_icon.png" data-category="visualization" data-enabled-src="/images/viz_icon.png"
-             data-disabled-src="/images/viz_icon_gray.png"/>
-    </div>
-    <div class="filter cartoon">
-        <img src="/images/cartoon_icon.png" data-category="cartoon" data-enabled-src="/images/cartoon_icon.png"
-             data-disabled-src="/images/cartoon_icon_gray.png"/>
-    </div>
-    <div class="filter social">
-        <img src="/images/social_icon.png" data-category="social" data-enabled-src="/images/social_icon.png"
-             data-disabled-src="/images/social_icon_gray.png"/>
-    </div>
-    <div class="filter diy">
-        <img src="/images/diy_icon.png" data-category="diy" data-enabled-src="/images/diy_icon.png"
-             data-disabled-src="/images/diy_icon_gray.png"/>
-    </div>
+    <i class="icon icon-programming selector" data-category="programming"></i>
+    <i class="icon icon-visualization selector" data-category="visualization"></i>
+    <i class="icon icon-social selector" data-category="social"></i>
+    <i class="icon icon-diy selector" data-category="diy"></i>
+    <i class="icon icon-cartoon selector" data-category="cartoon"></i>
+    <i class="icon icon-deselect"></i>
 </div>
 
 <div id="papers_container">
     <div id="papers">
         
         <a class="paper programming" href="/programming/2014/02/17/jdbi-externalize-queries.html">
-            <div class="icon programming"></div>
+            <i class="icon icon-programming"></i>
             <span class="title programming">Externalize JDBI queries</span>
             <span class="excerpt">Usual style of writing queries with [JDBI](http://jdbi.org/) is to embed them in method level annotations like below
 
@@ -59,7 +46,7 @@
         </a>
         
         <a class="paper programming" href="/programming/2013/12/30/encoding-mpeg4.html">
-            <div class="icon programming"></div>
+            <i class="icon icon-programming"></i>
             <span class="title programming">Encoding MPEG-4 videos for S40 devices</span>
             <span class="excerpt">You bought a brand new phone with [S40 OS](http://www.developer.nokia.com/Develop/Series_40/Platform/)
 and it promised all things like video playback for a dozen of formats like 3GPP formats (H.263...</span>
@@ -67,7 +54,7 @@ and it promised all things like video playback for a dozen of formats like 3GPP
         </a>
         
         <a class="paper social" href="/social/2013/12/15/tncma-kyc.html">
-            <div class="icon social"></div>
+            <i class="icon icon-social"></i>
             <span class="title social">TamilNadu CMA Hackathon</span>
             <span class="excerpt">TamilNadu Government conducted hackathon event in Anna University for all the software enthusiasts. Myself along with 4
 other thoughtworkers participated and built an app prototype that eventually ...</span>
@@ -75,7 +62,7 @@ other thoughtworkers participated and built an app prototype that eventually ...
         </a>
         
         <a class="paper diy" href="/diy/2013/12/08/bed-fix.html">
-            <div class="icon diy"></div>
+            <i class="icon icon-diy"></i>
             <span class="title diy">DIY - how to fix an ill designed bed</span>
             <span class="excerpt">How can a bed design be described as "ill"? If it makes you ill then we can very well say it is ill
 
@@ -84,7 +71,7 @@ other thoughtworkers participated and built an app prototype that eventually ...
         </a>
         
         <a class="paper diy" href="/diy/2013/08/03/asmi-birthday-memory-game.html">
-            <div class="icon diy"></div>
+            <i class="icon icon-diy"></i>
             <span class="title diy">DIY - Kids memory game</span>
             <span class="excerpt">For the first year birthday party of my kid, I wanted to do something of my own for the kids instead of only buying stuff from the store.
 Ended up creating a simple [card memory game](http://en.wik...</span>
@@ -92,7 +79,7 @@ Ended up creating a simple [card memory game](http://en.wik...</span>
         </a>
         
         <a class="paper diy" href="/diy/2013/06/15/concrete-art.html">
-            <div class="icon diy"></div>
+            <i class="icon icon-diy"></i>
             <span class="title diy">Concrete Art</span>
             <span class="excerpt">Ever tried concrete work? It was great fun playing with it under the sun!
 
@@ -101,7 +88,7 @@ Ended up creating a simple [card memory game](http://en.wik...</span>
         </a>
         
         <a class="paper visualization" href="/visualization/2013/03/17/pairing-matrix.html">
-            <div class="icon visualization"></div>
+            <i class="icon icon-visualization"></i>
             <span class="title visualization">Pairing Matrix</span>
             <span class="excerpt">Visualize your team's pairing matrix using git logs (Ofcourse you should have recorded the pairs names in the git commit messages)
 
@@ -110,7 +97,7 @@ Ended up creating a simple [card memory game](http://en.wik...</span>
         </a>
         
         <a class="paper visualization" href="/visualization/2013/03/11/share-bar-with-a-twist.html">
-            <div class="icon visualization"></div>
+            <i class="icon icon-visualization"></i>
             <span class="title visualization">Share Bar With A Twist</span>
             <span class="excerpt">A simple sharebar that shows the share of different entities. Hover over the entities listed below the sharebar to see the animation in action!
 
@@ -119,7 +106,7 @@ Ended up creating a simple [card memory game](http://en.wik...</span>
         </a>
         
         <a class="paper visualization" href="/visualization/2011/10/11/wedding-invite.html">
-            <div class="icon visualization"></div>
+            <i class="icon icon-visualization"></i>
             <span class="title visualization">My wedding invitation</span>
             <span class="excerpt">I cordially invite you to attend my Wedding ceremony on 17 Oct in Tiruvannamalai
 
@@ -128,7 +115,7 @@ Ended up creating a simple [card memory game](http://en.wik...</span>
         </a>
         
         <a class="paper programming" href="/programming/2011/05/22/install-rsa-securid.html">
-            <div class="icon programming"></div>
+            <i class="icon icon-programming"></i>
             <span class="title programming">Installing RSA SecurID key in iPhone</span>
             <span class="excerpt">_Somethings in the world are not expected to work seamlessly and needs a blog post tutorial. Installing RSA SecureID key into your iPhone is one of them…_
 
@@ -137,7 +124,7 @@ Ended up creating a simple [card memory game](http://en.wik...</span>
         </a>
         
         <a class="paper social" href="/social/2011/01/26/indian-festivals.html">
-            <div class="icon social"></div>
+            <i class="icon icon-social"></i>
             <span class="title social">2011 Indian Festivals ics file</span>
             <span class="excerpt">Want to know all the possible Indian festivals of 2011?
 
@@ -146,7 +133,7 @@ Ended up creating a simple [card memory game](http://en.wik...</span>
         </a>
         
         <a class="paper social" href="/social/2011/01/09/social-connecting-router-wi5.html">
-            <div class="icon social"></div>
+            <i class="icon icon-social"></i>
             <span class="title social">Connecting your home wireless router with Wi5 n...</span>
             <span class="excerpt">As you might have heard [Zylog Wi5][2] is a wireless broadband service available in many Indian cities.
 Even though it is wireless, they will install a small signal receiver (modem + router) in the...</span>
@@ -154,7 +141,7 @@ Even though it is wireless, they will install a small signal receiver (modem + r
         </a>
         
         <a class="paper programming" href="/programming/2010/11/10/programming-eval-in-java.html">
-            <div class="icon programming"></div>
+            <i class="icon icon-programming"></i>
             <span class="title programming">eval() in Java?</span>
             <span class="excerpt">Here is the question from my friend (ex-colleague):
 
@@ -163,7 +150,7 @@ Even though it is wireless, they will install a small signal receiver (modem + r
         </a>
         
         <a class="paper social" href="/social/2010/04/04/spot-fine.html">
-            <div class="icon social"></div>
+            <i class="icon icon-social"></i>
             <span class="title social">Spot fine!!!</span>
             <span class="excerpt">Next time you get caught for a traffic violation, use the below information to your advantage :)
 
@@ -172,7 +159,7 @@ Even though it is wireless, they will install a small signal receiver (modem + r
         </a>
         
         <a class="paper social" href="/social/2009/11/25/airtel-wireless-usb.html">
-            <div class="icon social"></div>
+            <i class="icon icon-social"></i>
             <span class="title social">Airtel Wireless USB with Mac OSX</span>
             <span class="excerpt">Even though Airtel website does not mention that Huawei Edge wireless usb modem plays well with Mac, it does!
 Well that is a great news for all the mac users in India… The only things that needs to...</span>
@@ -180,7 +167,7 @@ Well that is a great news for all the mac users in India… The only things that
         </a>
         
         <a class="paper programming" href="/programming/2008/11/02/is-it-a-rectangle.html">
-            <div class="icon programming"></div>
+            <i class="icon icon-programming"></i>
             <span class="title programming">Is it a rectangle?</span>
             <span class="excerpt">Couple of days back when I was travelling back to home from office, I overheard two fellow employees discussing over a programming problem…
 “If four points in a 2D plane (x,y) is given, how to find...</span>
@@ -188,7 +175,7 @@ Well that is a great news for all the mac users in India… The only things that
         </a>
         
         <a class="paper programming" href="/programming/2008/09/02/first-iphone-app.html">
-            <div class="icon programming"></div>
+            <i class="icon icon-programming"></i>
             <span class="title programming">My first iPhone app</span>
             <span class="excerpt">Well well…. It is really a great experience to soak my feet in iPhone programming…
 But, after 3 hours of playing with Objective-C and Cocoa, I was able to get some very simple and completely useles...</span>
@@ -196,7 +183,7 @@ But, after 3 hours of playing with Objective-C and Cocoa, I was able to get some
         </a>
         
         <a class="paper programming" href="/programming/2008/03/30/html-progress-bar.html">
-            <div class="icon programming"></div>
+            <i class="icon icon-programming"></i>
             <span class="title programming">Progress bar in HTML</span>
             <span class="excerpt">When I was creating a simple google widget for our office coffee club, I thought of showing current inventory status with a progress bar.
 To my surprise, I was not able to google any simple html/ja...</span>
@@ -204,7 +191,7 @@ To my surprise, I was not able to google any simple html/ja...</span>
         </a>
         
         <a class="paper programming" href="/programming/2008/03/13/upgrade-iphone.html">
-            <div class="icon programming"></div>
+            <i class="icon icon-programming"></i>
             <span class="title programming">Steps to upgrade iPhone to version 1.1.4</span>
             <span class="excerpt">Ok, you got an iPhone when it was in version 1.1.1 and, when there was a possibility of unlocking it, you did it… But,
 Apple did not stop there… they kept adding more features to it and dammit, you...</span>
@@ -212,7 +199,7 @@ Apple did not stop there… they kept adding more features to it and dammit, you
         </a>
         
         <a class="paper cartoon" href="/cartoon/2008/01/01/assassins-creed.html">
-            <div class="icon cartoon"></div>
+            <i class="icon icon-cartoon"></i>
             <span class="title cartoon">Assassins Creed???</span>
             <span class="excerpt">If you are as game crazy as me, the Title of this post explains the wallpaper’s theme. If not, google is your friend here.
 The question marks in the title is for a reason. Just look at the wallpape...</span>
@@ -220,7 +207,7 @@ The question marks in the title is for a reason. Just look at the wallpape...</s
         </a>
         
         <a class="paper cartoon" href="/cartoon/2007/12/13/vinayaka-iphone-wallpaper.html">
-            <div class="icon cartoon"></div>
+            <i class="icon icon-cartoon"></i>
             <span class="title cartoon">Vinayaka Iphone Wallpaper</span>
             <span class="excerpt">This time it is Vinayaka… Saw this picture in the web and looked like a right candidate for my iPhone.
 Can also be used with iPod Touch.
@@ -229,7 +216,7 @@ Can also be used with iPod Touch.
         </a>
         
         <a class="paper cartoon" href="/cartoon/2007/11/15/hare-krishna-iphone-wallpaper.html">
-            <div class="icon cartoon"></div>
+            <i class="icon icon-cartoon"></i>
             <span class="title cartoon">Hare Krishna Iphone Wallpaper</span>
             <span class="excerpt">A week after getting an iPhone, pre loaded goodies looks boring… So, I started to customize it with the most easiest part… wallpaper…
 I got this picture from my friend Venky. Color balanced the ori...</span>
@@ -237,7 +224,7 @@ I got this picture from my friend Venky. Color balanced the ori...</span>
         </a>
         
         <a class="paper programming" href="/programming/2007/10/31/enable-java-apps-browser.html">
-            <div class="icon programming"></div>
+            <i class="icon icon-programming"></i>
             <span class="title programming">Enable java apps browser in T-Mobile SDA phone</span>
             <span class="excerpt">If you are having a T-Mobile SDA (in USA) / HTC Tornado (outside world) and installed a java application say a game,
 you cannot browse to it because the java apps browser is not shown in the start ...</span>
@@ -245,7 +232,7 @@ you cannot browse to it because the java apps browser is not shown in the start 
         </a>
         
         <a class="paper social" href="/social/2007/09/06/bommarillu-homescreen.html">
-            <div class="icon social"></div>
+            <i class="icon icon-social"></i>
             <span class="title social">Bommarillu home screen for windows smartphone</span>
             <span class="excerpt">This home screen is based on a Telugu movie “Bommarillu”. You can identify the background very easily if you have seen the movie countless times like i did :)
 </span>
@@ -253,7 +240,7 @@ you cannot browse to it because the java apps browser is not shown in the start 
         </a>
         
         <a class="paper social" href="/social/2007/09/02/vinayaka-homescreen.html">
-            <div class="icon social"></div>
+            <i class="icon icon-social"></i>
             <span class="title social">Vinayaka home screen for windows smartphone</span>
             <span class="excerpt">Ah!… Atlast the day has come… The day I could share the home screen I created for my windows mobile phone…
 Have a look at the screenshot below and feel free to use it in your windows mobile phones ...</span>
@@ -261,7 +248,7 @@ Have a look at the screenshot below and feel free to use it in your windows mobi
         </a>
         
         <a class="paper social" href="/social/2007/09/02/south-park-homescreen.html">
-            <div class="icon social"></div>
+            <i class="icon icon-social"></i>
             <span class="title social">Southpark home screen for windows smartphone</span>
             <span class="excerpt">Here comes another one… It took less than an hour to do the ‘not so interesting’ xml coding part… The image is pretty awesome like the series ;)
 </span>
@@ -269,7 +256,7 @@ Have a look at the screenshot below and feel free to use it in your windows mobi
         </a>
         
         <a class="paper social" href="/social/2007/09/01/windows-home-screen.html">
-            <div class="icon social"></div>
+            <i class="icon icon-social"></i>
             <span class="title social">Installing windows mobile home screen</span>
             <span class="excerpt">All the windows mobile home screens you download from this blog will be a .zip file containing an .xml file with one or more images.
 You can follow the below instructions for installing them in you...</span>
@@ -285,7 +272,7 @@ You can follow the below instructions for installing them in you...</span>
         <div class="content">
             <div class="post_heading">
                 <div class="calendar">
-                    <div class="icon cartoon"></div>
+                    <div class="icon icon-cartoon"></div>
                     <span class="day">13</span>
                     <span class="month_year">Dec 2007</span>
                 </div>

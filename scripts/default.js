@@ -23,12 +23,14 @@ function rotateRandomly(paper) {
 }
 
 function restoreState() {
-    var categories = _.map($('div.filter img'), function (e) {
-        return $(e).data('category');
-    });
+    toggleDeselectButton(false);
+    var categories = getAllCategories();
     _.each(categories, function (category) {
         var show = (localStorage[category] != "hidden");
         restoreStateForCategory(category, show);
+        if(!show) {
+            toggleDeselectButton(true);
+        }
     });
     setTimeout(function () {
         $('#papers').animate({opacity: 1});
@@ -43,6 +45,7 @@ function restoreStateForCategory(category, show) {
         hidePapers(category);
         hideFilter(category);
     }
+    localStorage[category] = (show ? "shown" : "hidden");
 }
 
 function showPapers(category) {
@@ -72,13 +75,27 @@ function hideFilter(category) {
 }
 
 function addFilterHandlers() {
-    $('div.filter').click(function (event) {
-        var filterImg = $(event.currentTarget).find('img');
-        var category = filterImg.data("category");
-        var filterImgSrc = filterImg.attr("src");
-        var disabledImgSrc = filterImg.data("disabledSrc");
-        var show = (filterImgSrc == disabledImgSrc);
-        localStorage[category] = show ? "shown" : "hidden";
-        restoreStateForCategory(category, show);
+    $('i.selector').click(function() {
+        var selectedCategory = $(event.currentTarget).data("category");
+        _.each(getAllCategories(), function(category) {
+            var show = (category == selectedCategory);
+            restoreStateForCategory(category, show);
+        });
+        toggleDeselectButton(true);
     });
+
+    $('i.icon-deselect').click(function() {
+        _.each(getAllCategories(), function(category) {
+           restoreStateForCategory(category, true);
+        });
+        toggleDeselectButton(false);
+    });
+}
+
+function toggleDeselectButton(show) {
+    $('i.icon-deselect').toggle(show);
+}
+
+function getAllCategories() {
+    return _.collect($('i.selector'), function(selector) { return $(selector).data("category")});
 }

@@ -101,5 +101,55 @@ budget2012_2013 = {
         }
     ]
 };
+budget2013_2014 = {
+    name: "2013-2014",
+    root: true,
+    children: [
+        {
+            name: "Education"
 
-dataSets = [budget2011_2012, budget2012_2013];
+        },
+        {
+            name: "health",
+            children: [
+                {name: "Ministry of Health & Family Welfare", size: 37330},
+                {name: "National Health Mission", size: 21239},
+                {name: "Medical education, training and research", size: 4727},
+                {name: "National Programme for the Health Care of Elderly", size: 150},
+                {name: "Department of AYUSH", size: 1069},
+                {name: "Six AIIMS-like institutions", size: 1650 },
+                {name: "Ministry of Human Resource Development", size: 65867},
+                {name: "Sarva Shiksha Abhiyaan (SSA)", size: 27258 },
+                {name: "Scholarships to students belonging to SC, ST, OBC, Minorities and girl children", size: 5284},
+                {name: "Mid Day Meal Scheme", size: 13215},
+                {name: "Integrated Child Development Services", size: 17700},
+                {name: "Overcoming maternal and child malnutrition", size: 300},
+                {name: "Drinking Water & Sanitation", size: 15260},
+                {name: "Arsenic & fluoride affected areas water purification plants setup ", size: 1400}
+            ]
+
+        },
+        {
+            name: "infrastructure",
+            children: [
+                {name: "JNNURM", size: 14873},
+                {name: "Infrastructure tax-free bond", size: 50000},
+                {name: "Rural Infrastructure Development Fund (RIDF)", size: 20000},
+                {name: "NABARD to finance construction for warehousing", size: 5000}
+            ]
+        },
+        {
+            name: "Rural Development",
+            size: 80194
+        },
+        {
+            name: "defense",
+            children: [
+                {name: "Rest", size: 116931},
+                {name: "Capital Expenditure", size: 86741}
+            ]
+        }
+    ]
+}
+
+dataSets = [budget2011_2012, budget2012_2013, budget2013_2014];

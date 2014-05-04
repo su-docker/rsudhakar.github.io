@@ -1,0 +1,61 @@
+svg {
+    background-color: #FFFFFF;
+    height: 600px;
+    width: 100%;
+}
+.label {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-anchor: end;
+}
+
+.axis path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1px;
+}
+
+.axis line {
+    stroke: grey;
+}
+
+.tick {
+    font-size: 10px
+}
+
+.dot {
+    fill: green;
+    stroke: rgba(255,255,255,0.1);
+    stroke-width: 5px;
+    stroke-location: outside;
+}
+
+.dot.highlight {
+    fill: black;
+}
+
+.aid {
+    stroke: #979797;
+    opacity: 0.5;
+    stroke-width: 1px;
+    pointer-events: none;
+}
+
+.aid-axis {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+    pointer-events: none;
+}
+
+.aid-axis rect {
+    fill: #FFFFFF;
+    opacity: 0.80
+}
+
+.tooltip {
+    font-size: 12px;
+    text-anchor: middle;
+    fill: #000000;
+    pointer-events: none;
+}

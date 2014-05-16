@@ -3,20 +3,20 @@ budget2011_2012 = {
     root: true,
     children: [
         {
-            name: "education",
+            name: "Education",
             children: [
                 {name: "national", size: 31036},
                 {name: "State level additional", size: 3675}
             ]
         },
         {
-            name: "health",
+            name: "Health",
             children: [
                 {name: "NRHM", size: 22300}
             ]
         },
         {
-            name: "infrastructure",
+            name: "Infrastructure",
             children: [
                 {name: "Roads", size: 19894},
                 {name: "Railways", size: 16752}
@@ -33,7 +33,7 @@ budget2011_2012 = {
             ]
         },
         {
-            name: "defense",
+            name: "Defense",
             children: [
                 {name: "Defensive Services", size: 147344}
             ]
@@ -46,7 +46,7 @@ budget2012_2013 = {
     root: true,
     children: [
         {
-            name: "education",
+            name: "Education",
             children: [
                 {name: "rte ssa", size: 25555},
                 {name: "Rashtriya Madhyamik Shiksha Abhiyan", size: 3124},
@@ -56,13 +56,13 @@ budget2012_2013 = {
             ]
         },
         {
-            name: "health",
+            name: "Health",
             children: [
                 {name: "NRHM", size: 20822}
             ]
         },
         {
-            name: "infrastructure",
+            name: "Infrastructure",
             children: [
                 {name: "Roads", size: 25360}
             ]
@@ -88,11 +88,12 @@ budget2012_2013 = {
                 {name: "Tribal Sub Plan Allocation", size: 21710},
                 {name: "Rural drinking water and sanitation", size: 14000},
                 {name: "PMGSY", size: 24000},
-                {name: "Rural Infrastructure Development Fund", size: 20000}
+                {name: "Rural Infrastructure Development Fund", size: 20000},
+                {name: "Integrated watershed programme", size: 3050}
             ]
         },
         {
-            name: "defense",
+            name: "Defense",
             children: [
                 {name: "Defensive Services", size: 193407},
                 {name: "Residetial Quarters", size: 1185},
@@ -106,11 +107,14 @@ budget2013_2014 = {
     root: true,
     children: [
         {
-            name: "Education"
+            name: "Education",
+            children: [
+                {name: "Maulana Azad Education Foundation", size: 160}
+            ]
 
         },
         {
-            name: "health",
+            name: "Health",
             children: [
                 {name: "Ministry of Health & Family Welfare", size: 37330},
                 {name: "National Health Mission", size: 21239},
@@ -130,7 +134,7 @@ budget2013_2014 = {
 
         },
         {
-            name: "infrastructure",
+            name: "Infrastructure",
             children: [
                 {name: "JNNURM", size: 14873},
                 {name: "Infrastructure tax-free bond", size: 50000},
@@ -140,16 +144,44 @@ budget2013_2014 = {
         },
         {
             name: "Rural Development",
-            size: 80194
+            children: [
+                {name: "Ministry of Rural Development", size: 80194},
+                {name: "Ministry of Agriculture", size: 27049},
+                {name: "Agricultural research", size: 3415},
+                {name: "Target of agricultural credit", size: 700000},
+                {name: "Green Revolution", size: 1000},
+                {name: "Programme of crop diversification", size: 500},
+                {name: "Rashtriya Krishi Vikas Yojana", size: 9954},
+                {name: "National Food Security Mission", size: 2250},
+                {name: "Integrated watershed programme", size: 5387},
+                {name: "Credit Guarantee Fund to be created in the Small Farmers’Agri Business", size: 100},
+                {name: "National livestock mission", size: 307},
+                {name: "Addition provision for national food security act", size: 10000},
+            ]
         },
         {
-            name: "defense",
+            name: "Defense",
             children: [
                 {name: "Rest", size: 116931},
                 {name: "Capital Expenditure", size: 86741}
             ]
+        },
+        {
+            name: "Others",
+            children: [
+                {name: "Programs relating to women", size: 97134},
+                {name: "Programs relating to children", size: 77236},
+                {name: "Single women and widows", size: 200},
+                {name: "Department of Disablity Affairs for ADIP scheme", size: 110},
+            ]
         }
     ]
-}
+};
+budget2014_2015 = {
+    name: "2014-2015",
+    root: true,
+    children: [
+    ]
+};
 
-dataSets = [budget2011_2012, budget2012_2013, budget2013_2014];
+dataSets = [budget2011_2012, budget2012_2013, budget2013_2014, budget2014_2015];

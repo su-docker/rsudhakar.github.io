@@ -149,5 +149,5 @@ function hideTooltip(event) {
 
 //Load first dataset
 //svg.select('.switcher').classed('selected',true);
-reload(budget2012_2013);
-switchers.filter(function(d) { return d == budget2012_2013 }).classed('selected',true)
+reload(budget2014_2015);
+switchers.filter(function(d) { return d == budget2014_2015 }).classed('selected',true)

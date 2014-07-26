@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pairing Matrix</title>
+
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+
+    <script language="javascript" src="jquery-1.10.2.js"></script>
+    <script language="javascript" src="../underscore-min.js"></script>
+    <script language="javascript" src="bootstrap.min.js"></script>
+    <script language="javascript" src="xregexp-min.js"></script>
+    <script language="javascript" src="../d3.v3.min.js"></script>
+    <script language="javascript" src="input.js"></script>
+    <script language="javascript" src="matrix.js"></script>
+</head>
+
+<body>
+
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                Configuration
+            </a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse in">
+            <div class="accordion-inner">
+                <div class="row-fluid">
+                    <div class="span10">
+                        <textarea id="pairing_text">
+[Sudhakar/Preethi] : Sample 1
+[Sudhakar/Preethi] : Sample 1
+[Sudhakar/Preethi] : Sample 1
+[Preethi/Mani] : Sample 2
+[Sudhakar/Subash] : Sample 3
+[Mani/Bharani] : Sample 4
+[Sudhakar/Bharani] : Sample 5
+[Sudhakar/Bharani] : Sample 5
+[Sudhakar/Bharani] : Sample 5
+[Sudhakar/Bharani] : Sample 5
+[Sudhakar/Bharani] : Sample 5
+[Sudhakar/Bharani] : Sample 5
+[Sudhakar/Bharani] : Sample 5
+[Sudhakar/Bharani] : Sample 5
+[Sudhakar/Bharani] : Sample 5
+[Sudhakar] : Sample 6
+[Sudhakar] : Sample 6
+[Sudhakar] : Sample 6
+[Sudhakar] : Sample 6
+                        </textarea>
+                    </div>
+                    <div class="span2">
+                        <textarea id="pairing_names" readonly></textarea>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span10">
+                        <input id="regex" type="text" value="\[(?<f>[\w]*)(?:/)?(?<s>[\w]*)\]"/>
+                    </div>
+                    <div class="span2">
+                        <a id="go" class="btn btn-primary">
+                            Visualize
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="viz_container">
+    <svg>
+        <g class="area">
+        </g>
+    </svg>
+</div>
+</body>
+</html>

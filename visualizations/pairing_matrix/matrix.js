@@ -50,18 +50,7 @@ function PlayGround(selector) {
             .attr("stroke-width", function(d) {return playground.connectionScale(d[2])})
             .attr("stroke-opacity",0.75)
             .attr("data-from", function(d) {return d[0]})
-            .attr("data-to", function(d) {return d[1]})
-//            .on("mouseover", function(d) {
-//                d3.select(this).attr("stroke-opacity",1);
-//                d3.select("#"+d[0]).attr("fill-opacity",1);
-//                d3.select("#"+d[1]).attr("fill-opacity",1);
-//            })
-//            .on("mouseout", function(d) {
-//                d3.select(this).attr("stroke-opacity",0.2);
-//                d3.select("#"+d[0]).attr("fill-opacity",0.5);
-//                d3.select("#"+d[1]).attr("fill-opacity",0.5);
-//            })
-        //.exit().remove();
+            .attr("data-to", function(d) {return d[1]});
     };
 
     this.setGround = function() {
@@ -69,7 +58,6 @@ function PlayGround(selector) {
             .attr("cx", this.centerX)
             .attr("cy", this.centerY)
             .attr("r", this.radius)
-//            .style("stroke", '#0B5F0B')
             .style("fill-opacity", 0.05);
     };
 
@@ -117,7 +105,6 @@ function PlayGround(selector) {
                 var player = d3.select(this);
                 var collidingPlayer = playground.getCollidingPlayer(player);
                 if(collidingPlayer.length > 0) {
-                    debugger
                     var collidingPlayerId = $(collidingPlayer).attr("id");
                     $(".connect[data-from="+player.attr("id")+"]").attr("data-from", collidingPlayerId);
                     $(".connect[data-to="+player.attr("id")+"]").attr("data-to", collidingPlayerId);
@@ -170,33 +157,12 @@ function PlayGround(selector) {
 
     }
 
-    this.getPathString = function(from, to) {
-        var fromPlayer = $("#"+from);
-        var toPlayer = $("#"+to);
-        return "M " + fromPlayer.attr("cx") + " " + fromPlayer.attr("cy") + " Q 400 350 " +
-            toPlayer.attr("cx") + " " + toPlayer.attr("cy");
-    }
-
-
     this.closestPointOnCircumference = function() {
         var vx = d3.event.x - this.centerX,
             vy = d3.event.y - this.centerY,
             magV = Math.sqrt(vx*vx + vy*vy);
         return [(this.centerX + vx / magV * this.radius), (this.centerY + vy / magV * this.radius)];
     };
-
-//    this.highlightPairing = function(person) {
-//        d3.selectAll(".connect")
-//            .attr("stroke-opacity", function(d) {
-//                var elem = d3.select(this);
-//                return (elem.attr("data-from") == person || elem.attr("data-to") == person) ? 1 : 0.2
-//            });
-//    };
-
-//    this.maskPairing= function(person) {
-//        d3.selectAll(".connect")
-//            .attr("stroke-opacity", 0.2);
-//    };
 
     this.getPlayerCoordinates = function(index) {
         var distanceInDegrees = 2*Math.PI/playground.playersData.length;
@@ -220,7 +186,6 @@ function PlayGround(selector) {
         });
         playerNames = _.compact(playerNames);
         return _.sortBy(_.uniq(playerNames), function(d) { return d });
-//        return _.countBy(playerNames, function(name) {return name})
     };
 
     this.getSoloContribution = function(name) {

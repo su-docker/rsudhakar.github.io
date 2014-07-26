@@ -30,3 +30,11 @@ svg {
     height: 700px;
     width: 815px;
 }
+
+.player {
+    cursor: pointer;
+}
+
+.player_names {
+    pointer-events: none;
+}

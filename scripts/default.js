@@ -2,6 +2,15 @@ function init() {
     randomizeLayout();
     restoreState();
     addFilterHandlers();
+    addPaperHandlers();
+    addBrowserBackHandler();
+
+    $(document).on('click', "#post_backdrop", function (event) {
+        var targetId = $(event.target).attr("id");
+        if (targetId == "post_backdrop") {
+            $("#post_backdrop").fadeOut();
+        }
+    });
 }
 
 function randomizeLayout() {
@@ -48,6 +57,17 @@ function restoreStateForCategory(category, show) {
     localStorage[category] = (show ? "shown" : "hidden");
 }
 
+function addPaperHandlers() {
+    $(".paper").on('click', function(e) {
+        var paper = $(e.currentTarget);
+        var postUrl = paper.attr("ajax-href");
+        $.get(postUrl, function(result) {
+            history.pushState({post: true, url: postUrl},null,postUrl);
+            $("#post_backdrop").replaceWith($(result).filter("#post_backdrop"));
+        });
+    });
+}
+
 function showPapers(category) {
     var papers = $(".paper." + category)
     papers.animate({opacity: 1});
@@ -72,6 +92,12 @@ function hideFilter(category) {
     var filterImg = $('.filter img[data-category=' + category + ']');
     var disabledImgSrc = filterImg.data("disabledSrc");
     filterImg.attr("src", disabledImgSrc);
+}
+
+function addBrowserBackHandler() {
+    window.onpopstate = function(e) {
+        window.location.href = document.location;
+    };
 }
 
 function addFilterHandlers() {

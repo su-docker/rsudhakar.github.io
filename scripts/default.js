@@ -1,4 +1,5 @@
 function init() {
+    initThemeSelector();
     randomizeLayout();
     restoreState();
     addFilterHandlers();
@@ -13,6 +14,12 @@ function init() {
     });
 }
 
+function initThemeSelector() {
+    $(".theme-selector").click(function() {
+        $("body").toggleClass("drawing_theme");
+    });
+}
+
 function randomizeLayout() {
     var papers = $('.paper');
     for (var idx = 0; idx < papers.length; idx++) {
@@ -21,9 +28,10 @@ function randomizeLayout() {
 }
 
 function rotateRandomly(paper) {
-    var rotation = (Math.random() * 20) - 10;
-    var xOffset = (Math.random() * 30) - 15;
-    var yOffset = (Math.random() * 30) - 15;
+    var rotation = (Math.random() * 15) - 10;
+    //var rotation = 0, xOffset= 0, yOffset=0;
+    var xOffset = (Math.random() * 20) - 15;
+    var yOffset = (Math.random() * 20) - 15;
     paper.css('transform', 'translate(' + xOffset + 'px)' + 'rotate(' + rotation + 'deg)');
     paper.css('-webkit-transform', 'translate(' + xOffset + "," + yOffset + 'px)' + 'rotate(' + rotation + 'deg)');
     paper.css('-ms-transform', 'translate(' + xOffset + "," + yOffset + 'px)' + 'rotate(' + rotation + 'deg)');

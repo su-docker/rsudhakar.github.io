@@ -13,8 +13,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/list.css">
     <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/drawing_theme.css">
 
     <script src="/scripts/jquery-1.10.2.js"></script>
     <script src="/scripts/underscore-min.js"></script>
@@ -22,9 +23,14 @@
     <script src="/scripts/post.js"></script>
 </head>
 
-<body onload="init()">
+<body class="drawing_theme">
+
+<div class="site_header">
+    <i class="icon icon-art-gallery theme-selector"></i>
+    <span>Sudhakar Rayavaram</span>
+</div>
+
 <div id="post_list">
-    <h1 class="title">Sudhakar's scribblings...</h1>
 
     <div id="filter_dock">
         <i class="icon icon-programming selector" data-category="programming"></i>
@@ -386,7 +392,9 @@ You can follow the below instructions for installing them in you...</span>
 <div id="post_backdrop" style="display: none">
 </div>
 
-
+<script>
+    init();
+</script>
 
 
 <script>

@@ -1,47 +1,46 @@
-#post_container ol,ul {
-    padding: 0 20px;
-}
-
 #post_backdrop {
-    position: absolute;
-    width: 100%;
-    min-height: 100%;
-    top: 0px;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 200;
-}
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200; }
+
+.post_heading .title_section {
+  font-size: 46px;
+  text-align: center;
+  padding: 60px 10px 10px 10px; }
+.post_heading .date {
+  padding-top: 30px;
+  text-align: right; }
 
 #post_container {
-    position: relative;
-    top: 0px;
-    width: 1000px;
-    left: 50%;
-    margin-left: -500px;
-}
-
-#post_container .left {
+  position: relative;
+  top: 0px;
+  width: 1000px;
+  left: 50%;
+  margin-left: -500px; }
+  #post_container ol, #post_container ul {
+    padding: 0 20px; }
+  #post_container .left {
     width: 19px;
     height: 100%;
     position: absolute;
     left: 0px;
     top: 0px;
-    background-image: url('/images/left_border.png');
-    background-repeat: repeat-y;
-}
-
-#post_container .right {
+    background-image: url("/images/left_border.png");
+    background-repeat: repeat-y; }
+  #post_container .right {
     width: 19px;
     height: 100%;
     position: absolute;
     right: 0px;
     top: 0px;
-    background-image: url('/images/right_border.png');
-    background-repeat: repeat-y;
-}
-
-#post_container .content {
+    background-image: url("/images/right_border.png");
+    background-repeat: repeat-y; }
+  #post_container .content {
     box-sizing: border-box;
-    background-image: url('/images/paper_big.png');
+    background-image: url("/images/paper_big.png");
     background-repeat: repeat;
     height: 100%;
     width: 963px;
@@ -50,78 +49,26 @@
     top: 0px;
     padding: 10px 25px;
     min-height: 1000px;
-    z-index: 201;
-}
-
-#post_container .post {
+    z-index: 201; }
+  #post_container .post {
     margin-top: 35px;
     margin-bottom: 150px;
-    line-height: 22px;
+    font-size: 18px;
+    line-height: 32px;
     -ms-word-wrap: break-word;
-    word-wrap: break-word;
-}
-
-
-#post_container .post table {
-    border-collapse: collapse;
-}
-
-#post_container .post table tr:hover {
-    background-color: rgba(0,0,0, 0.1);
-}
-
-#post_container .post table td {
-    border: 1px solid #959595;
-    margin: 0;
-    padding: 5px;
-}
-
-#post_container figure {
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-}
-
-#post_container figcaption {
-    text-align: center;
-    color: #747474;
-}
-
-
-.post_heading .title_section {
-    text-align: left;
-    width: 800px;
-    display: inline-block;
-    padding-left: 10px;
-}
-
-.post_heading .title_section span {
-    font-size: 36px;
-}
-
-.calendar {
-    display: inline-block;
-    width: 93px;
-    height: 103px;
-    background-image: url('/images/calendar.png');
-}
-
-.calendar .icon {
-    margin: 6px 20px 15px 20px;
-}
-
-.calendar .day {
-    font-size: 24px;
-    margin-left: 10px;
-    color: #FFFFFF;
-    vertical-align: top;
-}
-
-.calendar .month_year {
-    display: inline-block;
-    width: 35px;
-    margin-left: 5px;
-    margin-top: -3px;
-    text-align: center;
-    color: white;
-}
+    word-wrap: break-word; }
+    #post_container .post table {
+      border-collapse: collapse; }
+      #post_container .post table tr:hover {
+        background-color: rgba(0, 0, 0, 0.1); }
+      #post_container .post table td {
+        border: 1px solid #959595;
+        margin: 0;
+        padding: 5px; }
+    #post_container .post figure {
+      display: inline-block;
+      text-align: center;
+      width: 100%; }
+    #post_container .post figcaption {
+      text-align: center;
+      color: #747474; }

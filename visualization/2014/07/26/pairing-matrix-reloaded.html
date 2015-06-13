@@ -43,19 +43,39 @@
             </div>
 
             <div class="post">
-                <p>Having created and used pairing matrix visualization creator for the quite sometime, Based on the observations and feedback 
-I did some enhancements</p>
+                <p>One of the reasons for pair programming is to have the knowledge of the code shared across all the team members. And for
+ this to happen effectively, the developers in the team should pair with everyone else regularly </p>
+
+<p>Pairing matrix helps to get this visibility so that during sign-up, every dev will have awareness as with whom they did
+ paired less and with whom more</p>
+
+<p>Instead of manually maintaining a pairing matrix and updating it everyday, I have created a simple tool that will extract
+ this information from the code repository (given that every commit has the pair names)  </p>
+
+<p>This will be accurate as long as there is at least one commit happening everyday. If that is not the case, then you have 
+bigger problems to solve that worrying about a pairing matrix ;)</p>
+
+<p>Go head and click on the &#39;visualize&#39; button to see the pairing matrix for the example source control log</p>
+
+<p><br/></p>
+
+<p><strong>Usage instructions</strong></p>
 
 <ul>
-<li> Coloring of contributor icons (circles)</li>
-<li> Positioning any contributor icon around the ring by click and drag</li>
-<li> Merging duplicate contributor names by click, drag and drop over another icon</li>
+<li><p>Run the following command after replacing the {date} with the date from which you need the pairing matrix</p>
+
+<p>&#39;git log --oneline --after={date}&#39;<br>
+<em>Example: git log --oneline --after=2015/06/01</em></p></li>
+<li><p>Copy paste the output in the below textarea</p></li>
+<li><p>Create a javascript regex to extract the pair names from the log</p></li>
+<li><p>Click on &#39;Visualize&#39;</p></li>
+<li><p>Drag the name circles over the other if you want to merge (same person with different spellings in the log)</p></li>
+<li><p>Take screenshot to share</p></li>
 </ul>
 
-<p>Happy visualizing!
-<br/></p>
+<p><br/></p>
 
-<iframe src="/visualizations/pairing_matrix/" style="width: 100%; height: 850px; border: 0">
+<iframe src="/visualizations/pairing_matrix/" style="width: 100%; height: 1200px; border: 0">
 </iframe>
  
 

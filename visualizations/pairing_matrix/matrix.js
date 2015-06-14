@@ -106,8 +106,8 @@ function PlayGround(selector) {
                 var collidingPlayer = playground.getCollidingPlayer(player);
                 if(collidingPlayer.length > 0) {
                     var collidingPlayerId = $(collidingPlayer).attr("id");
-                    $(".connect[data-from="+player.attr("id")+"]").attr("data-from", collidingPlayerId);
-                    $(".connect[data-to="+player.attr("id")+"]").attr("data-to", collidingPlayerId);
+                    $(".connect[data-from='"+player.attr("id")+"']").attr("data-from", collidingPlayerId);
+                    $(".connect[data-to='"+player.attr("id")+"']").attr("data-to", collidingPlayerId);
                     var collidingPlayerLocation = [$(collidingPlayer).attr("cx"), $(collidingPlayer).attr("cy")];
                     playground.updateConnectorsPath(collidingPlayerId, collidingPlayerLocation);
                     $(player[0]).siblings(".player_names").remove();
@@ -118,13 +118,13 @@ function PlayGround(selector) {
 
     this.updateConnectorsPath = function(playerId, newPoint) {
         playground.el
-            .selectAll(".connect[data-from="+ playerId +"]")
+            .selectAll(".connect[data-from='"+ playerId +"']")
             .attr("d", function(d) {
                 return playground.replaceFromInPath($(this).attr("d"), newPoint);
             }
         );
         playground.el
-            .selectAll(".connect[data-to="+ playerId +"]")
+            .selectAll(".connect[data-to='"+ playerId +"']")
             .attr("d", function(d) {
                 return playground.replaceToInPath($(this).attr("d"), newPoint);
             }
@@ -174,7 +174,7 @@ function PlayGround(selector) {
 
     this.getValidPairs = function(pairingData) {
         return _.filter(pairingData, function(data) {
-            return (data[1] != "")
+            return (!_.isEmpty(data[0]) && !_.isEmpty(data[1]));
         })
     };
 
@@ -190,7 +190,7 @@ function PlayGround(selector) {
 
     this.getSoloContribution = function(name) {
         var contrib = _.find(this.pairingData, function(data) {
-            return ((data[0] == name) && (data[1] == ""));
+            return ((data[0] == name && _.isEmpty(data[1])) || (data[1] == name && _.isEmpty(data[0])));
         });
         return contrib ? contrib[2] : 1;
     };

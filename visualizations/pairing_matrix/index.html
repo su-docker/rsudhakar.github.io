@@ -26,8 +26,8 @@
         </div>
         <div id="collapseOne" class="accordion-body collapse in">
             <div class="accordion-inner">
-                <div class="row-fluid">
-                    <div class="span10">
+                <div class="input-container row-fluid">
+                    <div class="span9 input-log">
                         <textarea id="pairing_text">
 [Sudhakar/Preethi] : Sample 1
 [Sudhakar/Preethi] : Sample 1
@@ -50,13 +50,13 @@
 [Sudhakar] : Sample 6
                         </textarea>
                     </div>
-                    <div class="span2">
+                    <div class="span3">
                         <textarea id="pairing_names" readonly></textarea>
                     </div>
                 </div>
                 <div class="row-fluid">
                     <div class="span10">
-                        <input id="regex" type="text" value="\[(?<f>[\w]*)(?:/)?(?<s>[\w]*)\]"/>
+                        <input id="regex" type="text" value="^\[([\w]*)(?:\/)?([\w]*)\].*$"/>
                     </div>
                     <div class="span2">
                         <a id="go" class="btn btn-primary">

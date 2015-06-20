@@ -167,3 +167,14 @@ span.diy {
     font-size: 16px;
     cursor: pointer;
 }
+
+.blogger {
+    color: #369b3a;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.blogger:hover {
+    /*text-decoration: underline;*/
+    border-bottom: 1px dotted #369b3a;
+}

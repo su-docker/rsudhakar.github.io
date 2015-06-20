@@ -5,6 +5,7 @@ function init() {
     addFilterHandlers();
     addPaperHandlers();
     addBrowserBackHandler();
+    addAuthorHandler();
 
     $(document).on('click', "#post_backdrop", function (event) {
         var targetId = $(event.target).attr("id");
@@ -134,4 +135,10 @@ function toggleDeselectButton(show) {
 
 function getAllCategories() {
     return _.collect($('i.selector'), function(selector) { return $(selector).data("category")});
+}
+
+function addAuthorHandler() {
+    $(".blogger").click(function() {
+        window.location.href = "/";
+    });
 }

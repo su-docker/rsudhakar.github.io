@@ -104,7 +104,9 @@ function hideFilter(category) {
 
 function addBrowserBackHandler() {
     window.onpopstate = function(e) {
-        window.location.href = document.location;
+        if(e.state) {
+            window.location.href = document.location;
+        }
     };
 }
 

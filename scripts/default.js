@@ -7,11 +7,15 @@ function init() {
     addBrowserBackHandler();
     addAuthorHandler();
 
-    $(document).on('click', "#post_backdrop", function (event) {
-        var targetId = $(event.target).attr("id");
-        if (targetId == "post_backdrop") {
-            $("#post_backdrop").fadeOut();
-        }
+    // $(document).on('click', "#post_backdrop", function (event) {
+    //     var targetId = $(event.target).attr("id");
+    //     if (targetId == "post_backdrop") {
+    //         $("#post_backdrop").fadeOut();
+    //     }
+    // });
+
+    $('.icon-home').click(function() {
+        $("#post_backdrop").fadeOut();
     });
 }
 
@@ -79,14 +83,16 @@ function addPaperHandlers() {
 
 function showPapers(category) {
     var papers = $(".paper." + category)
-    papers.animate({opacity: 1});
+    // papers.animate({opacity: 1});
+    papers.show();
     papers.removeClass("hidden");
     localStorage.removeItem(category);
 }
 
 function hidePapers(category) {
     var papers = $(".paper." + category)
-    papers.animate({opacity: 0.05});
+    // papers.animate({opacity: 0.05});
+    papers.hide();
     papers.addClass("hidden");
     localStorage[category] = "hidden";
 }
@@ -119,6 +125,7 @@ function addFilterHandlers() {
             restoreStateForCategory(category, show);
         });
         toggleDeselectButton(true);
+        $("#post_backdrop").fadeOut();
     });
 
     $('i.icon-deselect').click(function() {

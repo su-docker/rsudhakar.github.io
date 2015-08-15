@@ -17,9 +17,9 @@
 #post_container {
   position: relative;
   top: 0px;
-  width: 1000px;
-  left: 50%;
-  margin-left: -500px; }
+  width: 90%;
+  max-width: 930px;
+  margin: 0 auto; }
   #post_container ol, #post_container ul {
     padding: 0 20px; }
   #post_container .left {
@@ -43,9 +43,9 @@
     background-image: url("/images/paper_big.png");
     background-repeat: repeat;
     height: 100%;
-    width: 963px;
+    max-width: 900px;
+    margin: auto;
     position: relative;
-    left: 19px;
     top: 0px;
     padding: 10px 25px;
     min-height: 1000px;
@@ -53,7 +53,7 @@
   #post_container .post {
     margin-top: 35px;
     margin-bottom: 150px;
-    font-size: 18px;
+    font-size: 1.3em;
     line-height: 32px;
     -ms-word-wrap: break-word;
     word-wrap: break-word; }
@@ -69,6 +69,8 @@
       display: inline-block;
       text-align: center;
       width: 100%; }
+      #post_container .post figure img {
+        width: 90%; }
     #post_container .post figcaption {
       text-align: center;
       color: #747474; }

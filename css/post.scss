@@ -1,3 +1,9 @@
+@media all and (max-device-width: 800px) {
+  .site_header {
+    position: relative;
+  }
+}
+
 #post_backdrop {
   position: absolute;
   width: 100%;

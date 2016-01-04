@@ -118,8 +118,8 @@ function addBrowserBackHandler() {
 }
 
 function addFilterHandlers() {
-    $('i.selector').click(function() {
-        var selectedCategory = $(event.currentTarget).data("category");
+    $('i.selector').click(function(e) {
+        var selectedCategory = $(e.currentTarget).data("category");
         _.each(getAllCategories(), function(category) {
             var show = (category == selectedCategory);
             restoreStateForCategory(category, show);

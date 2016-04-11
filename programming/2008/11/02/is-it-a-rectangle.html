@@ -67,11 +67,11 @@ Well, square also satisfies this logic and <a href="http://en.wikipedia.org/wiki
 
 <p>I guess it is always hard to come up with a simple solution… You have to put lot of effort to think simple!</p>
 
-<div class="highlight"><pre><code class="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RectangleValidator</span> <span class="o">{</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RectangleValidator</span> <span class="o">{</span>
 <span class="lineno"> 2</span> 
 <span class="lineno"> 3</span>      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">validate</span><span class="o">(</span><span class="n">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="n">Point</span> <span class="n">p2</span><span class="o">,</span> <span class="n">Point</span> <span class="n">p3</span><span class="o">,</span> <span class="n">Point</span> <span class="n">p4</span><span class="o">)</span> <span class="o">{</span>
 <span class="lineno"> 4</span>          <span class="c1">// Find the centroid using Euclid&#39;s geometric principle</span>
-<span class="lineno"> 5</span>          <span class="n">Point</span> <span class="n">centroid</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">();</span>
+<span class="lineno"> 5</span>          <span class="n">Point</span> <span class="n">centroid</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Point</span><span class="o">();</span>
 <span class="lineno"> 6</span>          <span class="n">centroid</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">p2</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">p3</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">p4</span><span class="o">.</span><span class="na">x</span><span class="o">)</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
 <span class="lineno"> 7</span>          <span class="n">centroid</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">p2</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">p3</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">p4</span><span class="o">.</span><span class="na">y</span><span class="o">)</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
 <span class="lineno"> 8</span> 
@@ -103,7 +103,7 @@ Well, square also satisfies this logic and <a href="http://en.wikipedia.org/wiki
 <span class="lineno">34</span>          <span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
 <span class="lineno">35</span>      <span class="o">}</span>
 <span class="lineno">36</span> 
-<span class="lineno">37</span>   <span class="o">}</span></code></pre></div>
+<span class="lineno">37</span>   <span class="o">}</span></code></pre></figure>
 
             </div>
 

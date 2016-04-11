@@ -57,10 +57,10 @@
             <div class="post">
                 <p>Usual style of writing queries with <a href="http://jdbi.org/">JDBI</a> is to embed them in method level annotations like below</p>
 
-<div class="highlight"><pre><code class="java"><span class="lineno">1</span> <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">WhyDao</span> <span class="o">{</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span>     <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">WhyDao</span> <span class="o">{</span>
 <span class="lineno">2</span>         <span class="nd">@SqlQuery</span><span class="o">(</span><span class="s">&quot;select * from whytable where name = :name order by created_date&quot;</span><span class="o">)</span>
 <span class="lineno">3</span>         <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Why</span><span class="o">&gt;</span> <span class="nf">getWhys</span><span class="o">(</span><span class="nd">@Bind</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">name</span><span class="o">);</span>
-<span class="lineno">4</span>     <span class="o">}</span></code></pre></div>
+<span class="lineno">4</span>     <span class="o">}</span></code></pre></figure>
 
 <p>This type of embedding queries is good for small ones. Since java does not (yet) support multiline strings, this style
 gets messy with long queries (I am talking about queries that goes beyond 3 lines with sensible line widths).</p>
@@ -69,11 +69,11 @@ gets messy with long queries (I am talking about queries that goes beyond 3 line
 
 <p>Fortunately JDBI offers an alternate if you really wanted to keep the queries easily readable and editable.</p>
 
-<div class="highlight"><pre><code class="java"><span class="lineno">1</span> <span class="nd">@OverrideStatementLocatorWith</span><span class="o">(</span><span class="n">QueryLocator</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span>     <span class="nd">@OverrideStatementLocatorWith</span><span class="o">(</span><span class="n">QueryLocator</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 <span class="lineno">2</span>     <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">WhyDao</span> <span class="o">{</span>
 <span class="lineno">3</span>         <span class="nd">@SqlQuery</span>
 <span class="lineno">4</span>         <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Why</span><span class="o">&gt;</span> <span class="nf">getWhys</span><span class="o">(</span><span class="nd">@Bind</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">name</span><span class="o">);</span>
-<span class="lineno">5</span>     <span class="o">}</span></code></pre></div>
+<span class="lineno">5</span>     <span class="o">}</span></code></pre></figure>
 
 <p>Above is the same class rewritten by externalizing the query string. The key element in this code is the annotation
 <a href="http://jdbi.codehaus.org/maven_site/apidocs/org/skife/jdbi/v2/sqlobject/customizers/OverrideStatementLocatorWith.Factory.html">@OverrideStatementLocatorWith</a>.
@@ -82,7 +82,7 @@ It takes in a subclass of <a href="http://jdbi.codehaus.org/maven_site/apidocs/o
 
 <p>An example implementation of StatementLocator might look like this</p>
 
-<div class="highlight"><pre><code class="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">QueryLocator</span> <span class="kd">implements</span> <span class="n">StatementLocator</span> <span class="o">{</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span>     <span class="kd">public</span> <span class="kd">class</span> <span class="nc">QueryLocator</span> <span class="kd">implements</span> <span class="n">StatementLocator</span> <span class="o">{</span>
 <span class="lineno"> 2</span>         <span class="nd">@Override</span>
 <span class="lineno"> 3</span>         <span class="kd">public</span> <span class="n">String</span> <span class="nf">locate</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">StatementContext</span> <span class="n">ctx</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
 <span class="lineno"> 4</span>             <span class="n">String</span> <span class="n">query</span> <span class="o">=</span> <span class="n">Queries</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
@@ -91,7 +91,7 @@ It takes in a subclass of <a href="http://jdbi.codehaus.org/maven_site/apidocs/o
 <span class="lineno"> 7</span>             <span class="o">}</span>
 <span class="lineno"> 8</span>             <span class="k">return</span> <span class="n">query</span><span class="o">;</span>
 <span class="lineno"> 9</span>         <span class="o">}</span>
-<span class="lineno">10</span>     <span class="o">}</span></code></pre></div>
+<span class="lineno">10</span>     <span class="o">}</span></code></pre></figure>
 
 <p><strong>name</strong> parameter will contain the method name (in our case <strong>&#39;getWhys&#39;</strong>) which can be use to find the appropriate query string.
 <strong>Queries</strong> class is my custom singleton class which loads all the queries from external text file(s) containing sqls during bootstrap.</p>

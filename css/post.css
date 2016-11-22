@@ -70,7 +70,6 @@
         padding: 5px; }
     #post_container .post figure {
       display: inline-block;
-      text-align: center;
       width: 100%; }
       #post_container .post figure img {
         width: 90%; }

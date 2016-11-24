@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sudhakar's Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/fontello.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/list.css">
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/drawing_theme.css">
+
+    <script src="/scripts/jquery-1.10.2.js"></script>
+    <script src="/scripts/underscore-min.js"></script>
+    <script src="/scripts/default.js"></script>
+    <script src="/scripts/post.js"></script>
+</head>
+
+<body class="drawing_theme">
+
+<div class="site_header">
+    <i class="icon icon-art-gallery theme-selector"></i>
+    <i class="icon icon-home"></i>
+    <div class="blogger"><a href="https://twitter.com/SudhakarRay" target="_blank">Sudhakar R</a></div>
+
+    <div id="filter_dock">
+        <i
+          class="icon icon-programming selector" data-category="programming"></i><i
+          class="icon icon-cartoon selector" data-category="cartoon"></i><i
+          class="icon icon-visualization selector" data-category="visualization"></i><i
+          class="icon icon-social selector" data-category="social"></i><i
+          class="icon icon-diy selector" data-category="diy"></i><i
+          class="icon icon-deselect"></i>
+    </div>
+
+</div>
+
+<div id="post_list">
+</div>
+
+<div id="post_backdrop">
+    <div id="post_container">
+        <div class="left"></div>
+        <div class="content">
+            <div class="post_heading">
+                <div class="date">24 Nov 2016</div>
+                <div class="title_section">Lenovo A6000 update failure</div>
+            </div>
+
+            <div class="post">
+                <p><strong>&lt;rant&gt;</strong></p>
+
+<p>My wife has Lenovo A6000 phone and she is one of the early adopters of it mainly because of the brand name and ofcourse
+because of its competitive pricing. It did not take long to regret her decision</p>
+
+<p>All it took for Lenovo to make millions of its customers to reach this sentiment is a software update to upgrade to Android Lollipop</p>
+
+<p>The infamous lollipop update for A6000 literally made the phone to crawl like a snail. It was a pain to place or receive a call because of the delay in every touch and every tap.</p>
+
+<p>But lenovo proved that anything worse can be made even worse by releasing another update (with more promises) that does not even install and shoves this message on your face when you try to update</p>
+
+<h2><strong>&quot;Your phone was unable to change carrier and cannot upgrade&quot;</strong></h2>
+
+<p>What does that even mean? So, Lenovo is expecting me to run to service centers for OTA updates?</p>
+
+<p><strong>&lt;/rant&gt;</strong></p>
+
+<hr/>
+
+<p><strong>&lt;solution&gt;</strong></p>
+
+<p>The error message actually means, the phone&#39;s carrier configuration is not set to the country for which the OTA was downloaded (<em>Don&#39;t ask me how. I don&#39;t know</em>)</p>
+
+<p>Open your A6000 dialer and type <strong>####6020#</strong> which will open the carrier configuration app and shows something like this</p>
+
+<figure style="text-align: center">
+    <img style="width: 50%" src="/assets/carrier-configuration.jpg"/>
+</figure>
+
+<p>You will be seeing <strong>Default</strong> instead of India and that is why your OTA update does not install</p>
+
+<p>Disclaimer: I am going to give you an idea of how it can be fixed but you still need to hunt around to find the right files to do the fix</p>
+
+<ol>
+<li>To change the carrier configuration to India, you have to find the file (<pre style="display: inline">India.ota.zip</pre>) that comes with full installation of android OS for Lenovo A6000. Remember the current phone software version should be downloaded which will named like <code style="display: inline">Kraft-A6000_S058_151030_xxxx.zip</code></li>
+<li>Copy this India.ota.zip file to SD card</li>
+<li>Shutdown your phone</li>
+<li>Start it in recovery mode (By pressing Volume up and power button together then selecting recovery in the displayed menu)</li>
+<li>Browse to &quot;install update from SD card&quot; (By pressing volume down button to select and pressing power button to select)</li>
+<li>Select the copied file <pre style="display: inline">India.ota.zip</pre> and install</li>
+<li>After the phone restarts, if you type again ####6020# in dialer you should see <strong>India</strong> instead of &quot;Default&quot;</li>
+</ol>
+
+<p>Now, if you do OTA update, it will go through successfully</p>
+
+<p><strong>&lt;/solution&gt;</strong></p>
+
+<p>After all this pain, the latest update really fixed the obvious issues and now the phone is back to the state where it is usable. Delayed but promised delivered by Lenovo</p>
+
+            </div>
+
+
+        </div>
+        <div class="right"></div>
+    </div>
+</div>
+
+<script>
+    initPost();
+</script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-26664903-1', 'rsudhakar.in');
+    ga('send', 'pageview');
+</script>
+</body>
+</html>

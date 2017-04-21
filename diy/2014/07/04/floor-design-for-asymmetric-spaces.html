@@ -1,61 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Sudhakar's Blog</title>
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-    <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
-    <link rel="stylesheet" href="/css/fontello.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/list.css">
-    <link rel="stylesheet" href="/css/post.css">
-    <link rel="stylesheet" href="/css/drawing_theme.css">
-
-    <script src="/scripts/jquery-1.10.2.js"></script>
-    <script src="/scripts/underscore-min.js"></script>
-    <script src="/scripts/default.js"></script>
+    <link rel="stylesheet" href="/main.css">
     <script src="/scripts/post.js"></script>
 </head>
 
-<body class="drawing_theme">
-
-<div class="site_header">
-    <i class="icon icon-art-gallery theme-selector"></i>
-    <i class="icon icon-home"></i>
-    <div class="blogger"><a href="https://twitter.com/SudhakarRay" target="_blank">Sudhakar R</a></div>
-
-    <div id="filter_dock">
-        <i
-          class="icon icon-programming selector" data-category="programming"></i><i
-          class="icon icon-cartoon selector" data-category="cartoon"></i><i
-          class="icon icon-visualization selector" data-category="visualization"></i><i
-          class="icon icon-social selector" data-category="social"></i><i
-          class="icon icon-diy selector" data-category="diy"></i><i
-          class="icon icon-deselect"></i>
+<body>
+    <div class="home">
+        <a class="icon-left-circle" onclick="homeHandler('diy')">Sudhakar Rayavaram</a>
     </div>
-
-</div>
-
-<div id="post_list">
-</div>
-
-<div id="post_backdrop">
-    <div id="post_container">
-        <div class="left"></div>
-        <div class="content">
-            <div class="post_heading">
-                <div class="date">04 Jul 2014</div>
-                <div class="title_section">How well can I design a floor plan for a Quad?</div>
-            </div>
-
-            <div class="post">
-                <p>I am always interested in designing floor plans. Plans that utilize every square feet efficiently and artistically. It took
+    <div id="post_backdrop">
+        <div id="post_container">
+            <div class="content">
+                <div class="post_heading">
+                    <div class="date">04 Jul 2014</div>
+                    <div class="title_section">How well can I design a floor plan for a Quad?</div>
+                </div>
+                <div class="post">
+                    <p>I am always interested in designing floor plans. Plans that utilize every square feet efficiently and artistically. It took
 me 4 months to finalized my home&#39;s plan with an architect and at the end of it he even got operated for some problem
 in his skull (hopefully I am not the reason for it). It is a rectangular plot of 60 X 40 feet and the design
 was for a duplex house with spacious drawing room, open kitchen and 4 bed rooms. Pretty usual stuff...</p>
@@ -73,34 +42,9 @@ a plot and started playing using a software tool call sweet home 3d.</p>
 <p>What you see on the top is two single BHK houses with separate balcony. Even thought the plan looks like square wave on one side,
  no single room will have a discontinuous wall.</p>
 
+                </div>
             </div>
-
-
         </div>
-        <div class="right"></div>
     </div>
-</div>
-
-<script>
-    initPost();
-</script>
-
-
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-26664903-1', 'rsudhakar.in');
-    ga('send', 'pageview');
-</script>
 </body>
 </html>

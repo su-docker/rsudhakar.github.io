@@ -1,66 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Sudhakar's Blog</title>
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-    <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
-    <link rel="stylesheet" href="/css/fontello.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/list.css">
-    <link rel="stylesheet" href="/css/post.css">
-    <link rel="stylesheet" href="/css/drawing_theme.css">
-
-    <script src="/scripts/jquery-1.10.2.js"></script>
-    <script src="/scripts/underscore-min.js"></script>
-    <script src="/scripts/default.js"></script>
+    <link rel="stylesheet" href="/main.css">
     <script src="/scripts/post.js"></script>
 </head>
 
-<body class="drawing_theme">
-
-<div class="site_header">
-    <i class="icon icon-art-gallery theme-selector"></i>
-    <i class="icon icon-home"></i>
-    <div class="blogger"><a href="https://twitter.com/SudhakarRay" target="_blank">Sudhakar R</a></div>
-
-    <div id="filter_dock">
-        <i
-          class="icon icon-programming selector" data-category="programming"></i><i
-          class="icon icon-cartoon selector" data-category="cartoon"></i><i
-          class="icon icon-visualization selector" data-category="visualization"></i><i
-          class="icon icon-social selector" data-category="social"></i><i
-          class="icon icon-diy selector" data-category="diy"></i><i
-          class="icon icon-deselect"></i>
+<body>
+    <div class="home">
+        <a class="icon-left-circle" onclick="homeHandler('programming')">Sudhakar Rayavaram</a>
     </div>
-
-</div>
-
-<div id="post_list">
-</div>
-
-<div id="post_backdrop">
-    <div id="post_container">
-        <div class="left"></div>
-        <div class="content">
-            <div class="post_heading">
-                <div class="date">29 Jan 2017</div>
-                <div class="title_section">Erlang concurrency</div>
-            </div>
-
-            <div class="post">
-                <p>Coming from a shared memory mutable objects world (java / ruby), understanding how erlang is dealing with concurrency was quite interesting
+    <div id="post_backdrop">
+        <div id="post_container">
+            <div class="content">
+                <div class="post_heading">
+                    <div class="date">29 Jan 2017</div>
+                    <div class="title_section">Erlang concurrency</div>
+                </div>
+                <div class="post">
+                    <p>Coming from a shared memory mutable objects world (java / ruby), understanding how erlang is dealing with concurrency was quite interesting
 to me. Here is what I found</p>
 
 <h2>Immutable Objects</h2>
 
-<p>In Erlang world all the objects are mutable. Meaning, once an object is created, it is not going to change. If you wanted to change it
+<p>In Erlang world all the objects are immutable. Meaning, once an object is created, it is not going to change. If you wanted to change it
 what you will get is another object but never the already created object is changed. Well, if you are thinking that it is not very efficient,
 the VM does use some tricks to keep it fast. </p>
 
@@ -98,34 +67,9 @@ across processes. The object is copied from one process to another if it is pass
 parallel</a>. Its per processes garbage collector design 
 also leads to no stop the world GC that will lead to unexpected delays across the processes</p>
 
+                </div>
             </div>
-
-
         </div>
-        <div class="right"></div>
     </div>
-</div>
-
-<script>
-    initPost();
-</script>
-
-
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-26664903-1', 'rsudhakar.in');
-    ga('send', 'pageview');
-</script>
 </body>
 </html>

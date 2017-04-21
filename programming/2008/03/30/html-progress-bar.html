@@ -1,61 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Sudhakar's Blog</title>
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-    <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
-    <link rel="stylesheet" href="/css/fontello.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/list.css">
-    <link rel="stylesheet" href="/css/post.css">
-    <link rel="stylesheet" href="/css/drawing_theme.css">
-
-    <script src="/scripts/jquery-1.10.2.js"></script>
-    <script src="/scripts/underscore-min.js"></script>
-    <script src="/scripts/default.js"></script>
+    <link rel="stylesheet" href="/main.css">
     <script src="/scripts/post.js"></script>
 </head>
 
-<body class="drawing_theme">
-
-<div class="site_header">
-    <i class="icon icon-art-gallery theme-selector"></i>
-    <i class="icon icon-home"></i>
-    <div class="blogger"><a href="https://twitter.com/SudhakarRay" target="_blank">Sudhakar R</a></div>
-
-    <div id="filter_dock">
-        <i
-          class="icon icon-programming selector" data-category="programming"></i><i
-          class="icon icon-cartoon selector" data-category="cartoon"></i><i
-          class="icon icon-visualization selector" data-category="visualization"></i><i
-          class="icon icon-social selector" data-category="social"></i><i
-          class="icon icon-diy selector" data-category="diy"></i><i
-          class="icon icon-deselect"></i>
+<body>
+    <div class="home">
+        <a class="icon-left-circle" onclick="homeHandler('programming')">Sudhakar Rayavaram</a>
     </div>
-
-</div>
-
-<div id="post_list">
-</div>
-
-<div id="post_backdrop">
-    <div id="post_container">
-        <div class="left"></div>
-        <div class="content">
-            <div class="post_heading">
-                <div class="date">30 Mar 2008</div>
-                <div class="title_section">Progress bar in HTML</div>
-            </div>
-
-            <div class="post">
-                <p>When I was creating a simple google widget for our office coffee club, I thought of showing current inventory status with a progress bar.
+    <div id="post_backdrop">
+        <div id="post_container">
+            <div class="content">
+                <div class="post_heading">
+                    <div class="date">30 Mar 2008</div>
+                    <div class="title_section">Progress bar in HTML</div>
+                </div>
+                <div class="post">
+                    <p>When I was creating a simple google widget for our office coffee club, I thought of showing current inventory status with a progress bar.
 To my surprise, I was not able to google any simple html/javascript code for it. All I found was hefty javascripts which does a zillion things to display just a progress bar. Creating a progress bar should not be that hard…
 So, I googled harder, but no use.</p>
 
@@ -100,34 +69,9 @@ So, I googled harder, but no use.</p>
 <p><strong>Logic:</strong> Whenever the setPercent() method is called, the javascript will get the right div tag, calculates and sets the
 width of image inside it based on the current div tags width and percent complete. Simple right?</p>
 
+                </div>
             </div>
-
-
         </div>
-        <div class="right"></div>
     </div>
-</div>
-
-<script>
-    initPost();
-</script>
-
-
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-26664903-1', 'rsudhakar.in');
-    ga('send', 'pageview');
-</script>
 </body>
 </html>

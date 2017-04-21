@@ -1,61 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Sudhakar's Blog</title>
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
-    <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
-    <link rel="stylesheet" href="/css/fontello.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/list.css">
-    <link rel="stylesheet" href="/css/post.css">
-    <link rel="stylesheet" href="/css/drawing_theme.css">
-
-    <script src="/scripts/jquery-1.10.2.js"></script>
-    <script src="/scripts/underscore-min.js"></script>
-    <script src="/scripts/default.js"></script>
+    <link rel="stylesheet" href="/main.css">
     <script src="/scripts/post.js"></script>
 </head>
 
-<body class="drawing_theme">
-
-<div class="site_header">
-    <i class="icon icon-art-gallery theme-selector"></i>
-    <i class="icon icon-home"></i>
-    <div class="blogger"><a href="https://twitter.com/SudhakarRay" target="_blank">Sudhakar R</a></div>
-
-    <div id="filter_dock">
-        <i
-          class="icon icon-programming selector" data-category="programming"></i><i
-          class="icon icon-cartoon selector" data-category="cartoon"></i><i
-          class="icon icon-visualization selector" data-category="visualization"></i><i
-          class="icon icon-social selector" data-category="social"></i><i
-          class="icon icon-diy selector" data-category="diy"></i><i
-          class="icon icon-deselect"></i>
+<body>
+    <div class="home">
+        <a class="icon-left-circle" onclick="homeHandler('programming')">Sudhakar Rayavaram</a>
     </div>
-
-</div>
-
-<div id="post_list">
-</div>
-
-<div id="post_backdrop">
-    <div id="post_container">
-        <div class="left"></div>
-        <div class="content">
-            <div class="post_heading">
-                <div class="date">30 Dec 2013</div>
-                <div class="title_section">Encoding MPEG-4 videos for S40 devices</div>
-            </div>
-
-            <div class="post">
-                <p>You bought a brand new phone with <a href="http://www.developer.nokia.com/Develop/Series_40/Platform/">S40 OS</a>
+    <div id="post_backdrop">
+        <div id="post_container">
+            <div class="content">
+                <div class="post_heading">
+                    <div class="date">30 Dec 2013</div>
+                    <div class="title_section">Encoding MPEG-4 videos for S40 devices</div>
+                </div>
+                <div class="post">
+                    <p>You bought a brand new phone with <a href="http://www.developer.nokia.com/Develop/Series_40/Platform/">S40 OS</a>
 and it promised all things like video playback for a dozen of formats like 3GPP formats (H.263), H.264/AVC, MPEG-4, WMV, ABC, blah blah.... great!
 So, you copy an MPEG-4 format video file and play it... Wham! &quot;Video Not Supported&quot;... What the... Your shiny new phone doesn&#39;t look that shiny anymore right?</p>
 
@@ -100,34 +69,9 @@ So you should install <a href="http://handbrake.fr/downloads2.php">HandbrakeCLI 
 
 <p>Play around with different values that suits your phone… Have fun!</p>
 
+                </div>
             </div>
-
-
         </div>
-        <div class="right"></div>
     </div>
-</div>
-
-<script>
-    initPost();
-</script>
-
-
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-26664903-1', 'rsudhakar.in');
-    ga('send', 'pageview');
-</script>
 </body>
 </html>

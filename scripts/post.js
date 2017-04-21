@@ -1,17 +1,3 @@
-function initPost() {
-    initPostsList();
-    //initIframe();
+function homeHandler(category) {
+    window.location.href = "/#" + category;
 }
-
-function initPostsList() {
-    $.get("/index.html", function (result) {
-        $("#post_list").replaceWith($(result).filter("#post_list"));
-        init();
-    });
-}
-
-//function initIframe() {
-//    _.each($('iframe'), function(iframe) {
-//        console.log($(iframe).attr("src"));
-//    });
-//}

@@ -16,15 +16,14 @@
     <div class="home">
         <a class="icon-left-circle" onclick="homeHandler('programming')">Sudhakar Rayavaram</a>
     </div>
-    <div id="post_backdrop">
-        <div id="post_container">
-            <div class="content">
-                <div class="post_heading">
-                    <div class="date">29 Jan 2017</div>
-                    <div class="title_section">Erlang concurrency</div>
-                </div>
-                <div class="post">
-                    <p>Coming from a shared memory mutable objects world (java / ruby), understanding how erlang is dealing with concurrency was quite interesting
+    
+    <div class="content">
+        <div class="post_heading">
+            <div class="date">29 Jan 2017</div>
+            <div class="title_section">Erlang concurrency</div>
+        </div>
+        <div class="post">
+            <p>Coming from a shared memory mutable objects world (java / ruby), understanding how erlang is dealing with concurrency was quite interesting
 to me. Here is what I found</p>
 
 <h2>Immutable Objects</h2>
@@ -34,7 +33,7 @@ what you will get is another object but never the already created object is chan
 the VM does use some tricks to keep it fast. </p>
 
 <figure style="text-align: center">
-    <img style="width:500px" src="/assets/immutability.jpg"/>
+    <img style="max-width:500px" src="/assets/immutability.jpg"/>
 </figure>
 
 <p>For Example, When you create a collection and add an item to it, a new collection is not created everytime.</p>
@@ -42,7 +41,7 @@ the VM does use some tricks to keep it fast. </p>
 <h2>Erlang Process</h2>
 
 <figure style="text-align: center">
-    <img style="width:600px" src="/assets/erlang-thread-processes.jpg"/>
+    <img style="max-width:600px" src="/assets/erlang-thread-processes.jpg"/>
 </figure>
 
 <p>An erlang process is a light weight unit of code execution and a single thread runs multiple processes preemptively. This means,
@@ -52,7 +51,7 @@ called. So, a single thread can run huge number of processes.</p>
 <h2>Memory Management</h2>
 
 <figure style="text-align: center">
-    <img style="width:600px" src="/assets/erlang-process.jpg"/>
+    <img style="max-width:600px" src="/assets/erlang-process.jpg"/>
 </figure>
 
 <p>Each process has a private stack, heap and shared heap (for big objects) and the garbage collection runs per process. You can read more about
@@ -67,9 +66,7 @@ across processes. The object is copied from one process to another if it is pass
 parallel</a>. Its per processes garbage collector design 
 also leads to no stop the world GC that will lead to unexpected delays across the processes</p>
 
-                </div>
-            </div>
         </div>
-    </div>
+    </div>    
 </body>
 </html>

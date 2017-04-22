@@ -16,15 +16,14 @@
     <div class="home">
         <a class="icon-left-circle" onclick="homeHandler('programming')">Sudhakar Rayavaram</a>
     </div>
-    <div id="post_backdrop">
-        <div id="post_container">
-            <div class="content">
-                <div class="post_heading">
-                    <div class="date">30 Dec 2013</div>
-                    <div class="title_section">Encoding MPEG-4 videos for S40 devices</div>
-                </div>
-                <div class="post">
-                    <p>You bought a brand new phone with <a href="http://www.developer.nokia.com/Develop/Series_40/Platform/">S40 OS</a>
+    
+    <div class="content">
+        <div class="post_heading">
+            <div class="date">30 Dec 2013</div>
+            <div class="title_section">Encoding MPEG-4 videos for S40 devices</div>
+        </div>
+        <div class="post">
+            <p>You bought a brand new phone with <a href="http://www.developer.nokia.com/Develop/Series_40/Platform/">S40 OS</a>
 and it promised all things like video playback for a dozen of formats like 3GPP formats (H.263), H.264/AVC, MPEG-4, WMV, ABC, blah blah.... great!
 So, you copy an MPEG-4 format video file and play it... Wham! &quot;Video Not Supported&quot;... What the... Your shiny new phone doesn&#39;t look that shiny anymore right?</p>
 
@@ -51,27 +50,25 @@ So you should install <a href="http://handbrake.fr/downloads2.php">HandbrakeCLI 
 
 <ol>
 <li>Install <a href="http://handbrake.fr/downloads2.php">HandbrakeCLI</a></li>
-<li><p>Open terminal and run the following command:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">HandBrakeCLI -e x264 --x264-profile baseline -X 176 --keep-display-aspect -r 15 -q 20 -B 64 -i input_file_path  -o output_file_path
-</code></pre></div>
+<li>Open terminal and run the following command:</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">HandBrakeCLI -e x264 --x264-profile baseline -X <span class="m">176</span> --keep-display-aspect -r <span class="m">15</span> -q <span class="m">20</span> -B <span class="m">64</span> -i input_file_path  -o output_file_path</code></pre></figure>
+
 <p>Where,</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">    -e x264                 -&gt; encoding format (x264 stands for MPEG-4)
     --x264-profile baseline -&gt; x264 profile (could also try &#39;main&#39; profile)
     -X 176                  –&gt; Maximum width of the video (I chose 176px)
     –Keep-display-aspect    –&gt; Maintains the aspect ratio of the input video
     -r 15                   –&gt; frame rate (check your phone specs for supported video playback frame rate.
-                               I chose 15 frames per second)
+                            I chose 15 frames per second)
     -q 20                   –&gt; Video quality (0 to 51 where 0 is for high quality and 51 for lowest.
-                               20 is standard definition)
+                            20 is standard definition)
     -B 64                   –&gt; Audio quality in bitrate (64 stands for 64kbps)
-</code></pre></div></li>
-</ol>
-
+</code></pre></div>
 <p>Play around with different values that suits your phone… Have fun!</p>
 
-                </div>
-            </div>
         </div>
-    </div>
+    </div>    
 </body>
 </html>

@@ -16,15 +16,14 @@
     <div class="home">
         <a class="icon-left-circle" onclick="homeHandler('programming')">Sudhakar Rayavaram</a>
     </div>
-    <div id="post_backdrop">
-        <div id="post_container">
-            <div class="content">
-                <div class="post_heading">
-                    <div class="date">17 Feb 2014</div>
-                    <div class="title_section">Externalize JDBI queries</div>
-                </div>
-                <div class="post">
-                    <p>Usual style of writing queries with <a href="http://jdbi.org/">JDBI</a> is to embed them in method level annotations like below</p>
+    
+    <div class="content">
+        <div class="post_heading">
+            <div class="date">17 Feb 2014</div>
+            <div class="title_section">Externalize JDBI queries</div>
+        </div>
+        <div class="post">
+            <p>Usual style of writing queries with <a href="http://jdbi.org/">JDBI</a> is to embed them in method level annotations like below</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span>     <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">WhyDao</span> <span class="o">{</span>
 <span class="lineno">2</span>         <span class="nd">@SqlQuery</span><span class="o">(</span><span class="s">&quot;select * from whytable where name = :name order by created_date&quot;</span><span class="o">)</span>
@@ -65,9 +64,7 @@ It takes in a subclass of <a href="http://jdbi.codehaus.org/maven_site/apidocs/o
 <p><strong>name</strong> parameter will contain the method name (in our case <strong>&#39;getWhys&#39;</strong>) which can be use to find the appropriate query string.
 <strong>Queries</strong> class is my custom singleton class which loads all the queries from external text file(s) containing sqls during bootstrap.</p>
 
-                </div>
-            </div>
         </div>
-    </div>
+    </div>    
 </body>
 </html>

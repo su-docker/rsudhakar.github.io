@@ -38,7 +38,6 @@ p {
   font-family: custom;
   src: url("/fonts/Aaargh.ttf"); }
 body {
-  background-image: url("/images/debut_dark.png");
   font-size: 14px; }
 
 h1.title {
@@ -764,9 +763,9 @@ h1.title {
 
 /* Literal.Number.Integer.Long */
 .side-panel {
+  transition: width 0.4s ease-in;
   width: 210px;
   box-sizing: border-box;
-  padding: 50px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -774,9 +773,25 @@ h1.title {
   background-color: rgba(255, 255, 255, 0.2);
   overflow: auto;
   color: white; }
+  .side-panel .control {
+    transition: all 0.3s ease-out;
+    position: absolute;
+    right: -18px;
+    top: 5px;
+    font-size: 2.2rem;
+    cursor: pointer; }
+    .side-panel .control i:before {
+      transition: transform 0.3s; }
   .side-panel .name {
     font-size: 1.6rem;
-    padding: 20px 20px 50px 20px; }
+    padding: 70px 20px 50px 20px; }
+    .side-panel .name .first {
+      display: inline-block;
+      transition: all 0.3s;
+      transform-origin: 50% 175%; }
+    .side-panel .name .last {
+      transition: opacity 0.2s 0.3s;
+      opacity: 1; }
   .side-panel .categories {
     font-size: 0.7rem; }
     .side-panel .categories i {
@@ -784,7 +799,8 @@ h1.title {
       position: relative;
       cursor: pointer;
       padding: 10px 20px;
-      transition: transform 0.3s; }
+      white-space: nowrap;
+      transition: transform 0.3s, padding 0.3s; }
       .side-panel .categories i:before {
         font-size: 1.8rem;
         vertical-align: middle;
@@ -797,8 +813,28 @@ h1.title {
         background-color: rgba(0, 0, 0, 0.45); }
         .side-panel .categories i.selected:hover {
           transform: none; }
-  .side-panel.brief {
-    color: black; }
+      .side-panel .categories i span {
+        transition: opacity 0.3s 0.2s ease-out;
+        opacity: 1; }
+  .side-panel.collapse {
+    transition: width 0.4s ease-out;
+    width: 60px; }
+    .side-panel.collapse .control {
+      right: -16px; }
+      .side-panel.collapse .control i:before {
+        transform: rotate(180deg); }
+    .side-panel.collapse .name .first {
+      transition: all 0.3s 0.2s;
+      transform: rotate(-90deg);
+      font-size: 75%; }
+    .side-panel.collapse .name .last {
+      transition: opacity 0.2s;
+      opacity: 0; }
+    .side-panel.collapse .categories i {
+      padding: 10px 10px; }
+      .side-panel.collapse .categories i span {
+        transition: opacity 0.3s ease-in;
+        opacity: 0; }
 
 .home a {
   margin-left: -9px;
@@ -809,68 +845,69 @@ h1.title {
     font-size: 3rem;
     vertical-align: middle; }
 
-#post_backdrop {
-  min-height: 100%;
-  background-color: white; }
-  #post_backdrop #post_container {
-    max-width: 930px;
-    margin: 0 auto; }
-    #post_backdrop #post_container ol, #post_backdrop #post_container ul {
-      padding: 0 20px; }
-    #post_backdrop #post_container .content {
-      box-sizing: border-box;
-      height: 100%;
-      padding: 10px 25px; }
-    #post_backdrop #post_container .post {
-      margin-top: 35px;
-      margin-bottom: 150px;
-      font-size: 1.2rem;
-      line-height: 2.2rem;
-      -ms-word-wrap: break-word;
-      word-wrap: break-word; }
-      #post_backdrop #post_container .post table {
-        border-collapse: collapse; }
-        #post_backdrop #post_container .post table tr:hover {
-          background-color: rgba(0, 0, 0, 0.1); }
-        #post_backdrop #post_container .post table td {
-          border: 1px solid #959595;
-          margin: 0;
-          padding: 5px; }
-      #post_backdrop #post_container .post figure {
-        display: inline-block;
-        text-align: center;
-        width: 100%; }
-        #post_backdrop #post_container .post figure img {
-          width: 90%; }
-      #post_backdrop #post_container .post figure.highlight {
-        text-align: left; }
-      #post_backdrop #post_container .post figcaption {
-        text-align: center;
-        color: #747474; }
-    #post_backdrop #post_container iframe {
-      border: 1px solid gray;
-      padding-top: 20px; }
+.content {
+  box-sizing: border-box;
+  max-width: 930px;
+  margin: 0 auto;
+  padding: 10px 25px; }
+  .content .post_heading .title_section {
+    font-size: 46px;
+    text-align: center;
+    padding: 60px 10px 10px 10px; }
+  .content .post_heading .date {
+    padding-top: 30px;
+    text-align: center; }
+  .content ol, .content ul {
+    padding: 0 20px; }
+  .content .post {
+    margin-top: 35px;
+    margin-bottom: 150px;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word; }
+    .content .post pre {
+      overflow: auto; }
+    .content .post table {
+      border-collapse: collapse; }
+      .content .post table tr:hover {
+        background-color: rgba(0, 0, 0, 0.1); }
+      .content .post table td {
+        border: 1px solid #959595;
+        margin: 0;
+        padding: 5px; }
+    .content .post figure {
+      overflow: auto; }
+      .content .post figure img {
+        width: 90%; }
+    .content .post figure.highlight {
+      text-align: left; }
+    .content .post figcaption {
+      text-align: center;
+      color: #747474; }
+  .content iframe {
+    border: 1px solid gray;
+    padding-top: 20px; }
 
-.post_heading .title_section {
-  font-size: 46px;
-  text-align: center;
-  padding: 60px 10px 10px 10px; }
-.post_heading .date {
-  padding-top: 30px;
-  text-align: center; }
+body.list {
+  background-image: url("/images/debut_dark.png"); }
 
-#papers_container #papers {
+#papers {
   height: 100%;
-  margin: 50px auto 0px 200px;
-  text-align: center; }
-  #papers_container #papers .paper {
+  margin: 50px 50px auto 225px;
+  text-align: center;
+  transition: all 0.3s ease-out; }
+  #papers.expand {
+    margin: 50px 50px auto 75px; }
+  #papers .paper {
     position: relative;
     background-image: url("/images/paper.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
     width: 259px;
     height: 252px;
-    padding: 10px;
+    margin: 10px;
     display: inline-block;
     cursor: pointer;
     text-align: left;
@@ -882,23 +919,23 @@ h1.title {
     -o-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     color: black; }
-    #papers_container #papers .paper:hover {
+    #papers .paper:hover {
       transform: scale(1.1) !important; }
-    #papers_container #papers .paper.hide {
+    #papers .paper.hide {
       display: none; }
-    #papers_container #papers .paper .hidden {
+    #papers .paper .hidden {
       pointer-events: none; }
-    #papers_container #papers .paper .title {
+    #papers .paper .title {
       font-size: 1.7rem;
       font-style: italic;
       margin: 20px;
       display: block;
       pointer-events: none; }
-    #papers_container #papers .paper .icon {
+    #papers .paper .icon {
       margin: 20px;
       font-size: 1.5rem;
       float: right; }
-    #papers_container #papers .paper .post_date {
+    #papers .paper .post_date {
       display: block;
       margin: 20px;
       font-weight: bold; }

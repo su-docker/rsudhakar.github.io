@@ -1,7 +1,6 @@
 function init() {
-    console.log("initing...");
-    randomizeLayout();
-    initCategorySelector();
+    randomizeLayout();    
+    initSidePanel();
 }
 
 function randomizeLayout() {
@@ -21,6 +20,20 @@ function rotateRandomly(paper) {
     paper.css('-moz-transform', transform);
 }
 
+function initSidePanel() {
+    initShowHide();
+    initCategorySelector();
+}
+
+function initShowHide() {
+    $(".side-panel .control").click(function () {
+        $(".side-panel").toggleClass("collapse");
+        $("#papers").toggleClass("expand");
+    });
+    if (isMobile()) {
+        $(".side-panel .control").click();
+    }
+}
 
 function initCategorySelector() {
     $(".categories .icon").click(function (e) {
@@ -34,4 +47,8 @@ function initCategorySelector() {
     });
     var selector = (window.location.hash) ? ".icon-" + window.location.hash.substr(1) : ".icon-programming" 
     $(".categories "+selector).click();
+}
+
+function isMobile() {
+    return $(window).width() < 600;
 }

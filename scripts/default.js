@@ -1,54 +1,75 @@
-function init() {
-    randomizeLayout();    
-    initSidePanel();
-}
-
-function randomizeLayout() {
-    var papers = $('.paper');
-    for (var idx = 0; idx < papers.length; idx++) {
-        rotateRandomly($(papers[idx]));
+var Listing = function () {
+    function randomizeLayout() {
+        var papers = $('.paper');
+        for (var idx = 0; idx < papers.length; idx++) {
+            rotateRandomly($(papers[idx]));
+        }
     }
-}
-
-function rotateRandomly(paper) {
-    var rotation = (Math.random() * 20) - 10;
-    var transform = 'rotate(' + rotation + 'deg)';
-    paper.css('transform', transform);
-    paper.css('-webkit-transform', transform);
-    paper.css('-ms-transform', transform);
-    paper.css('-o-transform', transform);
-    paper.css('-moz-transform', transform);
-}
-
-function initSidePanel() {
-    initShowHide();
-    initCategorySelector();
-}
-
-function initShowHide() {
-    $(".side-panel .control").click(function () {
-        $(".side-panel").toggleClass("collapse");
-        $("#papers").toggleClass("expand");
-    });
-    if (isMobile()) {
-        $(".side-panel .control").click();
+    
+    function rotateRandomly(paper) {
+        var rotation = (Math.random() * 20) - 10;
+        var transform = 'rotate(' + rotation + 'deg)';
+        paper.css('transform', transform);
+        paper.css('-webkit-transform', transform);
+        paper.css('-ms-transform', transform);
+        paper.css('-o-transform', transform);
+        paper.css('-moz-transform', transform);
     }
-}
 
-function initCategorySelector() {
-    $(".categories .icon").click(function (e) {
-        var categorySelector = $(e.currentTarget);
-        var categoryName = categorySelector.data("category");
+    function filterByCategory() {
+        var categoryName = window.location.hash.substr(1) || "programming";
         $("#papers a").addClass("hide");
         $("#papers a." + categoryName).removeClass("hide");
         $(".categories .icon").removeClass("selected");
-        categorySelector.addClass("selected");
-        window.location.hash = categoryName;
-    });
-    var selector = (window.location.hash) ? ".icon-" + window.location.hash.substr(1) : ".icon-programming" 
-    $(".categories "+selector).click();
-}
+        $(".categories .icon-"+categoryName).addClass("selected");
+    }
+    
+    return {
+        init: function () {
+            randomizeLayout();
+            filterByCategory();
+            window.onhashchange = filterByCategory;
+            if (Utils.isMobile()) {
+                SidePanel.hide();
+            }
+        },
+    }   
+} ();
 
-function isMobile() {
-    return $(window).width() < 600;
-}
+var Post = function () {
+    return {
+        init: function () {
+            SidePanel.hide();
+            if (Utils.isMobile()) {
+                SidePanel.peek(true);
+                $(".post-container").addClass("expand");
+            }
+        }
+    }
+} ();
+
+var SidePanel = function () {
+    return {
+        show: function () {
+            $(".side-panel").removeClass("collapse");
+            $("#papers").removeClass("expand");
+        },
+        hide: function () {
+            $(".side-panel").addClass("collapse");
+            $("#papers").addClass("expand");
+        },
+        toggle: function () {
+            $(".side-panel").toggleClass("collapse");
+            $("#papers").toggleClass("expand");            
+        },
+        peek: function (state) {
+            state ? $(".side-panel").addClass("peek") : $(".side-panel").removeClass("peek");
+        }
+    }
+} ();
+
+var Utils = {
+    isMobile: function () {
+        return $(window).width() < 600;
+    }
+};

@@ -39,22 +39,22 @@
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">02 Sep 2007</div>
-            <div class="title_section">Vinayaka home screen for windows smartphone</div>
+            <div class="date">22 Apr 2017</div>
+            <div class="title_section">Configuring Jenkins Pipeline To Pause For User Input</div>
         </div>
         <div class="post">
-            <p>Ah!… Atlast the day has come… The day I could share the home screen I created for my windows mobile phone…
-Have a look at the screenshot below and feel free to use it in your windows mobile phones if you like it.</p>
+            <p>Jenkins community created a plugin called Blue Ocean that overhauled the user experience of Jenkins. And, It is awesome. 
+The UI looks clean, simple and visualizing the pipelines makes it easier to understand what is happening in case of any failure.</p>
 
-<div style="text-align: center">
-    <img src="/assets/vinayaka-homescreen.jpg"/>
-</div>
+<figure>
+    <img src="/assets/jenkins-pipeline.png" />
+</figure>
 
-<p>This home screen is based on the Hindu god named <a href="http://en.wikipedia.org/wiki/Ganesha">Ganesha/Vinayaka</a></p>
+<p>Let us take this simple pipeline. I don&#39;t want all the successful builds deployed to QA promoted automatically. 
+Someone should manually promote the selected build to staging and then to production (ofcourse)</p>
 
-<p>To download, click here -&gt; <s>Vinayaka.zip</s></p>
-
-<p>To Install, follow this post -&gt; <a href="/social/2007/09/01/windows-home-screen.html">Installation Instructions</a></p>
+<p>We can achive this by using the jenkins <a href="https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Milestone+Step+Plugin">milestone</a> plugin and 
+input prompt</p>
 
         </div>
     </div>

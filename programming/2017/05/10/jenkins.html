@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sudhakar's Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="/main.css">
+
+    <script src="/scripts/jquery-1.10.2.js"></script>
+    <script src="/scripts/underscore-min.js"></script>
+    <script src="/scripts/default.js"></script>
+</head>
+
+<body class="">
+
+    <div class="side-panel">
+    <div class="matter">
+        <div class="control" onclick="SidePanel.toggle()">
+            <i class="icon-left-circle"></i>
+        </div>
+        <div class="name">
+            <span class="first">Sudhakar</span>
+            <span class="last">Rayavaram</span>        
+        </div>
+        <div class="categories">
+            <a class="icon icon-programming" href="/#programming"><span>Programmer</span></a>
+            <a class="icon icon-cartoon" href="/#cartoon"><span>Cartoonist</span></a>
+            <a class="icon icon-visualization" href="/#visualization"><span>Visualizer</span></a>
+            <a class="icon icon-social" href="/#social"><span>Social</span></a>
+            <a class="icon icon-diy" href="/#diy"><span>DIY</span></a>
+        </div>
+    </div>
+</div>  
+
+    <div class="post-container">
+    <div class="content">
+        <div class="post_heading">
+            <div class="date">10 May 2017</div>
+            <div class="title_section">Configuring Jenkins Pipeline With Checkpoint</div>
+        </div>
+        <div class="post">
+            <p>Jenkins community created a plugin called Blue Ocean that overhauled the user experience of Jenkins. And, It is awesome.
+The UI looks clean, simple and visualizing the pipelines makes it easier to understand what is happening in case of any failure.
+But, it is not complete</p>
+
+<figure>
+    <img src="/assets/jenkins-pipeline-1.png" />
+</figure>
+
+<p>Let us take this simple pipeline. I don&#39;t want all the successful builds deployed to QA automatically.
+Someone should manually promote them. There is no out-of-the-box way to do this in Jenkins community version. A plugin called
+ <a href="https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Milestone+Step+Plugin">milestone</a> should be used in tandem with
+ input prompt as shown below</p>
+
+<figure class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="lineno"> 1</span> <span class="n">node</span> <span class="o">{</span>
+<span class="lineno"> 2</span>     <span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Build&#39;</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 3</span>       <span class="n">checkout</span> <span class="n">scm</span>
+<span class="lineno"> 4</span>       <span class="o">...</span>
+<span class="lineno"> 5</span>     <span class="o">}</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span>     <span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Test&#39;</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8</span>       <span class="n">echo</span> <span class="s1">&#39;Running tests&#39;</span>
+<span class="lineno"> 9</span>       <span class="o">...</span>
+<span class="lineno">10</span>       <span class="n">milestone</span><span class="o">()</span>
+<span class="lineno">11</span>     <span class="o">}</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span>     <span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Confirm Deployment&#39;</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">14</span>       <span class="n">echo</span> <span class="s1">&#39;Getting confirmation for deployment&#39;</span>
+<span class="lineno">15</span>     <span class="o">}</span>
+<span class="lineno">16</span> <span class="o">}</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span> <span class="n">input</span> <span class="s2">&quot;Deploy to QA box?&quot;</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span> <span class="n">node</span> <span class="o">{</span>
+<span class="lineno">21</span>   <span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Deploy to QA&#39;</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">22</span>     <span class="n">milestone</span><span class="o">()</span>
+<span class="lineno">23</span>     <span class="n">lock</span><span class="o">(</span><span class="s1">&#39;QADeploy&#39;</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">24</span>       <span class="err">#</span><span class="n">Scripts</span> <span class="k">for</span> <span class="n">deployment</span><span class="err">#</span>
+<span class="lineno">25</span>     <span class="o">}</span>
+<span class="lineno">26</span>   <span class="o">}</span>
+<span class="lineno">27</span> <span class="o">}</span></code></pre></figure>
+
+
+milestone() method is called first in 'Test' stage and then in the 'Deploy to QA' stage. If you notice, the call to get user
+confirmation (input command) is between the two. This way, whichever run that reaches the second milestone will continue and
+thus, terminating the other runs
+
+<br/><br/>
+<figure>
+    <img src="/assets/jenkins-pipeline-2.png" />
+</figure>
+
+<p>Note: You should not have the &#39;input&#39; command inside the &#39;node&#39; block. Or otherwise, the jenkins worker process will be locked till user intervenes</p>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    Post.init();
+</script>
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-26664903-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>

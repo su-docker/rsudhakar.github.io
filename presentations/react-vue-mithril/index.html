@@ -1,0 +1,72 @@
+
+<html>
+  <head>
+    <style>
+      body {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .controls {
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        width: 100%;
+      }
+      .controls span {
+        background-color: #EEE;
+        border: 1px solid grey;
+        border-radius: 50%;
+        padding: 6px 10px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+    </style>
+    <script type="text/javascript">
+      var max = 16; //Change here
+      var current = 1;
+      function navigate(e) {
+        if(e.key == 'ArrowRight') {
+          next();
+        } else if(e.key == 'ArrowLeft') {
+          prev();
+        }
+
+      }
+      function next() {
+        if(current < max) {
+          current++;
+          render();
+        }
+      }
+      function prev(e) {
+        if(current > 1) {
+          current--;
+          render();
+        }
+      }
+      function render() {
+        document.body.style="background-image: url('"+current+".jpeg')" //Change here
+      }
+    </script>
+  </head>
+
+  <body onkeyup="navigate(event)">
+    <div class="controls">
+      <span class="left" onclick="prev()">&lt;</span> 
+      <span class="right" onclick="next()">&gt;</span>
+    </div>
+    <script type="text/javascript">
+      render();
+    </script>
+  </body>
+</html>

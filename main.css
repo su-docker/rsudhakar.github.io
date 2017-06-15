@@ -878,9 +878,10 @@ h1.title {
         margin: 0;
         padding: 5px; }
     .post-container .content .post figure {
-      overflow: auto; }
+      overflow: auto;
+      text-align: center; }
       .post-container .content .post figure img {
-        width: 90%; }
+        max-width: 90%; }
     .post-container .content .post figure.highlight {
       text-align: left; }
     .post-container .content .post figcaption {

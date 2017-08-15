@@ -7,7 +7,7 @@ var Listing = function () {
     }
     
     function rotateRandomly(paper) {
-        var rotation = (Math.random() * 20) - 10;
+        var rotation = (Math.random() * 10) - 5;
         var transform = 'rotate(' + rotation + 'deg)';
         paper.css('transform', transform);
         paper.css('-webkit-transform', transform);
@@ -20,13 +20,20 @@ var Listing = function () {
         var categoryName = window.location.hash.substr(1) || "programming";
         $("#papers a").addClass("hide");
         $("#papers a." + categoryName).removeClass("hide");
-        $(".categories .icon").removeClass("selected");
-        $(".categories .icon-"+categoryName).addClass("selected");
+        $(".categories .icn").removeClass("selected");
+        $(".categories .icn-"+categoryName).addClass("selected");
+    }
+
+    function drawSquigglyPath() {
+        $("#papers svg path").each(function (i, path) {
+            $(path).attr("d", Squiggly.rectangle(10, 10, 250, 245));
+        });
     }
     
     return {
         init: function () {
             randomizeLayout();
+            drawSquigglyPath();
             filterByCategory();
             window.onhashchange = filterByCategory;
             if (Utils.isMobile()) {
@@ -57,13 +64,26 @@ var SidePanel = function () {
         hide: function () {
             $(".side-panel").addClass("collapse");
             $("#papers").addClass("expand");
+            $(".side-panel .details").hide();
         },
         toggle: function () {
             $(".side-panel").toggleClass("collapse");
-            $("#papers").toggleClass("expand");            
+            $("#papers").toggleClass("expand");
+            $(".side-panel .details").hide();
         },
         peek: function (state) {
             state ? $(".side-panel").addClass("peek") : $(".side-panel").removeClass("peek");
+        }
+    }
+} ();
+
+var MyDetails = function () {
+    return {
+        toggle: function () {
+            if (!$(".side-panel").hasClass('collapse')) {
+                $(".side-panel .details").toggle();
+                ga('send', 'event', 'MyName', 'view', 'MyDetails');
+            }
         }
     }
 } ();

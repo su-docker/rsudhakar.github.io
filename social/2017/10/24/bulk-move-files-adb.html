@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sudhakar's Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="/main.css">
+
+    <script src="/scripts/jquery-1.10.2.js"></script>
+    <script src="/scripts/underscore-min.js"></script>
+    <script src="/scripts/squiggly.js"></script>
+    <script src="/scripts/default.js"></script>
+</head>
+
+<body class="">
+
+    <div class="side-panel">
+    <div class="matter">
+        <div class="control" onclick="SidePanel.toggle()">
+            <i class="icon-left-circle"></i>
+        </div>
+        <div class="name" onclick="MyDetails.toggle()">
+            <span class="first">Sudhakar</span>
+            <span class="last">Rayavaram</span>        
+        </div>
+        <div class="details">
+            <div class="icons">
+                <a href="https://www.linkedin.com/in/sudhakar82" target="_blank"><img src="/images/linkedin-logo.png"/></a>
+                <a href="https://twitter.com/SudhakarRay" target="_blank"><img src="/images/twitter-logo.png"/></a>
+                <a href="https://stackoverflow.com/users/87918" target="_blank"><img src="/images/so-logo.png"/></a>
+                <a href="https://github.com/rsudhakar" target="_blank"><img src="/images/github-logo.png"/></a>
+                <a href="mailto:sudhakar82+online@gmail.com" target="_blank"><img src="/images/mail-logo.png"/></a>
+            </div>
+            <div class="highlt">
+                <div>Problem solver<i> (And maker)</i>, </div>
+                <div>Inquisitive<i> (Root to most of my problems)</i>, </div>
+                <div>Software craftsman <i>(Don't ask me for estimates)</i></div>
+            </div>
+            <p>Part of <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
+            <p>Technical Advisor for <a href="https://sportindia.in" target="_blank">SportIndia</a></p>
+        </div>
+        <div class="categories">
+            <a class="icn icn-programming" href="/#programming">
+                <img src="/images/programming.png"/>
+                <span>Programmer</span>
+            </a>
+            <a class="icn icn-cartoon" href="/#cartoon">
+                <img src="/images/cartoon.png"/>
+                <span>Cartoonist</span>
+            </a>
+            <a class="icn icn-visualization" href="/#visualization">
+                <img src="/images/visualization.png"/>
+                <span>Visualizer</span>
+            </a>
+            <a class="icn icn-social" href="/#social">
+                <img src="/images/social.png"/>
+                <span>Social</span>
+            </a>
+            <a class="icn icn-diy" href="/#diy">
+                <img src="/images/diy.png"/>
+                <span>DIY</span>
+            </a>
+        </div>
+    </div>
+</div>  
+
+    <div class="post-container">
+    <div class="content">
+        <div class="post_heading">
+            <div class="date">24 Oct 2017</div>
+            <div class="title_section">Bulk Transfer Files From Android Phone to Mac (Developer Style)</div>
+        </div>
+        <div class="post">
+            <p>It does not matter how big is the storage capacity of your android phone, you invariably will encounter the situation
+where there is not enough space left to binge record more pictures &amp; videos</p>
+
+<p><a href="https://www.android.com/filetransfer/">Android File Transfer</a> works but it has limited capabilities. Say if I want to 
+move only last year&#39;s videos, you have to manually select all of them by holding the shift key (which is a mind numbing job)</p>
+
+<p>Fortunately, Android Debug Bridge (adb) will give you command line access to android file system to do more powerful stuff like selecting 
+only last year&#39;s videos and copying them with a single command</p>
+
+<ol>
+<li>Install <a href="https://developer.android.com/studio/releases/platform-tools.html">SDK platform tools</a></li>
+<li>Unzip the download and add it to your path</li>
+<li>Enable &quot;Developer mode&quot; in your android along with usb debugging</li>
+<li>Connect your phone to mac and run command <code>adb shell</code></li>
+<li>Now, You will be inside phone&#39;s file system</li>
+<li>Find the path of the folder in which your videos to move are (using commands like ls &amp; cd)</li>
+<li>Exit from the shell (Ctrl+D)</li>
+<li>In your mac, Get into the folder where you wanted to copy the videos</li>
+<li>Run the command (it is a single command)</li>
+</ol>
+
+<p><code>adb shell &#39;ls /vidoes/folder/path/VID_2016*&#39; | tr -d &#39;\r&#39; | xargs -n1 adb pull</code></p>
+
+<p>It lists all the files in the path with file name starting with &#39;VID_2016&#39; and removes the &#39;\r&#39; character at the end of the line and passes each line to adb pull</p>
+
+<p>Now you can again get into phone file system using <code>adb shell</code> and remove the already copied files</p>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    Post.init();
+</script>
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-26664903-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>

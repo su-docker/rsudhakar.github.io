@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sudhakar's Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="/main.css">
+
+    <script src="/scripts/jquery-1.10.2.js"></script>
+    <script src="/scripts/underscore-min.js"></script>
+    <script src="/scripts/squiggly.js"></script>
+    <script src="/scripts/default.js"></script>
+</head>
+
+<body class="">
+
+    <div class="side-panel">
+    <div class="matter">
+        <div class="control" onclick="SidePanel.toggle()">
+            <i class="icon-left-circle"></i>
+        </div>
+        <div class="name" onclick="MyDetails.toggle()">
+            <span class="first">Sudhakar</span>
+            <span class="last">Rayavaram</span>        
+        </div>
+        <div class="details">
+            <div class="icons">
+                <a href="https://www.linkedin.com/in/sudhakar82" target="_blank"><img src="/images/linkedin-logo.png"/></a>
+                <a href="https://twitter.com/SudhakarRay" target="_blank"><img src="/images/twitter-logo.png"/></a>
+                <a href="https://stackoverflow.com/users/87918" target="_blank"><img src="/images/so-logo.png"/></a>
+                <a href="https://github.com/rsudhakar" target="_blank"><img src="/images/github-logo.png"/></a>
+                <a href="mailto:sudhakar82+online@gmail.com" target="_blank"><img src="/images/mail-logo.png"/></a>
+            </div>
+            <div class="highlt">
+                <div>Problem solver<i> (And maker)</i>, </div>
+                <div>Inquisitive<i> (Root to most of my problems)</i>, </div>
+                <div>Software craftsman <i>(Don't ask me for estimates)</i></div>
+            </div>
+            <p>Part of <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
+            <p>Technical Advisor for <a href="https://sportindia.in" target="_blank">SportIndia</a></p>
+        </div>
+        <div class="categories">
+            <a class="icn icn-programming" href="/#programming">
+                <img src="/images/programming.png"/>
+                <span>Programmer</span>
+            </a>
+            <a class="icn icn-cartoon" href="/#cartoon">
+                <img src="/images/cartoon.png"/>
+                <span>Cartoonist</span>
+            </a>
+            <a class="icn icn-visualization" href="/#visualization">
+                <img src="/images/visualization.png"/>
+                <span>Visualizer</span>
+            </a>
+            <a class="icn icn-social" href="/#social">
+                <img src="/images/social.png"/>
+                <span>Social</span>
+            </a>
+            <a class="icn icn-diy" href="/#diy">
+                <img src="/images/diy.png"/>
+                <span>DIY</span>
+            </a>
+        </div>
+    </div>
+</div>  
+
+    <div class="post-container">
+    <div class="content">
+        <div class="post_heading">
+            <div class="date">01 Feb 2018</div>
+            <div class="title_section">Battle with certbot auto in amazon linux instance</div>
+        </div>
+        <div class="post">
+            <p>One of my cloud server is an amazon linux instance with certbot installed for letsencrypt certificates. Unfortunately, certbot is not fully supported in amazon linux and the suggestion is to run certbot in --debug mode</p>
+
+<p>I was quite successful for around an year to renew certifiates without much problems. But, not today</p>
+
+<p>I started the ritual by running the following command. sudo is needed as certbot needs to have more control to modify, edit files, start &amp; stop servers</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">sudo /usr/local/bin/certbot-auto --nginx certonly --debug</code></pre></figure>
+
+<p>Bam! Greeted with this cryptic (for me) error</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno"> 1</span> Error: couldn<span class="err">&#39;</span>t get currently installed version <span class="k">for</span> /opt/eff.org/certbot/venv/bin/letsencrypt:
+<span class="lineno"> 2</span> Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+<span class="lineno"> 3</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/bin/letsencrypt&quot;</span>, line 7, in &lt;module&gt;
+<span class="lineno"> 4</span>     from certbot.main import main
+<span class="lineno"> 5</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/certbot/main.py&quot;</span>, line 10, in &lt;module&gt;
+<span class="lineno"> 6</span>     import josepy as jose
+<span class="lineno"> 7</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/josepy/__init__.py&quot;</span>, line 41, in &lt;module&gt;
+<span class="lineno"> 8</span>     from josepy.interfaces import JSONDeSerializable
+<span class="lineno"> 9</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/josepy/interfaces.py&quot;</span>, line 8, in &lt;module&gt;
+<span class="lineno">10</span>     from josepy import errors, util
+<span class="lineno">11</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/josepy/util.py&quot;</span>, line 4, in &lt;module&gt;
+<span class="lineno">12</span>     import OpenSSL
+<span class="lineno">13</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/OpenSSL/__init__.py&quot;</span>, line 8, in &lt;module&gt;
+<span class="lineno">14</span>     from OpenSSL import rand, crypto, SSL
+<span class="lineno">15</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/OpenSSL/rand.py&quot;</span>, line 12, in &lt;module&gt;
+<span class="lineno">16</span>     from OpenSSL._util import <span class="o">(</span>
+<span class="lineno">17</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/OpenSSL/_util.py&quot;</span>, line 6, in &lt;module&gt;
+<span class="lineno">18</span>     from cryptography.hazmat.bindings.openssl.binding import Binding
+<span class="lineno">19</span> ImportError: No module named cryptography.hazmat.bindings.openssl.binding</code></pre></figure>
+
+<p>Ok, I don&#39;t understand what I can do about certbot not able to get currently installed version. But the last line gave the clue. After some googling I found that cryptography package is missing! But how did it work the last time (3 months before)? I still do not know</p>
+
+<p>Amazon linux instance comes installed with python 2.7 and based on the error, I went ahead and installed the cryptography package. But, it did not fix the issue. This is where it got super confusing</p>
+
+<p>After breaking my head with google for a very long time, I realized that certbot will not use the default python installation but downloads its own copy to this location</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">/opt/eff.org/certbot/venv/bin</code></pre></figure>
+
+<p>After installing the cryptography package for this python, things started to look bright.</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd </span>to /opt/eff.org/certbot/venv/local/bin
+sudo ./pip install cryptography</code></pre></figure>
+
+<p>It did not work, but it atleast showed a different error message :)</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno"> 1</span> sudo /usr/local/bin/certbot-auto --nginx certonly --debug
+<span class="lineno"> 2</span> Error: couldn<span class="s1">&#39;t get currently installed version for /opt/eff.org/certbot/venv/bin/letsencrypt:</span>
+<span class="lineno"> 3</span> <span class="s1">Traceback (most recent call last):</span>
+<span class="lineno"> 4</span> <span class="s1">  File &quot;/opt/eff.org/certbot/venv/bin/letsencrypt&quot;, line 7, in &lt;module&gt;</span>
+<span class="lineno"> 5</span> <span class="s1">    from certbot.main import main</span>
+<span class="lineno"> 6</span> <span class="s1">  File &quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/certbot/main.py&quot;, line 11, in &lt;module&gt;</span>
+<span class="lineno"> 7</span> <span class="s1">    import zope.component</span>
+<span class="lineno"> 8</span> <span class="s1">  File &quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/zope/component/__init__.py&quot;, line 16, in &lt;module&gt;</span>
+<span class="lineno"> 9</span> <span class="s1">    from zope.interface import Interface</span>
+<span class="lineno">10</span> <span class="s1">ImportError: No module named interface</span>
+<span class="lineno">11</span> <span class="s1">[ec2-user@ip-172-31-20-177 bin]$ /usr/local/bin/certbot-auto --nginx certonly --debug</span>
+<span class="lineno">12</span> <span class="s1">Requesting to rerun /usr/local/bin/certbot-auto with root privileges...</span>
+<span class="lineno">13</span> <span class="s1">Error: couldn&#39;</span>t get currently installed version <span class="k">for</span> /opt/eff.org/certbot/venv/bin/letsencrypt:
+<span class="lineno">14</span> Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+<span class="lineno">15</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/bin/letsencrypt&quot;</span>, line 7, in &lt;module&gt;
+<span class="lineno">16</span>     from certbot.main import main
+<span class="lineno">17</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/certbot/main.py&quot;</span>, line 11, in &lt;module&gt;
+<span class="lineno">18</span>     import zope.component
+<span class="lineno">19</span>   File <span class="s2">&quot;/opt/eff.org/certbot/venv/local/lib/python2.7/dist-packages/zope/component/__init__.py&quot;</span>, line 16, in &lt;module&gt;
+<span class="lineno">20</span>     from zope.interface import Interface
+<span class="lineno">21</span> ImportError: No module named interface</code></pre></figure>
+
+<p>This time it is zope.interface package. Again, I have no clue how it is gone</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">sudo ./pip install zope.interface</code></pre></figure>
+
+<p>After this, I was able to get the certificate renewed from letsencrypt. </p>
+
+<p>Was one hell of a ride. But, with a happy ending! :)</p>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    Post.init();
+</script>
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-26664903-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>

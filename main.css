@@ -897,6 +897,9 @@ h1.title {
       text-align: center; }
       .post-container .content .post figure img {
         max-width: 90%; }
+      .post-container .content .post figure div {
+        font-size: 12px;
+        font-weight: bold; }
     .post-container .content .post figure.highlight {
       text-align: left; }
     .post-container .content .post figcaption {

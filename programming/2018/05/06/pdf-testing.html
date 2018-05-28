@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sudhakar's Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="/main.css">
+
+    <script src="/scripts/jquery-1.10.2.js"></script>
+    <script src="/scripts/underscore-min.js"></script>
+    <script src="/scripts/squiggly.js"></script>
+    <script src="/scripts/default.js"></script>
+</head>
+
+<body class="">
+
+    <div class="side-panel">
+    <div class="matter">
+        <div class="control" onclick="SidePanel.toggle()">
+            <i class="icon-left-circle"></i>
+        </div>
+        <div class="name" onclick="MyDetails.toggle()">
+            <span class="first">Sudhakar</span>
+            <span class="last">Rayavaram</span>        
+        </div>
+        <div class="details">
+            <div class="icons">
+                <a href="https://www.linkedin.com/in/sudhakar82" target="_blank"><img src="/images/linkedin-logo.png"/></a>
+                <a href="https://twitter.com/SudhakarRay" target="_blank"><img src="/images/twitter-logo.png"/></a>
+                <a href="https://stackoverflow.com/users/87918" target="_blank"><img src="/images/so-logo.png"/></a>
+                <a href="https://github.com/rsudhakar" target="_blank"><img src="/images/github-logo.png"/></a>
+                <a href="mailto:sudhakar82+online@gmail.com" target="_blank"><img src="/images/mail-logo.png"/></a>
+            </div>
+            <div class="highlt">
+                <div>Problem solver<i> (And maker)</i>, </div>
+                <div>Inquisitive<i> (Root to most of my problems)</i>, </div>
+                <div>Software craftsman <i>(Don't ask me for estimates)</i></div>
+            </div>
+            <p>Part of <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
+            <p>Technical Advisor for <a href="https://sportindia.in" target="_blank">SportIndia</a></p>
+        </div>
+        <div class="categories">
+            <a class="icn icn-programming" href="/#programming">
+                <img src="/images/programming.png"/>
+                <span>Programmer</span>
+            </a>
+            <a class="icn icn-cartoon" href="/#cartoon">
+                <img src="/images/cartoon.png"/>
+                <span>Cartoonist</span>
+            </a>
+            <a class="icn icn-visualization" href="/#visualization">
+                <img src="/images/visualization.png"/>
+                <span>Visualizer</span>
+            </a>
+            <a class="icn icn-social" href="/#social">
+                <img src="/images/social.png"/>
+                <span>Social</span>
+            </a>
+            <a class="icn icn-diy" href="/#diy">
+                <img src="/images/diy.png"/>
+                <span>DIY</span>
+            </a>
+        </div>
+    </div>
+</div>  
+
+    <div class="post-container">
+    <div class="content">
+        <div class="post_heading">
+            <div class="date">06 May 2018</div>
+            <div class="title_section">Automated Testing of Generated PDFs</div>
+        </div>
+        <div class="post">
+            <p>Recently for one of our clients, we got an opportunity to build a PDF engine that generates PDFs on demand based on a configuration file that defines the layout and its contents like charts, images and paragraphs</p>
+
+<p>They are Ruby shop and wanted to build it in ruby so that their existing team can maintain it. We <a href="https://en.wikipedia.org/wiki/Spike_%28software_development%29">spiked</a> to see if their requirements will be met by <a href="https://github.com/prawnpdf/prawn">Prawn</a> (For creating new pages) &amp; <a href="https://hexapdf.gettalong.org/">HexaPdf</a> (For overlaying content in existing templates). It turned out to be successful</p>
+
+<p>So, we started building our PDF engine (as a ruby gem)</p>
+
+<figure>
+    <img style="width:250px" src="/assets/engine.png"/>
+    <div>We built a much simpler one of course :)</div>
+</figure>
+
+<p>After a month and a half of development with 99% unit test coverage (code base of approx 700 lines) our engine is ready. But writing integration tests were tricky because the engine’s outputs were PDFs and there were no ruby libraries for it. I loved Jest snapshot testing and thought something like that is what we want here</p>
+
+<h2>The Approach</h2>
+
+<p>Extracting the text and comparing is not effective as it will not ignore the layout, text positioning, colors, charts &amp; images. So my idea was to create an image snapshot of all the pages and compare it with the expected PDF image</p>
+
+<p>As you have guessed already, There is no better library to do image manipulation than <a href="http://imagemagick.org/script/index.php">ImageMagick</a> </p>
+
+<p>Step 1 : Create an image with all the pages in generated PDF</p>
+
+<pre>
+convert generated.pdf -alpha remove -resize 400 +append actual.jpg
+</pre>
+
+<ul>
+<li>+append will append the pages next to each other horizontally</li>
+<li>-alpha remove will give a white background color to the generated jpg</li>
+</ul>
+
+<figure>
+    <img src="/assets/pdf1.jpeg"/>
+    <div>Generated PDF image</div>
+</figure>
+
+<p>Step 2 : Do the same for the expected PDF</p>
+
+<figure>
+    <img src="/assets/pdf2.png"/>
+    <div>Expected PDF Image (It is hard to spot the differences by eyeballing)</div>
+</figure>
+
+<p>Step 3 : Create a diff image between the two</p>
+
+<pre>
+convert actual.jpg expected.jpg -alpha remove -compose difference -composite diff.jpg
+</pre>
+
+<ul>
+<li>-composite will overlap one image over the other</li>
+<li>-compose difference will find the diff between the two images pixel by pixel</li>
+</ul>
+
+<figure>
+    <img src="/assets/pdf3.jpeg"/>
+    <div>As you can see now, all the differences are highlighted in white and similar pixels are basically negated to zero (black)</div>
+</figure>
+
+<p>Step 4 : Find if there is any non-black color which indicates they differ</p>
+
+<pre>
+convert diff.jpg -define histogram:unique-colors=true -format %c histogram:info:-
+</pre>
+
+<ul>
+<li>-define historgram:unique-colors will return all the unique colors</li>
+</ul>
+
+<p>The return value of this will be a string with all the different colors separated by new line. Split it and see if the size is greater than 1 which means, there is a difference and fail the test</p>
+
+<p>To easily find out which page has the difference, I joined the diff image and the expected image and saved it when a test fails</p>
+
+<pre>
+convert -border 1 -append expected.jpg diff.jpg fail.jpg
+</pre>
+
+<ul>
+<li>fail.jpg is the ouput image shown below</li>
+</ul>
+
+<figure>
+    <img src="/assets/pdf4.jpeg"/>
+    <div>Image with expected on top and difference on the bottom</div>
+</figure>
+
+<p>Now, it is very easy to find out which part of the page and what has changed. Like any other snapshot testing, Either fix the issue or accept the changes by updating the expected.pdf</p>
+
+<p>Overall, This safety net helped us to catch the formatting and alignment issues with every code change and were able to generate PDFs with confidence</p>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    Post.init();
+</script>
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-26664903-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>

@@ -64,12 +64,10 @@ var SidePanel = function () {
         hide: function () {
             $(".side-panel").addClass("collapse");
             $("#papers").addClass("expand");
-            $(".side-panel .details").hide();
         },
         toggle: function () {
             $(".side-panel").toggleClass("collapse");
             $("#papers").toggleClass("expand");
-            $(".side-panel .details").hide();
         },
         peek: function (state) {
             state ? $(".side-panel").addClass("peek") : $(".side-panel").removeClass("peek");

@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/sudhakar82
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://sudhakar.dev
+  * I am sudhakar82 (https://keybase.io/sudhakar82) on keybase.
+  * I have a public key ASCA2twzIPLhUnh5MwZUHNdVVElcX76jcXO8nbnSuhpjBwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012080dadc3320f2e15278793306541cd75554495c5fbea37173bc9db9d2ba1a63070a",
+      "host": "keybase.io",
+      "kid": "012080dadc3320f2e15278793306541cd75554495c5fbea37173bc9db9d2ba1a63070a",
+      "uid": "9acb7692dbeee862ece8ff3b0dd6f219",
+      "username": "sudhakar82"
+    },
+    "merkle_root": {
+      "ctime": 1565672595,
+      "hash": "377675b41d834b830f8cea42ed675bc2cd955cfbcf3ec9b56a1333377d34a0b8c553cc70e36260caa751f68a66cef00de8482f842e56e843572863f561752c0f",
+      "hash_meta": "46537bc41b0039d280fe404d315220d5834d9699e71388f789479a1eb62b8970",
+      "seqno": 6001007
+    },
+    "service": {
+      "entropy": "uAwfuXQWpao377DTMdEo0ab6",
+      "hostname": "sudhakar.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.3.0"
+  },
+  "ctime": 1565672642,
+  "expire_in": 504576000,
+  "prev": "6f9694519c707ea958e865623019044f28cdef751d7a0ee9c0ee105e0fe31866",
+  "seqno": 22,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEggNrcMyDy4VJ4eTMGVBzXVVRJXF++o3FzvJ250roaYwcKp3BheWxvYWTESpcCFsQgb5aUUZxwfqlY6GViMBkETyjN73Udeg7pwO4QXg/jGGbEIJOHzzyiAXvrBh9eLWR0ROiKZqS4lAdIw6EjIsHbUg9VAgHCo3NpZ8RAbAyLimX5hxsFkshgDYLHhPKZWk/BQzVxuTxNADNr773JAqmVan537qaKsukgieRNwKxVwH4g5Xon/WmYO/ZzBqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEII6B0s6OX5uQKeJJYpexDyQHHl5B+TBRvp6b0IwfIPW2o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/sudhakar82
+
+==================================================================

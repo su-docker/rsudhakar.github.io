@@ -43,36 +43,14 @@
             <p>Works at <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
             <p>Tech guy behind <a href="https://sportindia.in" target="_blank">SportIndia.in</a></p>
         </div>
-        <div class="categories">
-            <a class="icn icn-programming" href="/#programming">
-                <img src="/images/programming.png"/>
-                <span>Programmer</span>
-            </a>
-            <a class="icn icn-cartoon" href="/#cartoon">
-                <img src="/images/cartoon.png"/>
-                <span>Cartoonist</span>
-            </a>
-            <a class="icn icn-visualization" href="/#visualization">
-                <img src="/images/visualization.png"/>
-                <span>Visualizer</span>
-            </a>
-            <a class="icn icn-social" href="/#social">
-                <img src="/images/social.png"/>
-                <span>Social</span>
-            </a>
-            <a class="icn icn-diy" href="/#diy">
-                <img src="/images/diy.png"/>
-                <span>DIY</span>
-            </a>
-        </div>
     </div>
 </div>  
 
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">22 May 2011</div>
             <div class="title_section">Installing RSA SecurID key in iPhone</div>
+            <div class="date">22 May 2011</div>
         </div>
         <div class="post">
             <p><em>Somethings in the world are not expected to work seamlessly and needs a blog post tutorial. Installing RSA SecureID key into your iPhone is one of them…</em></p>
@@ -80,25 +58,37 @@
 <p>RSA has <a href="http://itunes.apple.com/us/app/rsa-securid-software-token/id318038618?mt=8">this app</a> for iPhone to generate keys that is needed to login to corporate VPNs enabled through RSA.
 Installing it is easy. But, getting the key into it is not very straightforward. Well, No more… because you folks have this tutorial ;)</p>
 
-<p>Install the RSA app (linked above)&nbsp;into iPhone and get your RSA login key .sdtid file before doing the instructions below…</p>
+<p>Install the RSA app (linked above) into iPhone and get your RSA login key .sdtid file before doing the instructions below…</p>
 
 <ol>
-<li>Download the RSA’s <a href="http://www.emc.com/security/rsa-securid/rsa-securid-software-authenticators/converter.htm">TokenConverter tool</a>
+  <li>Download the RSA’s <a href="http://www.emc.com/security/rsa-securid/rsa-securid-software-authenticators/converter.htm">TokenConverter tool</a>
 (It will ask you for a valid email id and accept license agreement terms)</li>
-<li><p>Open your command prompt and run the following command from the folder where you have extracted TokenConverter tool
+  <li>
+    <p>Open your command prompt and run the following command from the folder where you have extracted TokenConverter tool
 (<em>some corporations will create your .sdtid file with a unique password. Type it in if you got your .sdtid file with a password</em>)</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">TokenConverter  -mobile -p
-</code></pre></div></li>
-<li><p>The above command when executed successfully should print a generated ctf string in the console. Copy it. It will look something like</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">com.rsa.securid://ctf?ctfData=2000119722625607285525965262252517630605010534242616025667355410
-</code></pre></div></li>
-<li><p>Compose a mail with a hyperlink pointing to the above copied url and send it to an account accessible from your iPhone. Sample:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;a href=&quot;com.rsa.securid://ctf?ctfData=2000119722625607285525965262252517630605010534242616025667355410&quot;&gt;
-Click here to install the key&lt;/a&gt;
-</code></pre></div></li>
-<li><p>Open this mail in your iPhone and click on the link to automatically load RSA SecurID application. It will start installing the token</p></li>
-<li><p>Goyala!!! It is done! You should be able to generate login tokens on the move from now</p></li>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> TokenConverter  -mobile -p
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>The above command when executed successfully should print a generated ctf string in the console. Copy it. It will look something like</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> com.rsa.securid://ctf?ctfData=2000119722625607285525965262252517630605010534242616025667355410
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Compose a mail with a hyperlink pointing to the above copied url and send it to an account accessible from your iPhone. Sample:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;a href="com.rsa.securid://ctf?ctfData=2000119722625607285525965262252517630605010534242616025667355410"&gt;
+ Click here to install the key&lt;/a&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Open this mail in your iPhone and click on the link to automatically load RSA SecurID application. It will start installing the token</p>
+  </li>
+  <li>Goyala!!! It is done! You should be able to generate login tokens on the move from now</li>
 </ol>
+
 
         </div>
     </div>

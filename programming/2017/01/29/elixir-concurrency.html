@@ -43,67 +43,45 @@
             <p>Works at <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
             <p>Tech guy behind <a href="https://sportindia.in" target="_blank">SportIndia.in</a></p>
         </div>
-        <div class="categories">
-            <a class="icn icn-programming" href="/#programming">
-                <img src="/images/programming.png"/>
-                <span>Programmer</span>
-            </a>
-            <a class="icn icn-cartoon" href="/#cartoon">
-                <img src="/images/cartoon.png"/>
-                <span>Cartoonist</span>
-            </a>
-            <a class="icn icn-visualization" href="/#visualization">
-                <img src="/images/visualization.png"/>
-                <span>Visualizer</span>
-            </a>
-            <a class="icn icn-social" href="/#social">
-                <img src="/images/social.png"/>
-                <span>Social</span>
-            </a>
-            <a class="icn icn-diy" href="/#diy">
-                <img src="/images/diy.png"/>
-                <span>DIY</span>
-            </a>
-        </div>
     </div>
 </div>  
 
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">29 Jan 2017</div>
             <div class="title_section">Erlang concurrency</div>
+            <div class="date">29 Jan 2017</div>
         </div>
         <div class="post">
             <p>Coming from a shared memory mutable objects world (java / ruby), understanding how erlang is dealing with concurrency was quite interesting
 to me. Here is what I found</p>
 
-<h2>Immutable Objects</h2>
+<h2 id="immutable-objects">Immutable Objects</h2>
 
 <p>In Erlang world all the objects are immutable. Meaning, once an object is created, it is not going to change. If you wanted to change it
 what you will get is another object but never the already created object is changed. Well, if you are thinking that it is not very efficient,
-the VM does use some tricks to keep it fast. </p>
+the VM does use some tricks to keep it fast.</p>
 
 <figure style="text-align: center">
-    <img style="max-width:500px" src="/assets/immutability.jpg"/>
+    <img style="max-width:500px" src="/assets/immutability.jpg" />
 </figure>
 
 <p>For Example, When you create a collection and add an item to it, a new collection is not created everytime.</p>
 
-<h2>Erlang Process</h2>
+<h2 id="erlang-process">Erlang Process</h2>
 
 <figure style="text-align: center">
-    <img style="max-width:600px" src="/assets/erlang-thread-processes.jpg"/>
+    <img style="max-width:600px" src="/assets/erlang-thread-processes.jpg" />
 </figure>
 
 <p>An erlang process is a light weight unit of code execution and a single thread runs multiple processes preemptively. This means,
 every process will be given time to run and will be suspended based on multiple conditions like IO block request or a specific count of methods 
 called. So, a single thread can run huge number of processes.</p>
 
-<h2>Memory Management</h2>
+<h2 id="memory-management">Memory Management</h2>
 
 <figure style="text-align: center">
-    <img style="max-width:600px" src="/assets/erlang-process.jpg"/>
+    <img style="max-width:600px" src="/assets/erlang-process.jpg" />
 </figure>
 
 <p>Each process has a private stack, heap and shared heap (for big objects) and the garbage collection runs per process. You can read more about
@@ -112,11 +90,11 @@ the garbage collector <a href="https://hamidreza-s.github.io/erlang%20garbage%20
 <p>There is no shared memory between the processes in erlang. This means, the VM does not need to worry about the same object being accessed
 across processes. The object is copied from one process to another if it is passed across</p>
 
-<h2>Summary</h2>
-
+<h2 id="summary">Summary</h2>
 <p>Erlang took an approach to not share memory across processes and kept it easy to swap out and in of execution to make it <a href="http://www.phoenixframework.org/blog/the-road-to-2-million-websocket-connections">crazy
 parallel</a>. Its per processes garbage collector design 
 also leads to no stop the world GC that will lead to unexpected delays across the processes</p>
+
 
         </div>
     </div>

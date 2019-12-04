@@ -43,36 +43,14 @@
             <p>Works at <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
             <p>Tech guy behind <a href="https://sportindia.in" target="_blank">SportIndia.in</a></p>
         </div>
-        <div class="categories">
-            <a class="icn icn-programming" href="/#programming">
-                <img src="/images/programming.png"/>
-                <span>Programmer</span>
-            </a>
-            <a class="icn icn-cartoon" href="/#cartoon">
-                <img src="/images/cartoon.png"/>
-                <span>Cartoonist</span>
-            </a>
-            <a class="icn icn-visualization" href="/#visualization">
-                <img src="/images/visualization.png"/>
-                <span>Visualizer</span>
-            </a>
-            <a class="icn icn-social" href="/#social">
-                <img src="/images/social.png"/>
-                <span>Social</span>
-            </a>
-            <a class="icn icn-diy" href="/#diy">
-                <img src="/images/diy.png"/>
-                <span>DIY</span>
-            </a>
-        </div>
     </div>
 </div>  
 
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">06 May 2018</div>
             <div class="title_section">Automated Testing of Generated PDFs</div>
+            <div class="date">06 May 2018</div>
         </div>
         <div class="post">
             <p>Recently for one of our clients, we got an opportunity to build a PDF engine that generates PDFs on demand based on a configuration file that defines the layout and its contents like charts, images and paragraphs</p>
@@ -82,17 +60,17 @@
 <p>So, we started building our PDF engine (as a ruby gem)</p>
 
 <figure>
-    <img style="width:250px" src="/assets/engine.png"/>
+    <img style="width:250px" src="/assets/engine.png" />
     <div>We built a much simpler one of course :)</div>
 </figure>
 
 <p>After a month and a half of development with 99% unit test coverage (code base of approx 700 lines) our engine is ready. But writing integration tests were tricky because the engine’s outputs were PDFs and there were no ruby libraries for it. I loved Jest snapshot testing and thought something like that is what we want here</p>
 
-<h2>The Approach</h2>
+<h2 id="the-approach">The Approach</h2>
 
 <p>Extracting the text and comparing is not effective as it will not ignore the layout, text positioning, colors, charts &amp; images. So my idea was to create an image snapshot of all the pages and compare it with the expected PDF image</p>
 
-<p>As you have guessed already, There is no better library to do image manipulation than <a href="http://imagemagick.org/script/index.php">ImageMagick</a> </p>
+<p>As you have guessed already, There is no better library to do image manipulation than <a href="http://imagemagick.org/script/index.php">ImageMagick</a></p>
 
 <p>Step 1 : Create an image with all the pages in generated PDF</p>
 
@@ -101,19 +79,19 @@ convert generated.pdf -alpha remove -resize 400 +append actual.jpg
 </pre>
 
 <ul>
-<li>+append will append the pages next to each other horizontally</li>
-<li>-alpha remove will give a white background color to the generated jpg</li>
+  <li>+append will append the pages next to each other horizontally</li>
+  <li>-alpha remove will give a white background color to the generated jpg</li>
 </ul>
 
 <figure>
-    <img src="/assets/pdf1.jpeg"/>
+    <img src="/assets/pdf1.jpeg" />
     <div>Generated PDF image</div>
 </figure>
 
 <p>Step 2 : Do the same for the expected PDF</p>
 
 <figure>
-    <img src="/assets/pdf2.png"/>
+    <img src="/assets/pdf2.png" />
     <div>Expected PDF Image (It is hard to spot the differences by eyeballing)</div>
 </figure>
 
@@ -124,12 +102,12 @@ convert actual.jpg expected.jpg -alpha remove -compose difference -composite dif
 </pre>
 
 <ul>
-<li>-composite will overlap one image over the other</li>
-<li>-compose difference will find the diff between the two images pixel by pixel</li>
+  <li>-composite will overlap one image over the other</li>
+  <li>-compose difference will find the diff between the two images pixel by pixel</li>
 </ul>
 
 <figure>
-    <img src="/assets/pdf3.jpeg"/>
+    <img src="/assets/pdf3.jpeg" />
     <div>As you can see now, all the differences are highlighted in white and similar pixels are basically negated to zero (black)</div>
 </figure>
 
@@ -140,7 +118,7 @@ convert diff.jpg -define histogram:unique-colors=true -format %c histogram:info:
 </pre>
 
 <ul>
-<li>-define historgram:unique-colors will return all the unique colors</li>
+  <li>-define historgram:unique-colors will return all the unique colors</li>
 </ul>
 
 <p>The return value of this will be a string with all the different colors separated by new line. Split it and see if the size is greater than 1 which means, there is a difference and fail the test</p>
@@ -152,11 +130,11 @@ convert -border 1 -append expected.jpg diff.jpg fail.jpg
 </pre>
 
 <ul>
-<li>fail.jpg is the ouput image shown below</li>
+  <li>fail.jpg is the ouput image shown below</li>
 </ul>
 
 <figure>
-    <img src="/assets/pdf4.jpeg"/>
+    <img src="/assets/pdf4.jpeg" />
     <div>Image with expected on top and difference on the bottom</div>
 </figure>
 

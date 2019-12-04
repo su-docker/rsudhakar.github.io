@@ -742,7 +742,6 @@ h1.title {
 
 /* Literal.Number.Integer.Long */
 .side-panel {
-  transition: width 0.4s ease-in, left 0.4s ease-in;
   width: 230px;
   box-sizing: border-box;
   position: fixed;
@@ -878,7 +877,7 @@ h1.title {
     text-align: center;
     padding: 60px 10px 10px 10px; }
   .post-container .content .post_heading .date {
-    padding-top: 30px;
+    padding-bottom: 30px;
     text-align: center; }
   .post-container .content ol, .post-container .content ul {
     padding: 0 20px; }
@@ -921,8 +920,7 @@ h1.title {
 #papers {
   height: 100%;
   margin: 50px 50px auto 225px;
-  text-align: center;
-  transition: all 0.3s ease-out; }
+  text-align: center; }
   #papers.expand {
     margin: 50px 50px auto 75px; }
   #papers .paper {
@@ -938,14 +936,13 @@ h1.title {
     text-align: left;
     text-decoration: none;
     overflow: hidden;
-    transition: all 0.3s;
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%;
     -o-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     color: black; }
     #papers .paper:hover {
-      transform: scale(1.02) !important; }
+      transform: scale(1.05) !important; }
     #papers .paper.hide {
       display: none; }
     #papers .paper .hidden {
@@ -980,11 +977,12 @@ h1.title {
       display: block;
       pointer-events: none; }
     #papers .paper img {
-      margin: 20px;
-      font-size: 1.5rem;
-      float: right;
-      width: 30px;
-      height: auto; }
+      position: absolute;
+      width: 40px;
+      height: auto;
+      bottom: 20px;
+      left: 20px;
+      pointer-events: none; }
     #papers .paper .post_date {
       display: block;
       margin: 20px;

@@ -43,73 +43,52 @@
             <p>Works at <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
             <p>Tech guy behind <a href="https://sportindia.in" target="_blank">SportIndia.in</a></p>
         </div>
-        <div class="categories">
-            <a class="icn icn-programming" href="/#programming">
-                <img src="/images/programming.png"/>
-                <span>Programmer</span>
-            </a>
-            <a class="icn icn-cartoon" href="/#cartoon">
-                <img src="/images/cartoon.png"/>
-                <span>Cartoonist</span>
-            </a>
-            <a class="icn icn-visualization" href="/#visualization">
-                <img src="/images/visualization.png"/>
-                <span>Visualizer</span>
-            </a>
-            <a class="icn icn-social" href="/#social">
-                <img src="/images/social.png"/>
-                <span>Social</span>
-            </a>
-            <a class="icn icn-diy" href="/#diy">
-                <img src="/images/diy.png"/>
-                <span>DIY</span>
-            </a>
-        </div>
     </div>
 </div>  
 
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">26 Jul 2014</div>
             <div class="title_section">Pairing Matrix Reloaded</div>
+            <div class="date">26 Jul 2014</div>
         </div>
         <div class="post">
             <p>One of the reasons for pair programming is to have the knowledge of the code shared across all the team members. And for
- this to happen effectively, the developers in the team should pair with everyone else regularly </p>
+ this to happen effectively, the developers in the team should pair with everyone else regularly</p>
 
 <p>Pairing matrix helps to get this visibility so that during sign-up, every dev will have awareness as with whom they did
  paired less and with whom more</p>
 
 <p>Instead of manually maintaining a pairing matrix and updating it everyday, I have created a simple tool that will extract
- this information from the code repository (given that every commit has the pair names)  </p>
+ this information from the code repository (given that every commit has the pair names)</p>
 
 <p>This will be accurate as long as there is at least one commit happening everyday. If that is not the case, then you have 
 bigger problems to solve that worrying about a pairing matrix ;)</p>
 
-<p>Go head and click on the &#39;visualize&#39; button to see the pairing matrix for the example source control log</p>
+<p>Go head and click on the ‘visualize’ button to see the pairing matrix for the example source control log</p>
 
-<p><br/></p>
+<p><br /></p>
 
 <p><strong>Usage instructions</strong></p>
 
 <ul>
-<li><p>Run the following command after replacing the {date} with the date from which you need the pairing matrix</p>
+  <li>
+    <p>Run the following command after replacing the {date} with the date from which you need the pairing matrix</p>
 
-<p>&#39;git log --oneline --after={date}&#39;<br>
-<em>Example: git log --oneline --after=2015/06/01</em></p></li>
-<li><p>Copy paste the output in the below textarea</p></li>
-<li><p>Create a javascript regex to extract the pair names from the log</p></li>
-<li><p>Click on &#39;Visualize&#39;</p></li>
-<li><p>Drag the name circles over the other if you want to merge (same person with different spellings in the log)</p></li>
-<li><p>Take screenshot to share</p></li>
+    <p>‘git log –oneline –after={date}’<br />
+ <em>Example: git log –oneline –after=2015/06/01</em></p>
+  </li>
+  <li>Copy paste the output in the below textarea</li>
+  <li>Create a javascript regex to extract the pair names from the log</li>
+  <li>Click on ‘Visualize’</li>
+  <li>Drag the name circles over the other if you want to merge (same person with different spellings in the log)</li>
+  <li>Take screenshot to share</li>
 </ul>
 
-<p><br/></p>
+<p><br /></p>
 
 <iframe src="/visualizations/pairing_matrix/" style="width: 100%; height: 1200px">
 </iframe>
- 
 
 <p><a href="/visualization/2013/03/17/pairing-matrix.html">Link to old pairing matrix creator</a></p>
 

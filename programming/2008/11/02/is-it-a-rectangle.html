@@ -43,36 +43,14 @@
             <p>Works at <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
             <p>Tech guy behind <a href="https://sportindia.in" target="_blank">SportIndia.in</a></p>
         </div>
-        <div class="categories">
-            <a class="icn icn-programming" href="/#programming">
-                <img src="/images/programming.png"/>
-                <span>Programmer</span>
-            </a>
-            <a class="icn icn-cartoon" href="/#cartoon">
-                <img src="/images/cartoon.png"/>
-                <span>Cartoonist</span>
-            </a>
-            <a class="icn icn-visualization" href="/#visualization">
-                <img src="/images/visualization.png"/>
-                <span>Visualizer</span>
-            </a>
-            <a class="icn icn-social" href="/#social">
-                <img src="/images/social.png"/>
-                <span>Social</span>
-            </a>
-            <a class="icn icn-diy" href="/#diy">
-                <img src="/images/diy.png"/>
-                <span>DIY</span>
-            </a>
-        </div>
     </div>
 </div>  
 
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">02 Nov 2008</div>
             <div class="title_section">Is it a rectangle?</div>
+            <div class="date">02 Nov 2008</div>
         </div>
         <div class="post">
             <p>Couple of days back when I was travelling back to home from office, I overheard two fellow employees discussing over a programming problem…
@@ -87,43 +65,82 @@ Well, square also satisfies this logic and <a href="http://en.wikipedia.org/wiki
 
 <p>I guess it is always hard to come up with a simple solution… You have to put lot of effort to think simple!</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RectangleValidator</span> <span class="o">{</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span>      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">validate</span><span class="o">(</span><span class="n">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="n">Point</span> <span class="n">p2</span><span class="o">,</span> <span class="n">Point</span> <span class="n">p3</span><span class="o">,</span> <span class="n">Point</span> <span class="n">p4</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno"> 4</span>          <span class="c1">// Find the centroid using Euclid&#39;s geometric principle</span>
-<span class="lineno"> 5</span>          <span class="n">Point</span> <span class="n">centroid</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Point</span><span class="o">();</span>
-<span class="lineno"> 6</span>          <span class="n">centroid</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">p2</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">p3</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">p4</span><span class="o">.</span><span class="na">x</span><span class="o">)</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
-<span class="lineno"> 7</span>          <span class="n">centroid</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">p2</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">p3</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">p4</span><span class="o">.</span><span class="na">y</span><span class="o">)</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
-<span class="lineno"> 8</span> 
-<span class="lineno"> 9</span>          <span class="c1">// Now check if the centroid is equi-distant from all the corners</span>
-<span class="lineno">10</span>          <span class="kt">double</span> <span class="n">dist1</span> <span class="o">=</span> <span class="n">getLength</span><span class="o">(</span><span class="n">p1</span><span class="o">,</span> <span class="n">centroid</span><span class="o">);</span>
-<span class="lineno">11</span>          <span class="kt">double</span> <span class="n">dist2</span> <span class="o">=</span> <span class="n">getLength</span><span class="o">(</span><span class="n">p2</span><span class="o">,</span> <span class="n">centroid</span><span class="o">);</span>
-<span class="lineno">12</span>          <span class="kt">double</span> <span class="n">dist3</span> <span class="o">=</span> <span class="n">getLength</span><span class="o">(</span><span class="n">p3</span><span class="o">,</span> <span class="n">centroid</span><span class="o">);</span>
-<span class="lineno">13</span>          <span class="kt">double</span> <span class="n">dist4</span> <span class="o">=</span> <span class="n">getLength</span><span class="o">(</span><span class="n">p4</span><span class="o">,</span> <span class="n">centroid</span><span class="o">);</span>
-<span class="lineno">14</span>          <span class="k">return</span> <span class="o">(</span><span class="n">dist1</span> <span class="o">==</span> <span class="n">dist2</span> <span class="o">&amp;&amp;</span> <span class="n">dist2</span> <span class="o">==</span> <span class="n">dist3</span> <span class="o">&amp;&amp;</span> <span class="n">dist3</span> <span class="o">==</span> <span class="n">dist4</span> <span class="o">&amp;&amp;</span> <span class="n">dist4</span> <span class="o">==</span> <span class="n">dist1</span><span class="o">);</span>
-<span class="lineno">15</span>      <span class="o">}</span>
-<span class="lineno">16</span> 
-<span class="lineno">17</span>      <span class="kd">private</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">getLength</span><span class="o">(</span><span class="n">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="n">Point</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno">18</span>          <span class="c1">// Using pythogoras theorem</span>
-<span class="lineno">19</span>          <span class="kt">double</span> <span class="n">xDiff</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">p2</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
-<span class="lineno">20</span>          <span class="kt">double</span> <span class="n">yDiff</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">p2</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
-<span class="lineno">21</span>          <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">((</span><span class="n">xDiff</span> <span class="o">*</span> <span class="n">xDiff</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="n">yDiff</span> <span class="o">*</span> <span class="n">yDiff</span><span class="o">));</span>
-<span class="lineno">22</span>      <span class="o">}</span>
-<span class="lineno">23</span> 
-<span class="lineno">24</span>      <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
-<span class="lineno">25</span>          <span class="n">Point</span><span class="o">()</span> <span class="o">{</span>
-<span class="lineno">26</span>          <span class="o">}</span>
-<span class="lineno">27</span> 
-<span class="lineno">28</span>          <span class="n">Point</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno">29</span>              <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
-<span class="lineno">30</span>              <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
-<span class="lineno">31</span>          <span class="o">}</span>
-<span class="lineno">32</span> 
-<span class="lineno">33</span>          <span class="kt">double</span> <span class="n">x</span><span class="o">;</span>
-<span class="lineno">34</span>          <span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
-<span class="lineno">35</span>      <span class="o">}</span>
-<span class="lineno">36</span> 
-<span class="lineno">37</span>   <span class="o">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre></td><td class="code"><pre>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RectangleValidator</span> <span class="o">{</span>
+
+  	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">validate</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p3</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p4</span><span class="o">)</span> <span class="o">{</span>
+  		<span class="c1">// Find the centroid using Euclid's geometric principle</span>
+  		<span class="nc">Point</span> <span class="n">centroid</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">();</span>
+  		<span class="n">centroid</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">p2</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">p3</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">p4</span><span class="o">.</span><span class="na">x</span><span class="o">)</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
+  		<span class="n">centroid</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">p2</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">p3</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">p4</span><span class="o">.</span><span class="na">y</span><span class="o">)</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
+
+  		<span class="c1">// Now check if the centroid is equi-distant from all the corners</span>
+  		<span class="kt">double</span> <span class="n">dist1</span> <span class="o">=</span> <span class="n">getLength</span><span class="o">(</span><span class="n">p1</span><span class="o">,</span> <span class="n">centroid</span><span class="o">);</span>
+  		<span class="kt">double</span> <span class="n">dist2</span> <span class="o">=</span> <span class="n">getLength</span><span class="o">(</span><span class="n">p2</span><span class="o">,</span> <span class="n">centroid</span><span class="o">);</span>
+  		<span class="kt">double</span> <span class="n">dist3</span> <span class="o">=</span> <span class="n">getLength</span><span class="o">(</span><span class="n">p3</span><span class="o">,</span> <span class="n">centroid</span><span class="o">);</span>
+  		<span class="kt">double</span> <span class="n">dist4</span> <span class="o">=</span> <span class="n">getLength</span><span class="o">(</span><span class="n">p4</span><span class="o">,</span> <span class="n">centroid</span><span class="o">);</span>
+  		<span class="k">return</span> <span class="o">(</span><span class="n">dist1</span> <span class="o">==</span> <span class="n">dist2</span> <span class="o">&amp;&amp;</span> <span class="n">dist2</span> <span class="o">==</span> <span class="n">dist3</span> <span class="o">&amp;&amp;</span> <span class="n">dist3</span> <span class="o">==</span> <span class="n">dist4</span> <span class="o">&amp;&amp;</span> <span class="n">dist4</span> <span class="o">==</span> <span class="n">dist1</span><span class="o">);</span>
+  	<span class="o">}</span>
+
+  	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">getLength</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
+  		<span class="c1">// Using pythogoras theorem</span>
+  		<span class="kt">double</span> <span class="n">xDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">p2</span><span class="o">.</span><span class="na">x</span><span class="o">);</span>
+  		<span class="kt">double</span> <span class="n">yDiff</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">p2</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+  		<span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">((</span><span class="n">xDiff</span> <span class="o">*</span> <span class="n">xDiff</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="n">yDiff</span> <span class="o">*</span> <span class="n">yDiff</span><span class="o">));</span>
+  	<span class="o">}</span>
+
+  	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
+  		<span class="nc">Point</span><span class="o">()</span> <span class="o">{</span>
+  		<span class="o">}</span>
+
+  		<span class="nc">Point</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+  			<span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+  			<span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+  		<span class="o">}</span>
+
+  		<span class="kt">double</span> <span class="n">x</span><span class="o">;</span>
+  		<span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
+  	<span class="o">}</span>
+
+  <span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
 
         </div>
     </div>

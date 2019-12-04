@@ -43,36 +43,14 @@
             <p>Works at <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
             <p>Tech guy behind <a href="https://sportindia.in" target="_blank">SportIndia.in</a></p>
         </div>
-        <div class="categories">
-            <a class="icn icn-programming" href="/#programming">
-                <img src="/images/programming.png"/>
-                <span>Programmer</span>
-            </a>
-            <a class="icn icn-cartoon" href="/#cartoon">
-                <img src="/images/cartoon.png"/>
-                <span>Cartoonist</span>
-            </a>
-            <a class="icn icn-visualization" href="/#visualization">
-                <img src="/images/visualization.png"/>
-                <span>Visualizer</span>
-            </a>
-            <a class="icn icn-social" href="/#social">
-                <img src="/images/social.png"/>
-                <span>Social</span>
-            </a>
-            <a class="icn icn-diy" href="/#diy">
-                <img src="/images/diy.png"/>
-                <span>DIY</span>
-            </a>
-        </div>
     </div>
 </div>  
 
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">24 Nov 2016</div>
             <div class="title_section">Lenovo A6000 update failure</div>
+            <div class="date">24 Nov 2016</div>
         </div>
         <div class="post">
             <p><strong>&lt;rant&gt;</strong></p>
@@ -86,22 +64,22 @@ because of its competitive pricing. It did not take long to regret her decision<
 
 <p>But lenovo proved that anything worse can be made even worse by releasing another update (with more promises) that does not even install and shoves this message on your face when you try to update</p>
 
-<h2><strong>&quot;Your phone was unable to change carrier and cannot upgrade&quot;</strong></h2>
+<p>##<strong>“Your phone was unable to change carrier and cannot upgrade”</strong></p>
 
 <p>What does that even mean? So, Lenovo is expecting me to run to service centers for OTA updates?</p>
 
 <p><strong>&lt;/rant&gt;</strong></p>
 
-<hr/>
+<hr />
 
 <p><strong>&lt;solution&gt;</strong></p>
 
-<p>The error message actually means, the phone&#39;s carrier configuration is not set to the country for which the OTA was downloaded (<em>Don&#39;t ask me how. I don&#39;t know</em>)</p>
+<p>The error message actually means, the phone’s carrier configuration is not set to the country for which the OTA was downloaded (<em>Don’t ask me how. I don’t know</em>)</p>
 
 <p>Open your A6000 dialer and type <strong>####6020#</strong> which will open the carrier configuration app and shows something like this</p>
 
 <figure style="text-align: center">
-    <img style="width: 50%" src="/assets/carrier-configuration.jpg"/>
+    <img style="width: 50%" src="/assets/carrier-configuration.jpg" />
 </figure>
 
 <p>You will be seeing <strong>Default</strong> instead of India and that is why your OTA update does not install</p>
@@ -109,13 +87,13 @@ because of its competitive pricing. It did not take long to regret her decision<
 <p>Disclaimer: I am going to give you an idea of how it can be fixed but you still need to hunt around to find the right files to do the fix</p>
 
 <ol>
-<li>To change the carrier configuration to India, you have to find the file (<pre style="display: inline">India.ota.zip</pre>) that comes with full installation of android OS for Lenovo A6000. Remember the current phone software version should be downloaded which will named like <code style="display: inline">Kraft-A6000_S058_151030_xxxx.zip</code></li>
-<li>Copy this India.ota.zip file to SD card</li>
-<li>Shutdown your phone</li>
-<li>Start it in recovery mode (By pressing Volume up and power button together then selecting recovery in the displayed menu)</li>
-<li>Browse to &quot;install update from SD card&quot; (By pressing volume down button to select and pressing power button to select)</li>
-<li>Select the copied file <pre style="display: inline">India.ota.zip</pre> and install</li>
-<li>After the phone restarts, if you type again ####6020# in dialer you should see <strong>India</strong> instead of &quot;Default&quot;</li>
+  <li>To change the carrier configuration to India, you have to find the file (&lt;pre style="display: inline"&gt;India.ota.zip&lt;/pre&gt;) that comes with full installation of android OS for Lenovo A6000. Remember the current phone software version should be downloaded which will named like <code style="display: inline">Kraft-A6000\_S058\_151030\_xxxx.zip</code></li>
+  <li>Copy this India.ota.zip file to SD card</li>
+  <li>Shutdown your phone</li>
+  <li>Start it in recovery mode (By pressing Volume up and power button together then selecting recovery in the displayed menu)</li>
+  <li>Browse to “install update from SD card” (By pressing volume down button to select and pressing power button to select)</li>
+  <li>Select the copied file &lt;pre style="display: inline"&gt;India.ota.zip&lt;/pre&gt; and install</li>
+  <li>After the phone restarts, if you type again ####6020# in dialer you should see <strong>India</strong> instead of “Default”</li>
 </ol>
 
 <p>Now, if you do OTA update, it will go through successfully</p>

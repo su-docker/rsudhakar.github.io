@@ -43,64 +43,43 @@
             <p>Works at <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
             <p>Tech guy behind <a href="https://sportindia.in" target="_blank">SportIndia.in</a></p>
         </div>
-        <div class="categories">
-            <a class="icn icn-programming" href="/#programming">
-                <img src="/images/programming.png"/>
-                <span>Programmer</span>
-            </a>
-            <a class="icn icn-cartoon" href="/#cartoon">
-                <img src="/images/cartoon.png"/>
-                <span>Cartoonist</span>
-            </a>
-            <a class="icn icn-visualization" href="/#visualization">
-                <img src="/images/visualization.png"/>
-                <span>Visualizer</span>
-            </a>
-            <a class="icn icn-social" href="/#social">
-                <img src="/images/social.png"/>
-                <span>Social</span>
-            </a>
-            <a class="icn icn-diy" href="/#diy">
-                <img src="/images/diy.png"/>
-                <span>DIY</span>
-            </a>
-        </div>
     </div>
 </div>  
 
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">24 Oct 2017</div>
             <div class="title_section">Bulk Transfer Files From Android Phone to Mac (Developer Style)</div>
+            <div class="date">24 Oct 2017</div>
         </div>
         <div class="post">
             <p>It does not matter how big is the storage capacity of your android phone, you invariably will encounter the situation
 where there is not enough space left to binge record more pictures &amp; videos</p>
 
 <p><a href="https://www.android.com/filetransfer/">Android File Transfer</a> works but it has limited capabilities. Say if I want to 
-move only last year&#39;s videos, you have to manually select all of them by holding the shift key (which is a mind numbing job)</p>
+move only last year’s videos, you have to manually select all of them by holding the shift key (which is a mind numbing job)</p>
 
 <p>Fortunately, Android Debug Bridge (adb) will give you command line access to android file system to do more powerful stuff like selecting 
-only last year&#39;s videos and copying them with a single command</p>
+only last year’s videos and copying them with a single command</p>
 
 <ol>
-<li>Install <a href="https://developer.android.com/studio/releases/platform-tools.html">SDK platform tools</a></li>
-<li>Unzip the download and add it to your path</li>
-<li>Enable &quot;Developer mode&quot; in your android along with usb debugging</li>
-<li>Connect your phone to mac and run command <code>adb shell</code></li>
-<li>Now, You will be inside phone&#39;s file system</li>
-<li>Find the path of the folder in which your videos to move are (using commands like ls &amp; cd)</li>
-<li>Exit from the shell (Ctrl+D)</li>
-<li>In your mac, Get into the folder where you wanted to copy the videos</li>
-<li>Run the command (it is a single command)</li>
+  <li>Install <a href="https://developer.android.com/studio/releases/platform-tools.html">SDK platform tools</a></li>
+  <li>Unzip the download and add it to your path</li>
+  <li>Enable “Developer mode” in your android along with usb debugging</li>
+  <li>Connect your phone to mac and run command <code>adb shell</code></li>
+  <li>Now, You will be inside phone’s file system</li>
+  <li>Find the path of the folder in which your videos to move are (using commands like ls &amp; cd)</li>
+  <li>Exit from the shell (Ctrl+D)</li>
+  <li>In your mac, Get into the folder where you wanted to copy the videos</li>
+  <li>Run the command (it is a single command)</li>
 </ol>
 
-<p><code>adb shell &#39;ls /vidoes/folder/path/VID_2016*&#39; | tr -d &#39;\r&#39; | xargs -n1 adb pull</code></p>
+<p><code>adb shell 'ls /vidoes/folder/path/VID_2016*' | tr -d '\r' | xargs -n1 adb pull</code></p>
 
-<p>It lists all the files in the path with file name starting with &#39;VID_2016&#39; and removes the &#39;\r&#39; character at the end of the line and passes each line to adb pull</p>
+<p>It lists all the files in the path with file name starting with ‘VID_2016’ and removes the ‘\r’ character at the end of the line and passes each line to adb pull</p>
 
 <p>Now you can again get into phone file system using <code>adb shell</code> and remove the already copied files</p>
+
 
         </div>
     </div>

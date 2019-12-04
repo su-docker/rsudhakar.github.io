@@ -16,14 +16,6 @@ var Listing = function () {
         paper.css('-moz-transform', transform);
     }
 
-    function filterByCategory() {
-        var categoryName = window.location.hash.substr(1) || "programming";
-        $("#papers a").addClass("hide");
-        $("#papers a." + categoryName).removeClass("hide");
-        $(".categories .icn").removeClass("selected");
-        $(".categories .icn-"+categoryName).addClass("selected");
-    }
-
     function drawSquigglyPath() {
         $("#papers svg path").each(function (i, path) {
             $(path).attr("d", Squiggly.rectangle(10, 10, 250, 245));
@@ -34,8 +26,6 @@ var Listing = function () {
         init: function () {
             randomizeLayout();
             drawSquigglyPath();
-            filterByCategory();
-            window.onhashchange = filterByCategory;
             if (Utils.isMobile()) {
                 SidePanel.hide();
             }

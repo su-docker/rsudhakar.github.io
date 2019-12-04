@@ -43,36 +43,14 @@
             <p>Works at <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
             <p>Tech guy behind <a href="https://sportindia.in" target="_blank">SportIndia.in</a></p>
         </div>
-        <div class="categories">
-            <a class="icn icn-programming" href="/#programming">
-                <img src="/images/programming.png"/>
-                <span>Programmer</span>
-            </a>
-            <a class="icn icn-cartoon" href="/#cartoon">
-                <img src="/images/cartoon.png"/>
-                <span>Cartoonist</span>
-            </a>
-            <a class="icn icn-visualization" href="/#visualization">
-                <img src="/images/visualization.png"/>
-                <span>Visualizer</span>
-            </a>
-            <a class="icn icn-social" href="/#social">
-                <img src="/images/social.png"/>
-                <span>Social</span>
-            </a>
-            <a class="icn icn-diy" href="/#diy">
-                <img src="/images/diy.png"/>
-                <span>DIY</span>
-            </a>
-        </div>
     </div>
 </div>  
 
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">22 Nov 2016</div>
             <div class="title_section">CSV export of Ecto models</div>
+            <div class="date">22 Nov 2016</div>
         </div>
         <div class="post">
             <p>This post is about converting <a href="https://github.com/elixir-ecto/ecto">Ecto</a> model to a csv using this <a href="https://github.com/beatrichartz/csv">CSV library</a></p>
@@ -81,69 +59,117 @@
 
 <p>Here is an ecto model we wanted to export</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="lineno"> 1</span>   <span class="kd">defmodule</span> <span class="nc">Message</span> <span class="k">do</span>
-<span class="lineno"> 2</span>     <span class="kn">use</span> <span class="nc">MyApp.Web</span><span class="p">,</span> <span class="ss">:model</span>
-<span class="lineno"> 3</span> 
-<span class="lineno"> 4</span>     <span class="n">schema</span> <span class="s2">&quot;messages&quot;</span> <span class="k">do</span>
-<span class="lineno"> 5</span>       <span class="n">field</span> <span class="ss">:message</span><span class="p">,</span> <span class="ss">:string</span>
-<span class="lineno"> 6</span>       <span class="n">field</span> <span class="ss">:status</span><span class="p">,</span> <span class="ss">:string</span>
-<span class="lineno"> 7</span>       <span class="n">field</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="nc">Ecto.UUID</span>
-<span class="lineno"> 8</span>       <span class="n">timestamps</span><span class="p">()</span>
-<span class="lineno"> 9</span>     <span class="k">end</span>
-<span class="lineno">10</span>   <span class="k">end</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre>  <span class="k">defmodule</span> <span class="no">Message</span> <span class="k">do</span>
+    <span class="kn">use</span> <span class="no">MyApp</span><span class="o">.</span><span class="no">Web</span><span class="p">,</span> <span class="ss">:model</span>
 
-<p>It is a pretty simple model backed by table called &quot;messages&quot; which has the columns message, status and uuid</p>
+    <span class="n">schema</span> <span class="s2">"messages"</span> <span class="k">do</span>
+      <span class="n">field</span> <span class="ss">:message</span><span class="p">,</span> <span class="ss">:string</span>
+      <span class="n">field</span> <span class="ss">:status</span><span class="p">,</span> <span class="ss">:string</span>
+      <span class="n">field</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="no">Ecto</span><span class="o">.</span><span class="no">UUID</span>
+      <span class="n">timestamps</span><span class="p">()</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>It is a pretty simple model backed by table called “messages” which has the columns message, status and uuid</p>
 
 <p>Get the data to be exported from the database</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="lineno">1</span> <span class="p">...</span>
-<span class="lineno">2</span> <span class="n">messages</span> <span class="p">=</span> <span class="nc">Message</span> <span class="n">order_by</span><span class="p">(</span><span class="ss">:inserted_at</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="nc">Repo</span><span class="p">.</span><span class="n">all</span>
-<span class="lineno">3</span> <span class="p">...</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="o">...</span>
+<span class="n">messages</span> <span class="o">=</span> <span class="no">Message</span> <span class="n">order_by</span><span class="p">(</span><span class="ss">:inserted_at</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="no">Repo</span><span class="o">.</span><span class="n">all</span>
+<span class="o">...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p>And trying to convert it to CSV</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="lineno">1</span> <span class="n">messages</span>
-<span class="lineno">2</span>   <span class="o">|&gt;</span> <span class="nc">CSV</span><span class="p">.</span><span class="n">encode</span>
-<span class="lineno">3</span>   <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="p">.</span><span class="n">to_list</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="n">messages</span>
+  <span class="o">|&gt;</span> <span class="no">CSV</span><span class="o">.</span><span class="n">encode</span>
+  <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">to_list</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p>does not work because the CSV encoder does not know how to deal with the Message type. So, define an encoder function for the Message type</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="lineno"> 1</span> <span class="kd">defmodule</span> <span class="nc">Message</span> <span class="k">do</span>
-<span class="lineno"> 2</span>   <span class="p">...</span>
-<span class="lineno"> 3</span>   <span class="kd">defimpl</span> <span class="nc">CSV.Encode</span><span class="p">,</span> <span class="ss">for</span><span class="p">:</span> <span class="nc">Message</span> <span class="k">do</span>
-<span class="lineno"> 4</span>     <span class="kd">def</span> <span class="n">encode</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">env</span> <span class="p">\\</span> <span class="p">[])</span> <span class="k">do</span>
-<span class="lineno"> 5</span>       <span class="p">[</span><span class="n">cm</span><span class="p">.</span><span class="n">message</span><span class="p">,</span> <span class="n">cm</span><span class="p">.</span><span class="n">status</span><span class="p">,</span> <span class="n">cm</span><span class="p">.</span><span class="n">uuid</span><span class="p">]</span>
-<span class="lineno"> 6</span>         <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">CSV.Encode</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span> <span class="k">end</span><span class="p">)</span>
-<span class="lineno"> 7</span>         <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="lineno"> 8</span>     <span class="k">end</span>
-<span class="lineno"> 9</span>   <span class="k">end</span>  
-<span class="lineno">10</span> <span class="k">end</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="k">defmodule</span> <span class="no">Message</span> <span class="k">do</span>
+  <span class="o">...</span>
+  <span class="k">defimpl</span> <span class="no">CSV</span><span class="o">.</span><span class="no">Encode</span><span class="p">,</span> <span class="ss">for:</span> <span class="no">Message</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="n">encode</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">env</span> <span class="p">\\</span> <span class="p">[])</span> <span class="k">do</span>
+      <span class="p">[</span><span class="n">cm</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="n">cm</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">cm</span><span class="o">.</span><span class="n">uuid</span><span class="p">]</span>
+        <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="no">CSV</span><span class="o">.</span><span class="no">Encode</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span> <span class="k">end</span><span class="p">)</span>
+        <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>  
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p>We are creating an array of all the needed column values and encoding them individually. Then, joining them to form the CSV for the given message struct</p>
 
 <p>But this is not enough. CSV.encode/2 expects a stream of data in a tabular format, and encodes it to RFC 4180 compliant CSV lines. By that it means the data should be in the format</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="lineno">1</span> <span class="p">[</span>
-<span class="lineno">2</span>   <span class="p">[</span><span class="s2">&quot;row1-col1-data&quot;</span><span class="p">,</span><span class="s2">&quot;row1-col2-data&quot;</span><span class="p">,</span><span class="s2">&quot;row1-col3-data&quot;</span><span class="p">],</span>
-<span class="lineno">3</span>   <span class="p">[</span><span class="s2">&quot;row2-col1-data&quot;</span><span class="p">,</span><span class="s2">&quot;row2-col2-data&quot;</span><span class="p">,</span><span class="s2">&quot;row2-col3-data&quot;</span><span class="p">]</span>
-<span class="lineno">4</span> <span class="p">]</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="p">[</span>
+  <span class="p">[</span><span class="s2">"row1-col1-data"</span><span class="p">,</span><span class="s2">"row1-col2-data"</span><span class="p">,</span><span class="s2">"row1-col3-data"</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"row2-col1-data"</span><span class="p">,</span><span class="s2">"row2-col2-data"</span><span class="p">,</span><span class="s2">"row2-col3-data"</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p>So, wrap the array of Ecto Message objects into an array of array having a message object per row</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="lineno">1</span> <span class="p">[</span>
-<span class="lineno">2</span>   <span class="p">[</span><span class="n">message1</span><span class="p">],</span>
-<span class="lineno">3</span>   <span class="p">[</span><span class="n">message2</span><span class="p">]</span>  
-<span class="lineno">4</span> <span class="p">]</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="p">[</span>
+  <span class="p">[</span><span class="n">message1</span><span class="p">],</span>
+  <span class="p">[</span><span class="n">message2</span><span class="p">]</span>  
+<span class="p">]</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Do that and pass it to the csv encoder</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="lineno">1</span> <span class="p">...</span>
-<span class="lineno">2</span> <span class="n">messages</span> <span class="p">=</span> <span class="nc">Message</span> <span class="n">order_by</span><span class="p">(</span><span class="ss">:inserted_at</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="nc">Repo</span><span class="p">.</span><span class="n">all</span>
-<span class="lineno">3</span>   <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="k">end</span><span class="p">)</span>
-<span class="lineno">4</span> <span class="n">messages</span>
-<span class="lineno">5</span>   <span class="o">|&gt;</span> <span class="nc">CSV</span><span class="p">.</span><span class="n">encode</span>
-<span class="lineno">6</span>   <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="p">.</span><span class="n">to_list</span>
-<span class="lineno">7</span> <span class="p">...</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="o">...</span>
+<span class="n">messages</span> <span class="o">=</span> <span class="no">Message</span> <span class="n">order_by</span><span class="p">(</span><span class="ss">:inserted_at</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="no">Repo</span><span class="o">.</span><span class="n">all</span>
+  <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="k">end</span><span class="p">)</span>
+<span class="n">messages</span>
+  <span class="o">|&gt;</span> <span class="no">CSV</span><span class="o">.</span><span class="n">encode</span>
+  <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">to_list</span>
+<span class="o">...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p>The resulting string will be the CSV of Ecto message instances</p>
 

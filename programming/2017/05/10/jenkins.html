@@ -43,36 +43,14 @@
             <p>Works at <a href="https://tarkalabs.com/" target="_blank">TarkaLabs</a></p>
             <p>Tech guy behind <a href="https://sportindia.in" target="_blank">SportIndia.in</a></p>
         </div>
-        <div class="categories">
-            <a class="icn icn-programming" href="/#programming">
-                <img src="/images/programming.png"/>
-                <span>Programmer</span>
-            </a>
-            <a class="icn icn-cartoon" href="/#cartoon">
-                <img src="/images/cartoon.png"/>
-                <span>Cartoonist</span>
-            </a>
-            <a class="icn icn-visualization" href="/#visualization">
-                <img src="/images/visualization.png"/>
-                <span>Visualizer</span>
-            </a>
-            <a class="icn icn-social" href="/#social">
-                <img src="/images/social.png"/>
-                <span>Social</span>
-            </a>
-            <a class="icn icn-diy" href="/#diy">
-                <img src="/images/diy.png"/>
-                <span>DIY</span>
-            </a>
-        </div>
     </div>
 </div>  
 
     <div class="post-container">
     <div class="content">
         <div class="post_heading">
-            <div class="date">10 May 2017</div>
             <div class="title_section">Configuring Jenkins Pipeline With Checkpoint</div>
+            <div class="date">10 May 2017</div>
         </div>
         <div class="post">
             <p>Jenkins community created a plugin called Blue Ocean that overhauled the user experience of Jenkins. And, It is awesome.
@@ -83,50 +61,77 @@ But, it is not complete</p>
     <img src="/assets/jenkins-pipeline-1.png" />
 </figure>
 
-<p>Let us take this simple pipeline. I don&#39;t want all the successful builds deployed to QA automatically.
+<p>Let us take this simple pipeline. I don’t want all the successful builds deployed to QA automatically.
 Someone should manually promote them. There is no out-of-the-box way to do this in Jenkins community version. A plugin called
  <a href="https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Milestone+Step+Plugin">milestone</a> should be used in tandem with
  input prompt as shown below</p>
 
-<figure class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="lineno"> 1</span> <span class="n">node</span> <span class="o">{</span>
-<span class="lineno"> 2</span>     <span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Build&#39;</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno"> 3</span>       <span class="n">checkout</span> <span class="n">scm</span>
-<span class="lineno"> 4</span>       <span class="o">...</span>
-<span class="lineno"> 5</span>     <span class="o">}</span>
-<span class="lineno"> 6</span> 
-<span class="lineno"> 7</span>     <span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Test&#39;</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno"> 8</span>       <span class="n">echo</span> <span class="s1">&#39;Running tests&#39;</span>
-<span class="lineno"> 9</span>       <span class="o">...</span>
-<span class="lineno">10</span>       <span class="n">milestone</span><span class="o">()</span>
-<span class="lineno">11</span>     <span class="o">}</span>
-<span class="lineno">12</span> 
-<span class="lineno">13</span>     <span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Confirm Deployment&#39;</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno">14</span>       <span class="n">echo</span> <span class="s1">&#39;Getting confirmation for deployment&#39;</span>
-<span class="lineno">15</span>     <span class="o">}</span>
-<span class="lineno">16</span> <span class="o">}</span>
-<span class="lineno">17</span> 
-<span class="lineno">18</span> <span class="n">input</span> <span class="s2">&quot;Deploy to QA box?&quot;</span>
-<span class="lineno">19</span> 
-<span class="lineno">20</span> <span class="n">node</span> <span class="o">{</span>
-<span class="lineno">21</span>   <span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Deploy to QA&#39;</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno">22</span>     <span class="n">milestone</span><span class="o">()</span>
-<span class="lineno">23</span>     <span class="n">lock</span><span class="o">(</span><span class="s1">&#39;QADeploy&#39;</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno">24</span>       <span class="err">#</span><span class="n">Scripts</span> <span class="k">for</span> <span class="n">deployment</span><span class="err">#</span>
-<span class="lineno">25</span>     <span class="o">}</span>
-<span class="lineno">26</span>   <span class="o">}</span>
-<span class="lineno">27</span> <span class="o">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-groovy" data-lang="groovy"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="code"><pre><span class="n">node</span> <span class="o">{</span>
+    <span class="n">stage</span><span class="o">(</span><span class="s1">'Build'</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">checkout</span> <span class="n">scm</span>
+      <span class="o">...</span>
+    <span class="o">}</span>
 
+    <span class="n">stage</span><span class="o">(</span><span class="s1">'Test'</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">echo</span> <span class="s1">'Running tests'</span>
+      <span class="o">...</span>
+      <span class="n">milestone</span><span class="o">()</span>
+    <span class="o">}</span>
 
-milestone() method is called first in 'Test' stage and then in the 'Deploy to QA' stage. If you notice, the call to get user
+    <span class="n">stage</span><span class="o">(</span><span class="s1">'Confirm Deployment'</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">echo</span> <span class="s1">'Getting confirmation for deployment'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">input</span> <span class="s2">"Deploy to QA box?"</span>
+
+<span class="n">node</span> <span class="o">{</span>
+  <span class="n">stage</span><span class="o">(</span><span class="s1">'Deploy to QA'</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">milestone</span><span class="o">()</span>
+    <span class="n">lock</span><span class="o">(</span><span class="s1">'QADeploy'</span><span class="o">)</span> <span class="o">{</span>
+      <span class="err">#</span><span class="n">Scripts</span> <span class="k">for</span> <span class="n">deployment</span><span class="err">#</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>milestone() method is called first in ‘Test’ stage and then in the ‘Deploy to QA’ stage. If you notice, the call to get user
 confirmation (input command) is between the two. This way, whichever run that reaches the second milestone will continue and
-thus, terminating the other runs
+thus, terminating the other runs</p>
 
-<br/><br/>
+<p><br /><br /></p>
 <figure>
     <img src="/assets/jenkins-pipeline-2.png" />
 </figure>
 
-<p>Note: You should not have the &#39;input&#39; command inside the &#39;node&#39; block. Or otherwise, the jenkins worker process will be locked till user intervenes</p>
+<p>Note: You should not have the ‘input’ command inside the ‘node’ block. Or otherwise, the jenkins worker process will be locked till user intervenes</p>
 
         </div>
     </div>

@@ -824,15 +824,15 @@ h1.title {
           .side-panel .matter .categories a.selected:hover, .side-panel .matter .categories i.selected:hover {
             transform: none; }
         .side-panel .matter .categories a.icn-programming, .side-panel .matter .categories i.icn-programming {
-          color: #52B3D9; }
+          color: #0fb9b1; }
         .side-panel .matter .categories a.icn-cartoon, .side-panel .matter .categories i.icn-cartoon {
-          color: #EF4836; }
+          color: #f7b731; }
         .side-panel .matter .categories a.icn-visualization, .side-panel .matter .categories i.icn-visualization {
-          color: #BF55EC; }
+          color: #a55eea; }
         .side-panel .matter .categories a.icn-social, .side-panel .matter .categories i.icn-social {
-          color: #F89406; }
+          color: #20bf6b; }
         .side-panel .matter .categories a.icn-diy, .side-panel .matter .categories i.icn-diy {
-          color: #4ECDC4; }
+          color: #4b6584; }
         .side-panel .matter .categories a img, .side-panel .matter .categories i img {
           width: 35px;
           height: auto;
@@ -940,30 +940,32 @@ h1.title {
     -moz-transform-origin: 50% 50%;
     -o-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
-    color: black; }
+    color: black;
+    transition: all 0.5s; }
     #papers .paper:hover {
       transform: scale(1.05) !important; }
     #papers .paper.hide {
       display: none; }
     #papers .paper .hidden {
       pointer-events: none; }
-    #papers .paper.programming svg {
-      filter: drop-shadow(2px 4px 4px #52B3D9); }
-    #papers .paper.cartoon svg {
-      filter: drop-shadow(2px 4px 4px #EF4836); }
-    #papers .paper.visualization svg {
-      filter: drop-shadow(2px 4px 4px #BF55EC); }
-    #papers .paper.social svg {
-      filter: drop-shadow(2px 4px 4px #F89406); }
-    #papers .paper.diy svg {
-      filter: drop-shadow(2px 4px 4px #4ECDC4); }
+    #papers .paper.programming svg path {
+      fill: #0fb9b1; }
+    #papers .paper.cartoon svg path {
+      fill: #f7b731; }
+    #papers .paper.visualization svg path {
+      fill: #a55eea; }
+    #papers .paper.social svg path {
+      fill: #20bf6b; }
+    #papers .paper.diy svg path {
+      fill: #4b6584; }
     #papers .paper svg {
       position: absolute;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      z-index: -1; }
       #papers .paper svg path {
-        transition: all 0.5s;
-        stroke: black;
+        transition: all 1s;
+        stroke: none;
         stroke-dasharray: 960;
         stroke-dashoffset: 0;
         fill: none; }
@@ -973,6 +975,7 @@ h1.title {
       font-size: 1.3rem;
       line-height: 2.3rem;
       font-style: italic;
+      color: #fff;
       margin: 35px;
       display: block;
       pointer-events: none; }
